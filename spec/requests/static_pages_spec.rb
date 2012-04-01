@@ -1,46 +1,56 @@
+# Command-Shift-R: run a single test (if run on an it block) or group of tests (if run on a describe block)
+# Command-Shift-E: run the last test(s)
+# Command-Shift-T: run all the tests in current file
+
 require 'spec_helper'
 
 describe "Static pages" do
 
+  let(:base_title) { "Ruby on Rails Tutorial Sample App" }
+
   describe "Home page" do
 
     it "should have the h1 'Sample App'" do
-      visit '/static_pages/home'
+      visit root_path
       page.should have_selector('h1', :text => 'Sample App')
     end
 
     it "should have the title 'Home'" do
-      visit '/static_pages/home'
-      page.should have_selector('title',
-                        :text => "Ruby on Rails Tutorial Sample App | Home")
+      visit root_path
+      page.should have_selector('title', :text => "#{base_title}")
+    end
+
+    it "should not have a custom page title" do
+      visit root_path
+      page.should_not have_selector('title', :text => '| Home')
     end
   end
 
   describe "Help page" do
 
     it "should have the h1 'Help'" do
-      visit '/static_pages/help'
+      visit help_path
       page.should have_selector('h1', :text => 'Help')
     end
 
     it "should have the title 'Help'" do
-      visit '/static_pages/help'
-      page.should have_selector('title',
-                        :text => "Ruby on Rails Tutorial Sample App | Help")
+      visit help_path
+      page.should have_selector('title', :text => "#{base_title} | Help")
     end
   end
 
   describe "About page" do
 
     it "should have the h1 'About'" do
-      visit '/static_pages/about'
+      visit about_path
       page.should have_selector('h1', :text => 'About Us')
     end
 
     it "should have the title 'About Us'" do
-      visit '/static_pages/about'
-      page.should have_selector('title',
-                    :text => "Ruby on Rails Tutorial Sample App | About Us")
+      visit about_path
+      page.should have_selector('title', :text => "#{base_title} | About Us")
     end
   end
+
+
 end
