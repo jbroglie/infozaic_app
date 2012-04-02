@@ -1,28 +1,159 @@
-<div class="subnav">
-    <ul class="nav nav-pills">
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Video <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="#buttonGroups">YouTube</a></li>
-          <li><a href="#buttonDropdowns">Vimeo</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Photo <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="#navs">Link to Photo</a></li>
-          <li><a href="#navs">Flickr Slideshow</a></li>
-          <li><a href="#navbar">Upload</a></li>
-        </ul>
-      </li>
-      <li><a href="#labels">Audio</a></li>
-      <li><a href="#badges">Quote</a></li>
-      <li><a href="#typography">Website</a></li>
-      <li><a href="#thumbnails">Wikipedia</a></li>
-    </ul>
+<% provide(:fluid, 'true') %>
 
+<div class="subnav">
+      <ul class="nav nav-pills">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Video <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#buttonGroups">YouTube</a></li>
+            <li><a href="#buttonDropdowns">Vimeo</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Photo <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#navs">Link to Photo</a></li>
+            <li><a href="#navs">Flickr Slideshow</a></li>
+            <li><a href="#navbar">Upload</a></li>
+          </ul>
+        </li>
+        <li><a href="#labels">Audio</a></li>
+        <li><a href="#badges">Quote</a></li>
+        <li><a href="#typography">Website</a></li>
+        <li><a href="#thumbnails">Wikipedia</a></li>
+        <li><a href="#thumbnails">Rearrange</a></li>
+        <li><a href="#thumbnails">Resize</a></li>
+        <li><a href="#thumbnails">Edit Meta</a></li>
+      </ul>
     <div class="mini-meta">
 
       <span class="mini-meta-title">History of West Philadelphia</span>
     </div>
-  </div>
+</div><!-- /.subnav -->
+    
+    <div class="row">
+
+        <div class="span8">
+          <div id="single-details-left">
+            <h1>History of West Philadelphia</h1>
+
+            <div class="span2">
+              <div id="modified">
+                <h6>last modified</h6>
+                <span id="date">12/3/2011</span>
+              </div>
+            </div>
+
+            <div class="span2">
+              <div id="startedby">
+                <h6>started by</h6>
+                <%= link_to image_tag("profile/1.jpeg", :class => "profile-icon", :size => "30x30"), '#', :title => "jsapriel", :rel => "tooltip" %>
+              </div>
+            </div>
+
+            <div class="span2">
+              <div id="contributers">
+                <h6>contributers</h6>
+                <%= link_to image_tag("profile/2.jpeg", :class => "profile-icon", :size => "30x30"), '#', :title => "jbroglie", :rel => "tooltip" %>
+                <%= link_to image_tag("profile/3.jpeg", :class => "profile-icon", :size => "30x30"), '#', :title => "mhighland", :rel => "tooltip" %>
+                <%= link_to image_tag("profile/4.jpeg", :class => "profile-icon", :size => "30x30"), '#', :title => "etolle", :rel => "tooltip" %>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /.span8 -->
+        <div class="span4">
+          <div id="single-details-right">
+            <h6>description</h6>
+              <p>West Philadelphia, nicknamed West Philly, is a section of Philadelphia, Pennsylvania. Though there is no official definition of its boundaries, it is generally considered to reach from the western shore of the Schuylkill River, to City Line Avenue to the northwest, Cobbs Creek to the southwest, and the SEPTA Media/Elwyn Line to the south. An alternate definition includes all city land west of the Schuylkill; this would also include Southwest Philadelphia and its neighborhoods.</p>
+          </div>
+        </div><!-- /.span4 -->
+
+    </div><!-- /.row -->
+      <hr>
+      <div class="row">
+          <div class="span4">
+            <h2>Collaborative</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn" href="#">Browse Organizations &raquo;</a></p>
+          </div><!--/span-->
+          <div class="span4">
+            <h2>Modern</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn" href="#">Browse Jobs &raquo;</a></p>
+          </div><!--/span8-->
+          <div class="span4">
+            <h2>Transparent</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn" href="#">Browse Projects &raquo;</a></p>
+          </div><!--/span4-->
+            
+       </div><!--/row-->
+
+       <div class="row">
+            <div class="span4">
+              <h2>Collaborative</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="#">Browse Organizations &raquo;</a></p>
+            </div><!--/span-->
+            <div class="span4">
+              <h2>Modern</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="#">Browse Jobs &raquo;</a></p>
+            </div><!--/span-->
+            <div class="span4">
+              <h2>Transparent</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="#">Browse Projects &raquo;</a></p>
+            </div><!--/span-->
+       </div><!--/row-->
+       <div class="row">
+            <div class="span4">
+              <h2>Collaborative</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="#">Browse Organizations &raquo;</a></p>
+            </div><!--/span-->
+            <div class="span4">
+              <h2>Modern</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="#">Browse Jobs &raquo;</a></p>
+            </div><!--/span-->
+            <div class="span4">
+              <h2>Transparent</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="#">Browse Projects &raquo;</a></p>
+            </div><!--/span-->
+       </div><!--/row-->
+       <div class="row">
+            <div class="span4">
+              <h2>Collaborative</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="#">Browse Organizations &raquo;</a></p>
+            </div><!--/span-->
+            <div class="span4">
+              <h2>Modern</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="#">Browse Jobs &raquo;</a></p>
+            </div><!--/span-->
+            <div class="span4">
+              <h2>Transparent</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="#">Browse Projects &raquo;</a></p>
+            </div><!--/span-->
+       </div><!--/row-->
+       <div class="row">
+            <div class="span4">
+              <h2>Collaborative</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="#">Browse Organizations &raquo;</a></p>
+            </div><!--/span-->
+            <div class="span4">
+              <h2>Modern</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="#">Browse Jobs &raquo;</a></p>
+            </div><!--/span-->
+            <div class="span4">
+              <h2>Transparent</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="#">Browse Projects &raquo;</a></p>
+            </div><!--/span-->
+       </div><!--/row-->
