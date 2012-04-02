@@ -2,8 +2,11 @@ InfozaicApp::Application.routes.draw do
 
   root to: 'static_pages#home'
 
-  match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
+  match '/list',   to: 'static_pages#list'
+  match '/create',   to: 'static_pages#create'
+  match '/profile',   to: 'static_pages#profile'
+  match '/single',   to: 'static_pages#single'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
