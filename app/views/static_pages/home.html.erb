@@ -1,7 +1,46 @@
 
-<h1>Sample App</h1>
-<p>
-  This is the home page for the
-  <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
-  sample application.
-</p>
+      <div class="row">
+        
+        <div class="span9">
+          <div class="hero-unit">
+            <h1>Welcome to GPEN</h1>
+            <p>The Greater Philly Environmental Network (GPEN) is the Internet resource publishing “All Things Environmental” in the Philadelphia region.</p>
+            <p><a href="<%= about_path %>" class="btn btn-success btn-large">Learn more &raquo;</a></p>
+          </div>
+        </div><!--/span-->
+        <div class="span3">
+        	<div class="well">
+		  		<h6>Member Login</h6>
+		  		<form>
+				    <input type="text" placeholder="Email" class="login-field">
+				    <input type="password" placeholder="Password" class="login-field">
+				    <label class="checkbox">
+				    <input type="checkbox"> Remember me
+				  </label>
+						 <button class="btn btn-primary" type="submit">Sign In</button>
+					 </form>
+           <hr>
+           <h6>Not a Member?</h6>
+           <button class="btn btn-large">Sign Up, It's Free!</button>
+			</div> <!--/well-->
+        </div><!--/span-->
+      </div><!--/row-->
+      <div class="row">
+            <div class="span4">
+              <h2>Organizations</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="#">Browse Organizations &raquo;</a></p>
+            </div><!--/span-->
+            <div class="span4">
+              <h2>Jobs</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="#">Browse Jobs &raquo;</a></p>
+            </div><!--/span-->
+            <div class="span4">
+              <h2>Projects</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="#">Browse Projects &raquo;</a></p>
+            </div><!--/span-->
+       </div><!--/row-->
+
+
