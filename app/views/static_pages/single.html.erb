@@ -5,22 +5,23 @@
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Video <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#buttonGroups">YouTube</a></li>
-            <li><a href="#buttonDropdowns">Vimeo</a></li>
+            <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Video (YouTube)">YouTube</a></li>
+            <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Video (Vimeo)">Vimeo</a></li>
           </ul>
         </li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Photo <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#navs">Link to Photo</a></li>
-            <li><a href="#navs">Flickr Slideshow</a></li>
-            <li><a href="#navbar">Upload</a></li>
+            <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Photo (External Link)">Link to Photo</a></li>
+            <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Flickr Slideshow">Flickr Slideshow</a></li>
+            <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Photo (Upload)">Upload</a></li>
           </ul>
         </li>
-        <li><a href="#labels">Audio</a></li>
-        <li><a href="#badges">Quote</a></li>
-        <li><a href="#typography">Website</a></li>
-        <li><a href="#thumbnails">Wikipedia</a></li>
+        <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Audio">Audio</a></li>
+        <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Quote">Quote</a></li>
+        <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Website">Website</a></li>
+
+        <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Wikipedia">Wikipedia</a></li>
         <li><a href="#thumbnails">Rearrange</a></li>
         <li><a href="#thumbnails">Resize</a></li>
         <li><a href="#thumbnails">Edit Meta</a></li>
@@ -31,43 +32,41 @@
     </div>
 </div><!-- /.subnav -->
     
-    <div class="row">
+    <div class="row-fluid meta">
+          <div class="span9">
+          
+            <div id="meta-left">
+              <h1>History of West Philadelphia</h1>
+              <h6>description</h6>
+                <p>West Philadelphia, nicknamed West Philly, is a section of Philadelphia, Pennsylvania. Though there is no official definition of its boundaries, it is generally considered to reach from the western shore of the Schuylkill River, to City Line Avenue to the northwest, Cobbs Creek to the southwest, and the SEPTA Media/Elwyn Line to the south. An alternate definition includes all city land west of the Schuylkill; this would also include Southwest Philadelphia and its neighborhoods.</p>
+              
+            </div>
+          </div> <!-- /.span8 -->
+          <div class="span3">
+            <div id="meta-right">
+              <div class="row">
+                  <div id="modified">
+                    <h6>last modified</h6>
+                    <span id="date">12/3/2011</span>
+                  </div>
+              </div>
 
-        <div class="span8">
-          <div id="single-details-left">
-            <h1>History of West Philadelphia</h1>
+              <div class="row">
+                <div id="contributers">
+                  <h6>contributers</h6>
+                  <%= link_to image_tag("profile/2.jpeg", :class => "profile-icon", :size => "30x30"), '#', :title => "jbroglie", :rel => "tooltip" %>
+                  <%= link_to image_tag("profile/3.jpeg", :class => "profile-icon", :size => "30x30"), '#', :title => "mhighland", :rel => "tooltip" %>
+                  <%= link_to image_tag("profile/4.jpeg", :class => "profile-icon", :size => "30x30"), '#', :title => "etolle", :rel => "tooltip" %>
+                </div>
+              </div>
 
-            <div class="span2">
-              <div id="modified">
-                <h6>last modified</h6>
-                <span id="date">12/3/2011</span>
+              <div class="row">
+                <div id="contributers">
+                  <h6>share</h6>
+                </div>
               </div>
             </div>
-
-            <div class="span2">
-              <div id="startedby">
-                <h6>started by</h6>
-                <%= link_to image_tag("profile/1.jpeg", :class => "profile-icon", :size => "30x30"), '#', :title => "jsapriel", :rel => "tooltip" %>
-              </div>
-            </div>
-
-            <div class="span2">
-              <div id="contributers">
-                <h6>contributers</h6>
-                <%= link_to image_tag("profile/2.jpeg", :class => "profile-icon", :size => "30x30"), '#', :title => "jbroglie", :rel => "tooltip" %>
-                <%= link_to image_tag("profile/3.jpeg", :class => "profile-icon", :size => "30x30"), '#', :title => "mhighland", :rel => "tooltip" %>
-                <%= link_to image_tag("profile/4.jpeg", :class => "profile-icon", :size => "30x30"), '#', :title => "etolle", :rel => "tooltip" %>
-              </div>
-            </div>
-          </div>
-        </div> <!-- /.span8 -->
-        <div class="span4">
-          <div id="single-details-right">
-            <h6>description</h6>
-              <p>West Philadelphia, nicknamed West Philly, is a section of Philadelphia, Pennsylvania. Though there is no official definition of its boundaries, it is generally considered to reach from the western shore of the Schuylkill River, to City Line Avenue to the northwest, Cobbs Creek to the southwest, and the SEPTA Media/Elwyn Line to the south. An alternate definition includes all city land west of the Schuylkill; this would also include Southwest Philadelphia and its neighborhoods.</p>
-          </div>
-        </div><!-- /.span4 -->
-
+          </div><!-- /.span3 -->
     </div><!-- /.row -->
       <hr>
       
@@ -140,3 +139,38 @@
               <p><a class="btn" href="#">Browse &raquo;</a></p>
             </div><!--/span-->
        </div><!--/row-->
+
+
+
+        <!-- add modal content -->
+          <div id="edit-modal" class="modal hide fade">
+            <div class="modal-header">
+              <a class="close" data-dismiss="modal" >&times;</a>
+              <h3>Modal Heading</h3>
+            </div>
+            <div class="modal-body">
+              <h4>Text in a modal</h4>
+              <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem.</p>
+
+              <h4>Popover in a modal</h4>
+              <p>This <a href="#" class="btn popover-test" title="A Title" data-content="And here's some amazing content. It's very engaging. right?">button</a> should trigger a popover on hover.</p>
+
+              <h4>Tooltips in a modal</h4>
+              <p><a href="#" class="tooltip-test" title="Tooltip">This link</a> and <a href="#" class="tooltip-test" title="Tooltip">that link</a> should have tooltips on hover.</p>
+
+              <hr>
+
+              <h4>Overflowing text to show optional scrollbar</h4>
+              <p>We set a fixed <code>max-height</code> on the <code>.modal-body</code>. Watch it overflow with all this extra lorem ipsum text we've included.</p>
+              <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+              <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+              <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+              <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#" class="btn" data-dismiss="modal" >Close</a>
+              <a href="#" class="btn btn-primary">Save changes</a>
+            </div>
+          </div>

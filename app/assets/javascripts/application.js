@@ -44,5 +44,25 @@
 	    $('a[rel=tooltip]').tooltip({
 	      placement: "bottom"
 	    })
+
+	    var $modal = $('#edit-modal')
+
+	    $('.modal-btn').click(function(e) {
+            e.preventDefault();
+
+            /*
+            modalElement.find('.modal-body').load('ajax.php', { item_id: $(this).data('item-id') }, function(){
+                modalElement.modal('show');
+            });*/
+
+            $('.modal-header h3', $modal).html('Add ' + $(this).attr('title'));
+
+			
+        });
+
+		/*  used for when modal first is about to be shown
+	    $('#myModal').on('show', function () {
+		  
+		})*/
   })
 }(window.jQuery)
