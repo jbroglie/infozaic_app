@@ -84,14 +84,29 @@
             modalElement.find('.modal-body').load('ajax.php', { item_id: $(this).data('item-id') }, function(){
                 modalElement.modal('show');
             });*/
+	    	var typeName = $(this).attr('title');
+            $('.modal-header h3', $modal).html('Add ' + typeName);
+            $('#' + typeName.toLowerCase() + '.modal-type', $modal).show();
+        });
 
-            $('.modal-header h3', $modal).html('Add ' + $(this).attr('title'));
+
+        $('#btn-add').click(function(e) {
+            e.preventDefault();
+            var $newInfobit = $($('#preview', $modal).html());
+			$("#canvas").prepend( $newInfobit ).masonry( 'reload' );
+			$('#edit-modal').modal('hide');
+
+			// NEED TO RELOAD TOOLTIPS 
         });
 
 		/*  used for when modal first is about to be shown
 	    $('#myModal').on('show', function () {
 		  
 		})*/
+
+		$('#edit-modal').on('hidden', function () {
+		  $('.modal-type', $modal).hide();
+		})
 
 	
   })

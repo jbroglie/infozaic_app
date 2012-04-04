@@ -93,9 +93,10 @@
             <div class="clear"></div>
           </div>
         </div>
-        <div class="padding medium-text">
-          West Philadelphia, nicknamed West Philly, is a section of Philadelphia, Pennsylvania. Though there is no official definition of its boundaries, it is generally considered to reach from the western shore of the Schuylkill River...
-        </div>
+        <div class="padding">
+            <h3>West Philadelphia</h3>
+            <p>West Philadelphia, nicknamed West Philly, is a section of Philadelphia, Pennsylvania. Though there is no official definition of its boundaries, it is generally considered to reach from the western shore of the Schuylkill River...<a rel="tooltip" title="Reveal more text" href="#">more</a></p>
+          </div>
       </div>
       
       
@@ -138,7 +139,7 @@
           </div>
         </div>
         <iframe width="580" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Clark+Park&amp;aq=&amp;sll=39.948306,-75.211372&amp;sspn=0.009738,0.020256&amp;t=m&amp;ie=UTF8&amp;hq=Clark+Park&amp;ll=39.948569,-75.209312&amp;spn=0.01974,0.049696&amp;z=14&amp;output=embed"></iframe>
-        <div class="form-actions">
+        <div class="infobit-actions">
           <button type="submit" class="btn btn-primary">Directions to Here</button>
           <button class="btn" type="reset">Directions from Here</button>
         </div>
@@ -168,26 +169,6 @@
           <iframe width="380" height="295" src="http://www.youtube.com/embed/HatSl1lu_PM?wmode=opaque" frameborder="0" allowfullscreen></iframe>
       </div>
 
-
-      <div class="infobit col1">
-        <div class="infobit-meta">
-          <div class="link">via <a href="#">NPR</a></div>
-          <div class="opinion">
-            <div class="likes">
-              <div class="likes-button"></div><div class="opinion-count">102</div>
-            </div>
-            <div class="dislikes">
-              <div class="dislikes-button"></div><div class="opinion-count">102</div>
-            </div>
-            <div class="comments">
-              <div class="comments-button"></div><div class="opinion-count">102</div>
-            </div>
-            <div class="clear"></div>
-          </div>
-        </div>
-          <embed src="http://www.npr.org/v2/?i=127594909&#38;m=127594892&#38;t=audio" height="386" wmode="opaque" allowfullscreen="true" width="400" base="http://www.npr.org" type="application/x-shockwave-flash"></embed>
-    
-      </div>
       
       <div class="infobit col2">
         <div class="infobit-meta">
@@ -205,9 +186,9 @@
             <div class="clear"></div>
           </div>
         </div>
-        <div class="padding news-text">
+        <div class="padding">
           <h1>Gentrification: putting your money where your mouth is</h1>
-          <div class="date">July 15, 2007</div>
+          <h6>July 15, 2007</h6>
           <p>Gentrification in my part of West Philadelphia is a problem, enough so that I can not afford to buy a home in an area that used to be famous for housing activists and social justice practicioners, among others. Of couse gentrification here, in a neighborhood that was white, Irish and middle-class until the 60’s and 70’s, and has been multi-income and multi-racial since, is not quite the same as it is in other parts of the city. In Grays Ferry, Fairmount, Bella Vista, Fishtown, Brewerytown and now the area near Temple University, more text-book gentrification has been occurring...<a href="#">more</a></p>
         </div>  
       </div>
@@ -289,28 +270,99 @@
       <h3>Modal Heading</h3>
     </div>
     <div class="modal-body">
-      <h4>Text in a modal</h4>
-      <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem.</p>
+      <div class="modal-type" id="wikipedia" style="display: none;">
+        <form class="form-horizontal">
+          <fieldset>
+            <div class="control-group">
+              <label class="control-label" for="input01">Wikipedia Link</label>
+              <div class="controls">
 
-      <h4>Popover in a modal</h4>
-      <p>This <a href="#" class="btn popover-test" title="A Title" data-content="And here's some amazing content. It's very engaging. right?">button</a> should trigger a popover on hover.</p>
+                <input type="text" class="input-xlarge" placeholder="http://en.wikipedia.org/wiki/..." id="input01">
+                <p class="help-block">Paste in the Wikipedia URL.</p>
+              </div>
+            </div>
 
-      <h4>Tooltips in a modal</h4>
-      <p><a href="#" class="tooltip-test" title="Tooltip">This link</a> and <a href="#" class="tooltip-test" title="Tooltip">that link</a> should have tooltips on hover.</p>
+            <div class="control-group">
+              <label class="control-label" for="textarea">Content to Display</label>
+              <div class="controls">
+                <textarea class="input-xlarge" id="textarea" rows="3"></textarea>
+                <p class="help-block">Content will automatically fill in. The amount show will vary on the window size and popularity of this infobit.</p>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      
+      </div> <!-- / #wikipedia.modal-type  -->
+
+      <div class="modal-type" id="quote" style="display: none;">
+        <form class="form-horizontal">
+          <fieldset>
+            <div class="control-group">
+              <label class="control-label" for="input01">Quote Author</label>
+              <div class="controls">
+
+                <input type="text" class="input-xlarge" placeholder="http://en.wikipedia.org/wiki/..." id="input01">
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label" for="textarea">The Quote</label>
+              <div class="controls">
+                <textarea class="input-xlarge" id="textarea" rows="3"></textarea>
+                <p class="help-block">Content will automatically fill in. The amount show will vary on the window size and popularity of this infobit.</p>
+              </div>
+
+              <div class="control-group">
+              <label class="control-label" for="input01">Reference Link / Source</label>
+              <div class="controls">
+
+                <input type="text" class="input-xlarge" placeholder="http://en.wikipedia.org/wiki/..." id="input01">
+                <p class="help-block">Optional</p>
+              </div>
+            </div>
+
+
+            </div>
+          </fieldset>
+        </form>
+      
+      </div> <!-- / #quote.modal-type  -->
 
       <hr>
 
-      <h4>Overflowing text to show optional scrollbar</h4>
-      <p>We set a fixed <code>max-height</code> on the <code>.modal-body</code>. Watch it overflow with all this extra lorem ipsum text we've included.</p>
-      <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-      <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-      <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-      <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+      <h4>Preview</h4>
+      <p>Here is a preview of your infobit:</p>
+
+      <div class="well infobit-example" style="background-color: #888; border: none;">
+        <div id="preview">
+          <div class="infobit col2">
+            <div class="infobit-meta">
+              <div class="link">via <a href="#">Wikipedia</a></div>
+              <div class="opinion">
+                <div class="likes">
+                  <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">102</div>
+                </div>
+                <div class="dislikes">
+                  <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">102</div>
+                </div>
+                <div class="comments">
+                  <div rel="tooltip" title="Comment" class="comments-button"></div><div class="opinion-count">102</div>
+                </div>
+                <div class="clear"></div>
+              </div>
+            </div>
+            <div class="padding">
+              <h3>West Philadelphia</h3>
+              <p>West Philadelphia, nicknamed West Philly, is a section of Philadelphia, Pennsylvania. Though there is no official definition of its boundaries, it is generally considered to reach from the western shore of the Schuylkill River...</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
     <div class="modal-footer">
-      <a href="#" class="btn" data-dismiss="modal" >Close</a>
-      <a href="#" class="btn btn-primary">Save changes</a>
+      <a href="#" class="btn" data-dismiss="modal">Close</a>
+      <a href="#" id="btn-add" class="btn btn-primary">Add</a>
     </div>
   </div>
