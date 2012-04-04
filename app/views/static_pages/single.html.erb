@@ -1,6 +1,8 @@
-<% provide(:fluid, 'true') %>
+<% provide(:extrastyle, '-fluid single') %>
+<% provide(:title, 'History of West Philadelphia') %>
+<%= @skip_footer = true %>
 
-<div class="subnav">
+<div class="subnav subnav-fixed">
       <ul class="nav nav-pills">
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Video <b class="caret"></b></a>
@@ -26,151 +28,289 @@
         <li><a href="#thumbnails">Resize</a></li>
         <li><a href="#thumbnails">Edit Meta</a></li>
       </ul>
-    <div class="mini-meta">
 
-      <span class="mini-meta-title">History of West Philadelphia</span>
-    </div>
-</div><!-- /.subnav -->
-    
-    <div class="row-fluid meta">
-          <div class="span9">
           
-            <div id="meta-left">
-              <h1>History of West Philadelphia</h1>
-              <h6>description</h6>
-                <p>West Philadelphia, nicknamed West Philly, is a section of Philadelphia, Pennsylvania. Though there is no official definition of its boundaries, it is generally considered to reach from the western shore of the Schuylkill River, to City Line Avenue to the northwest, Cobbs Creek to the southwest, and the SEPTA Media/Elwyn Line to the south. An alternate definition includes all city land west of the Schuylkill; this would also include Southwest Philadelphia and its neighborhoods.</p>
-              
-            </div>
-          </div> <!-- /.span8 -->
-          <div class="span3">
-            <div id="meta-right">
-              <div class="row">
-                  <div id="modified">
-                    <h6>last modified</h6>
-                    <span id="date">12/3/2011</span>
-                  </div>
-              </div>
+</div><!-- /.subnav -->
 
-              <div class="row">
-                <div id="contributers">
-                  <h6>contributers</h6>
-                  <%= link_to image_tag("profile/2.jpeg", :class => "profile-icon", :size => "30x30"), '#', :title => "jbroglie", :rel => "tooltip" %>
-                  <%= link_to image_tag("profile/3.jpeg", :class => "profile-icon", :size => "30x30"), '#', :title => "mhighland", :rel => "tooltip" %>
-                  <%= link_to image_tag("profile/4.jpeg", :class => "profile-icon", :size => "30x30"), '#', :title => "etolle", :rel => "tooltip" %>
-                </div>
-              </div>
-
-              <div class="row">
-                <div id="contributers">
-                  <h6>share</h6>
-                </div>
-              </div>
-            </div>
-          </div><!-- /.span3 -->
-    </div><!-- /.row -->
-      <hr>
+<div class="mini-meta">
+      <span class="mini-meta-title">History of West Philadelphia</span>
+</div> <!-- /.mini-meta -->
+    
+<div class="row-fluid meta">
+      <div class="span9">
       
+        <div id="meta-left">
+          <h1>History of West Philadelphia</h1>
+          <h6>description</h6>
+            <p>West Philadelphia, nicknamed West Philly, is a section of Philadelphia, Pennsylvania. Though there is no official definition of its boundaries, it is generally considered to reach from the western shore of the Schuylkill River, to City Line Avenue to the northwest, Cobbs Creek to the southwest, and the SEPTA Media/Elwyn Line to the south. An alternate definition includes all city land west of the Schuylkill; this would also include Southwest Philadelphia and its neighborhoods.</p>
+          
+        </div>
+      </div> <!-- /.span8 -->
+      <div class="span3">
+        <div id="meta-right">
+          <div class="row">
+              <div id="modified">
+                <h6>last modified</h6>
+                <span id="date">12/3/2011</span>
+              </div>
+          </div>
 
-      <div class="row">
-            <div class="span4">
-              <h2>Collaborative</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">Browse &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Modern</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">Browse &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Transparent</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">Browse &raquo;</a></p>
-            </div><!--/span-->
-       </div><!--/row-->
-       <div class="row">
-            <div class="span4">
-              <h2>Collaborative</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">Browse &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Modern</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">Browse &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Transparent</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">Browse &raquo;</a></p>
-            </div><!--/span-->
-       </div><!--/row-->
-       <div class="row">
-            <div class="span4">
-              <h2>Collaborative</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">Browse &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Modern</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">Browse &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Transparent</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">Browse &raquo;</a></p>
-            </div><!--/span-->
-       </div><!--/row-->
-       <div class="row">
-            <div class="span4">
-              <h2>Collaborative</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">Browse &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Modern</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">Browse &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Transparent</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">Browse &raquo;</a></p>
-            </div><!--/span-->
-       </div><!--/row-->
-
-
-
-        <!-- add modal content -->
-          <div id="edit-modal" class="modal hide fade">
-            <div class="modal-header">
-              <a class="close" data-dismiss="modal" >&times;</a>
-              <h3>Modal Heading</h3>
-            </div>
-            <div class="modal-body">
-              <h4>Text in a modal</h4>
-              <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem.</p>
-
-              <h4>Popover in a modal</h4>
-              <p>This <a href="#" class="btn popover-test" title="A Title" data-content="And here's some amazing content. It's very engaging. right?">button</a> should trigger a popover on hover.</p>
-
-              <h4>Tooltips in a modal</h4>
-              <p><a href="#" class="tooltip-test" title="Tooltip">This link</a> and <a href="#" class="tooltip-test" title="Tooltip">that link</a> should have tooltips on hover.</p>
-
-              <hr>
-
-              <h4>Overflowing text to show optional scrollbar</h4>
-              <p>We set a fixed <code>max-height</code> on the <code>.modal-body</code>. Watch it overflow with all this extra lorem ipsum text we've included.</p>
-              <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-              <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-              <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-              <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-            </div>
-            <div class="modal-footer">
-              <a href="#" class="btn" data-dismiss="modal" >Close</a>
-              <a href="#" class="btn btn-primary">Save changes</a>
+          <div class="row">
+            <div id="contributers">
+              <h6>contributers</h6>
+              <%= link_to image_tag("profile/2.jpeg", :class => "profile-icon", :size => "30x30"), '#', :title => "jbroglie", :rel => "tooltip" %>
+              <%= link_to image_tag("profile/3.jpeg", :class => "profile-icon", :size => "30x30"), '#', :title => "mhighland", :rel => "tooltip" %>
+              <%= link_to image_tag("profile/4.jpeg", :class => "profile-icon", :size => "30x30"), '#', :title => "etolle", :rel => "tooltip" %>
             </div>
           </div>
+
+          <div class="row">
+            <div id="contributers">
+              <h6>share</h6>
+            </div>
+          </div>
+        </div>
+      </div><!-- /.span3 -->
+</div><!-- /.row -->
+
+  
+
+<div id="canvas">
+
+  <div class="infobit col2">
+        <div class="infobit-meta">
+          <div class="link">via <a href="#">Wikipedia</a></div>
+          <div class="opinion">
+            <div class="likes">
+              <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="dislikes">
+              <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="comments">
+              <div rel="tooltip" title="Comment" class="comments-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="padding medium-text">
+          West Philadelphia, nicknamed West Philly, is a section of Philadelphia, Pennsylvania. Though there is no official definition of its boundaries, it is generally considered to reach from the western shore of the Schuylkill River...
+        </div>
+      </div>
+      
+      
+      
+      <div class="infobit col3">
+        <div class="infobit-meta">
+          <div class="link">via <a href="#">Flickr</a></div>
+          <div class="opinion">
+            <div class="likes">
+              <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="dislikes">
+              <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="comments">
+              <div rel="tooltip" title="Comment" class="comments-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+          <object width="550" height="300"><param name="wmode" value="transparent"></param> <param name="flashvars" value="offsite=true&lang=en-us&page_show_url=%2Fsearch%2Fshow%2F%3Fq%3Dwest%2Bphilly&page_show_back_url=%2Fsearch%2F%3Fq%3Dwest%2Bphilly&method=flickr.photos.search&api_params_str=&api_text=west+philly&api_tag_mode=bool&api_media=all&api_sort=relevance&jump_to=&start_index=0"></param> <param name="movie" value="http://www.flickr.com/apps/slideshow/show.swf?v=109615"></param> <param name="allowFullScreen" value="true"></param><embed type="application/x-shockwave-flash" src="http://www.flickr.com/apps/slideshow/show.swf?v=109615" allowFullScreen="true" flashvars="offsite=true&lang=en-us&page_show_url=%2Fsearch%2Fshow%2F%3Fq%3Dwest%2Bphilly&page_show_back_url=%2Fsearch%2F%3Fq%3Dwest%2Bphilly&method=flickr.photos.search&api_params_str=&api_text=west+philly&api_tag_mode=bool&api_media=all&api_sort=relevance&jump_to=&start_index=0" width="550" height="300"></embed></object>
+    
+      </div>
+      
+
+      <div class="infobit col3">
+        <div class="infobit-meta">
+          <div class="link">via <a href="#">Google Maps</a></div>
+          <div class="opinion">
+            <div class="likes">
+              <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="dislikes">
+              <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="comments">
+              <div rel="tooltip" title="Comment" class="comments-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <iframe width="580" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Clark+Park&amp;aq=&amp;sll=39.948306,-75.211372&amp;sspn=0.009738,0.020256&amp;t=m&amp;ie=UTF8&amp;hq=Clark+Park&amp;ll=39.948569,-75.209312&amp;spn=0.01974,0.049696&amp;z=14&amp;output=embed"></iframe>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Directions to Here</button>
+          <button class="btn" type="reset">Directions from Here</button>
+        </div>
+      </div>
+
+
+      
+
+
+
+      <div class="infobit col2">
+        <div class="infobit-meta">
+          <div class="link">via <a href="#">YouTube</a></div>
+          <div class="opinion">
+            <div class="likes">
+              <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="dislikes">
+              <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="comments">
+              <div rel="tooltip" title="Comment" class="comments-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+          <iframe width="380" height="295" src="http://www.youtube.com/embed/HatSl1lu_PM?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+      </div>
+
+
+      <div class="infobit col1">
+        <div class="infobit-meta">
+          <div class="link">via <a href="#">NPR</a></div>
+          <div class="opinion">
+            <div class="likes">
+              <div class="likes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="dislikes">
+              <div class="dislikes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="comments">
+              <div class="comments-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+          <embed src="http://www.npr.org/v2/?i=127594909&#38;m=127594892&#38;t=audio" height="386" wmode="opaque" allowfullscreen="true" width="400" base="http://www.npr.org" type="application/x-shockwave-flash"></embed>
+    
+      </div>
+      
+      <div class="infobit col2">
+        <div class="infobit-meta">
+          <div class="link">via <a href="#">Link</a></div>
+          <div class="opinion">
+            <div class="likes">
+              <div class="likes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="dislikes">
+              <div class="dislikes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="comments">
+              <div class="comments-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="padding news-text">
+          <h1>Gentrification: putting your money where your mouth is</h1>
+          <div class="date">July 15, 2007</div>
+          <p>Gentrification in my part of West Philadelphia is a problem, enough so that I can not afford to buy a home in an area that used to be famous for housing activists and social justice practicioners, among others. Of couse gentrification here, in a neighborhood that was white, Irish and middle-class until the 60’s and 70’s, and has been multi-income and multi-racial since, is not quite the same as it is in other parts of the city. In Grays Ferry, Fairmount, Bella Vista, Fishtown, Brewerytown and now the area near Temple University, more text-book gentrification has been occurring...<a href="#">more</a></p>
+        </div>  
+      </div>
+      
+      
+      
+      <div class="infobit col1">
+        <div class="infobit-meta">
+          <div class="link">via <a href="#">YouTube</a></div>
+          <div class="opinion">
+            <div class="likes">
+              <div class="likes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="dislikes">
+              <div class="dislikes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="comments">
+              <div class="comments-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <iframe width="180" height="120" src="http://www.youtube.com/embed/RzPT2PGlPH4?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+        
+    
+      </div>
+      
+      <div class="infobit col1">
+        <div class="infobit-meta">
+          <div class="link">via <a href="#">Scribd</a></div>
+          <div class="opinion">
+            <div class="likes">
+              <div class="likes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="dislikes">
+              <div class="dislikes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="comments">
+              <div class="comments-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <iframe class="scribd_iframe_embed" src="http://www.scribd.com/embeds/341510/content?start_page=1&view_mode=slideshow&access_key=dv1kq0lib4xqd" data-auto-height="false" data-aspect-ratio="1.5415986949429" scrolling="no" id="doc_89375" width="400" height="319" frameborder="0"></iframe>
+        
+    
+      </div>
+      
+      
+
+      
+
+
+
+
+
+
+</div> <!-- /#canvas -->
+
+<script>
+    $(function(){
+      var $container = $('#canvas');
+
+      $container.imagesLoaded( function(){
+        $container.masonry({
+          itemSelector : '.infobit',
+        columnWidth: 200,
+        isAnimated: true
+        });
+      });
+    });
+  </script>
+
+
+<!-- add modal content -->
+  <div id="edit-modal" class="modal hide fade">
+    <div class="modal-header">
+      <a class="close" data-dismiss="modal" >&times;</a>
+      <h3>Modal Heading</h3>
+    </div>
+    <div class="modal-body">
+      <h4>Text in a modal</h4>
+      <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem.</p>
+
+      <h4>Popover in a modal</h4>
+      <p>This <a href="#" class="btn popover-test" title="A Title" data-content="And here's some amazing content. It's very engaging. right?">button</a> should trigger a popover on hover.</p>
+
+      <h4>Tooltips in a modal</h4>
+      <p><a href="#" class="tooltip-test" title="Tooltip">This link</a> and <a href="#" class="tooltip-test" title="Tooltip">that link</a> should have tooltips on hover.</p>
+
+      <hr>
+
+      <h4>Overflowing text to show optional scrollbar</h4>
+      <p>We set a fixed <code>max-height</code> on the <code>.modal-body</code>. Watch it overflow with all this extra lorem ipsum text we've included.</p>
+      <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+      <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+      <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+      <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="btn" data-dismiss="modal" >Close</a>
+      <a href="#" class="btn btn-primary">Save changes</a>
+    </div>
+  </div>

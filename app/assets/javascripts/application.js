@@ -19,6 +19,9 @@
 !function ($) {
 
   $(function(){
+
+
+  		/*
 		// fix sub nav on scroll
 	    var $win = $(window)
 	      , $nav = $('.subnav')
@@ -39,10 +42,37 @@
 	        $nav.removeClass('subnav-fixed')
 	      }
 	    }
+	    */
+
+
+	    // fix sub nav on scroll
+	    var $win = $(window)
+	      , $miniMeta = $('.mini-meta')
+	      , metaBottom = $('.meta').offset().top + 100
+	      , isFixed = 0
+
+	    processScroll()
+
+	    $win.on('scroll', processScroll)
+
+	    function processScroll() {
+	      var i, scrollTop = $win.scrollTop()
+	      if (scrollTop >= metaBottom && !isFixed) {
+	        isFixed = 1
+	        $miniMeta.fadeIn()
+	      } else if (scrollTop <= metaBottom && isFixed) {
+	        isFixed = 0
+	        $miniMeta.fadeOut()
+	      }
+	    }
 
 	    // tooltip setup
 	    $('a[rel=tooltip]').tooltip({
 	      placement: "bottom"
+	    })
+
+	    $('div[rel=tooltip]').tooltip({
+	      placement: "top"
 	    })
 
 	    var $modal = $('#edit-modal')
@@ -56,13 +86,13 @@
             });*/
 
             $('.modal-header h3', $modal).html('Add ' + $(this).attr('title'));
-
-			
         });
 
 		/*  used for when modal first is about to be shown
 	    $('#myModal').on('show', function () {
 		  
 		})*/
+
+	
   })
 }(window.jQuery)

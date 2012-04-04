@@ -12,15 +12,10 @@
 
     <%= render 'layouts/header' %>
 
-    <% if :fluid == 'true' %>
-     <div class="container-fluid">
-      
-    <% else %>
-      <div class="container-fluid single">
-    <% end %>
+      <div class="container<%= yield(:extrastyle) %>">
 
       <%= yield %>
-      <%= render 'layouts/footer' %>
+      <%= render "layouts/footer" unless @skip_footer %>
     </div>
   </body>
 </html>
