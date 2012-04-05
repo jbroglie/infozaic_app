@@ -7,6 +7,7 @@ InfozaicApp::Application.routes.draw do
   resources :infozaics
 
   match '/create',   to: 'infozaics#new'
+  match '/signup',  to: 'users#new'
 
   root to: 'static_pages#home'
 
