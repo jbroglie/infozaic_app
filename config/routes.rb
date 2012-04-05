@@ -2,6 +2,8 @@ InfozaicApp::Application.routes.draw do
 
 
 
+  get "users/new"
+
   resources :infozaics
 
   match '/create',   to: 'infozaics#new'
