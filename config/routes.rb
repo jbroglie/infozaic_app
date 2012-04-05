@@ -1,10 +1,15 @@
 InfozaicApp::Application.routes.draw do
 
+
+
+  resources :infozaics
+
+  match '/create',   to: 'infozaics#new'
+
   root to: 'static_pages#home'
 
   match '/about',   to: 'static_pages#about'
   match '/list',   to: 'static_pages#list'
-  match '/create',   to: 'static_pages#create'
   match '/profile',   to: 'static_pages#profile'
   match '/single',   to: 'static_pages#single'
 

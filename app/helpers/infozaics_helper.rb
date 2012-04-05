@@ -1,0 +1,2 @@
+module InfozaicsHelper
+end
