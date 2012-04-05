@@ -2,7 +2,8 @@
       <div class="row">
          <div class="span3">
         	<div class="well">
-          <%= image_tag("justin.jpg", :class => "profile-pic") %>
+            <%= gravatar_for @user %>
+
 		  		<h3><%= @user.name %></h3>
 
 
