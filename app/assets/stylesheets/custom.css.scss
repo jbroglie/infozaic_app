@@ -239,7 +239,7 @@ footer {
   -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 3px;
   -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 3px;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 3px;
-  float: left;
+  display: block;
   margin: 10px;
   overflow: hidden;
 }
@@ -396,6 +396,19 @@ border-bottom: 1px solid #ccc;
 .col3 {
   width: 580px;
 }
+
+.item {
+
+}
+
+.infobit-sortable-placeholder {
+    background: #aaa !important;
+}
+
+.dragging { opacity: .5; background: #eee !important; }​
+
+
+
 
 /*** Masonry Transitions *** */
 /* line 325, ../sass/style.sass */
