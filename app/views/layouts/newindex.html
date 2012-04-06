@@ -1,0 +1,463 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Infozaic | History of West Philadelphia</title>
+    <link href="http://localhost:3000/assets/application.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="http://localhost:3000/assets/custom.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="http://localhost:3000/assets/infozaics.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="http://localhost:3000/assets/sessions.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="http://localhost:3000/assets/static_pages.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="http://localhost:3000/assets/users.css?body=1" media="all" rel="stylesheet" type="text/css" />
+    <script src="http://localhost:3000/assets/jquery.js?body=1" type="text/javascript"></script>
+<script src="http://localhost:3000/assets/jquery_ujs.js?body=1" type="text/javascript"></script>
+<script src="http://localhost:3000/assets/bootstrap-transition.js?body=1" type="text/javascript"></script>
+<script src="http://localhost:3000/assets/bootstrap-alert.js?body=1" type="text/javascript"></script>
+<script src="http://localhost:3000/assets/bootstrap-button.js?body=1" type="text/javascript"></script>
+<script src="http://localhost:3000/assets/bootstrap-carousel.js?body=1" type="text/javascript"></script>
+<script src="http://localhost:3000/assets/bootstrap-collapse.js?body=1" type="text/javascript"></script>
+<script src="http://localhost:3000/assets/bootstrap-dropdown.js?body=1" type="text/javascript"></script>
+<script src="http://localhost:3000/assets/bootstrap-modal.js?body=1" type="text/javascript"></script>
+<script src="http://localhost:3000/assets/bootstrap-scrollspy.js?body=1" type="text/javascript"></script>
+<script src="http://localhost:3000/assets/bootstrap-tab.js?body=1" type="text/javascript"></script>
+<script src="http://localhost:3000/assets/bootstrap-tooltip.js?body=1" type="text/javascript"></script>
+<script src="http://localhost:3000/assets/bootstrap-popover.js?body=1" type="text/javascript"></script>
+<script src="http://localhost:3000/assets/bootstrap-typeahead.js?body=1" type="text/javascript"></script>
+<script src="http://localhost:3000/assets/bootstrap.js?body=1" type="text/javascript"></script>
+<script src="http://localhost:3000/assets/infozaics.js?body=1" type="text/javascript"></script>
+<script src="http://localhost:3000/assets/jquery.masonry.min.js?body=1" type="text/javascript"></script>
+<script src="http://localhost:3000/assets/modernizr-transitions.js?body=1" type="text/javascript"></script>
+<script src="http://localhost:3000/assets/sessions.js?body=1" type="text/javascript"></script>
+<script src="http://localhost:3000/assets/static_pages.js?body=1" type="text/javascript"></script>
+<script src="http://localhost:3000/assets/users.js?body=1" type="text/javascript"></script>
+<script src="http://localhost:3000/assets/application.js?body=1" type="text/javascript"></script>
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="xM4Rz6TkFXuL3H6Tbmnfz/A0En+pXEHwboEPNfLdWVo=" name="csrf-token" />
+    <!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->    
+  </head>
+  <body>
+
+
+    <header class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="/">infozaic</a>
+        <div class="nav-collapse">
+          <ul class="nav">
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Explore <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/list">List Infozaics</a></li>
+                <li><a href="/single">Single Infozaic</a></li>
+                <li class="divider"></li>
+                <li><a href="/create"><i class="icon-leaf"></i> Create New</a></li>
+              </ul>
+            </li>
+
+          </ul>
+          <form class="navbar-search pull-left" action="">
+
+            <input class="search-query span2" placeholder="Search" id="appendedInput" size="16" type="text">
+
+            <i class="icon-search icon-white"></i>
+
+
+
+          </form>
+          <ul class="nav pull-right">
+            
+
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div>
+    </div><!-- /navbar-inner -->
+</header>
+
+
+
+      <div class="container-fluid single">
+
+
+
+      true
+
+<div class="subnav subnav-fixed">
+      <ul class="nav nav-pills">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Video <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Video (YouTube)">YouTube</a></li>
+            <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Video (Vimeo)">Vimeo</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Photo <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Photo (External Link)">Link to Photo</a></li>
+            <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Flickr Slideshow">Flickr Slideshow</a></li>
+            <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Photo (Upload)">Upload</a></li>
+          </ul>
+        </li>
+        <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Audio">Audio</a></li>
+        <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Quote">Quote</a></li>
+        <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Website">Website</a></li>
+
+        <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Wikipedia">Wikipedia</a></li>
+        <li><a href="#thumbnails">Rearrange</a></li>
+        <li><a href="#thumbnails">Resize</a></li>
+        <li><a href="#thumbnails">Edit Meta</a></li>
+      </ul>
+
+          
+</div><!-- /.subnav -->
+
+<div class="mini-meta">
+      <span class="mini-meta-title">History of West Philadelphia</span>
+</div> <!-- /.mini-meta -->
+    
+<div class="row-fluid meta">
+      <div class="span9">
+      
+        <div id="meta-left">
+          <h1>History of West Philadelphia</h1>
+          <h6>description</h6>
+            <p>West Philadelphia, nicknamed West Philly, is a section of Philadelphia, Pennsylvania. Though there is no official definition of its boundaries, it is generally considered to reach from the western shore of the Schuylkill River, to City Line Avenue to the northwest, Cobbs Creek to the southwest, and the SEPTA Media/Elwyn Line to the south. An alternate definition includes all city land west of the Schuylkill; this would also include Southwest Philadelphia and its neighborhoods.</p>
+          
+        </div>
+      </div> <!-- /.span8 -->
+      <div class="span3">
+        <div id="meta-right">
+          <div class="row">
+              <div id="modified">
+                <h6>last modified</h6>
+                <span id="date">12/3/2011</span>
+              </div>
+          </div>
+
+          <div class="row">
+            <div id="contributers">
+              <h6>contributers</h6>
+              <a href="#" rel="tooltip" title="jbroglie"><img alt="2" class="profile-icon" height="30" src="http://localhost:3000/assets/profile/2.jpeg" width="30" /></a>
+              <a href="#" rel="tooltip" title="mhighland"><img alt="3" class="profile-icon" height="30" src="http://localhost:3000/assets/profile/3.jpeg" width="30" /></a>
+              <a href="#" rel="tooltip" title="etolle"><img alt="4" class="profile-icon" height="30" src="http://localhost:3000/assets/profile/4.jpeg" width="30" /></a>
+            </div>
+          </div>
+
+          <div class="row">
+            <div id="contributers">
+              <h6>share</h6>
+            </div>
+          </div>
+        </div>
+      </div><!-- /.span3 -->
+</div><!-- /.row -->
+
+  
+
+<div id="canvas">
+
+  <div class="infobit col2">
+        <div class="infobit-meta">
+          <div class="link">via <a href="#">Wikipedia</a></div>
+          <div class="opinion">
+            <div class="likes">
+              <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="dislikes">
+              <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="comments">
+              <div rel="tooltip" title="Comment" class="comments-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="padding">
+            <h3>West Philadelphia</h3>
+            <p>West Philadelphia, nicknamed West Philly, is a section of Philadelphia, Pennsylvania. Though there is no official definition of its boundaries, it is generally considered to reach from the western shore of the Schuylkill River...<a rel="tooltip" title="Reveal more text" href="#">more</a></p>
+          </div>
+      </div>
+      
+      
+      
+      <div class="infobit col3">
+        <div class="infobit-meta">
+          <div class="link">via <a href="#">Flickr</a></div>
+          <div class="opinion">
+            <div class="likes">
+              <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="dislikes">
+              <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="comments">
+              <div rel="tooltip" title="Comment" class="comments-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+          <object width="550" height="300"><param name="wmode" value="transparent"></param> <param name="flashvars" value="offsite=true&lang=en-us&page_show_url=%2Fsearch%2Fshow%2F%3Fq%3Dwest%2Bphilly&page_show_back_url=%2Fsearch%2F%3Fq%3Dwest%2Bphilly&method=flickr.photos.search&api_params_str=&api_text=west+philly&api_tag_mode=bool&api_media=all&api_sort=relevance&jump_to=&start_index=0"></param> <param name="movie" value="http://www.flickr.com/apps/slideshow/show.swf?v=109615"></param> <param name="allowFullScreen" value="true"></param><embed type="application/x-shockwave-flash" src="http://www.flickr.com/apps/slideshow/show.swf?v=109615" allowFullScreen="true" flashvars="offsite=true&lang=en-us&page_show_url=%2Fsearch%2Fshow%2F%3Fq%3Dwest%2Bphilly&page_show_back_url=%2Fsearch%2F%3Fq%3Dwest%2Bphilly&method=flickr.photos.search&api_params_str=&api_text=west+philly&api_tag_mode=bool&api_media=all&api_sort=relevance&jump_to=&start_index=0" width="550" height="300"></embed></object>
+    
+      </div>
+      
+
+      <div class="infobit col3">
+        <div class="infobit-meta">
+          <div class="link">via <a href="#">Google Maps</a></div>
+          <div class="opinion">
+            <div class="likes">
+              <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="dislikes">
+              <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="comments">
+              <div rel="tooltip" title="Comment" class="comments-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <iframe width="580" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Clark+Park&amp;aq=&amp;sll=39.948306,-75.211372&amp;sspn=0.009738,0.020256&amp;t=m&amp;ie=UTF8&amp;hq=Clark+Park&amp;ll=39.948569,-75.209312&amp;spn=0.01974,0.049696&amp;z=14&amp;output=embed"></iframe>
+        <div class="infobit-actions">
+          <button type="submit" class="btn btn-primary">Directions to Here</button>
+          <button class="btn" type="reset">Directions from Here</button>
+        </div>
+      </div>
+
+
+      
+
+
+
+      <div class="infobit col2">
+        <div class="infobit-meta">
+          <div class="link">via <a href="#">YouTube</a></div>
+          <div class="opinion">
+            <div class="likes">
+              <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="dislikes">
+              <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="comments">
+              <div rel="tooltip" title="Comment" class="comments-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+          <iframe width="380" height="295" src="http://www.youtube.com/embed/HatSl1lu_PM?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+      </div>
+
+      
+      <div class="infobit col2">
+        <div class="infobit-meta">
+          <div class="link">via <a href="#">Link</a></div>
+          <div class="opinion">
+            <div class="likes">
+              <div class="likes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="dislikes">
+              <div class="dislikes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="comments">
+              <div class="comments-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="padding">
+          <h1>Gentrification: putting your money where your mouth is</h1>
+          <h6>July 15, 2007</h6>
+          <p>Gentrification in my part of West Philadelphia is a problem, enough so that I can not afford to buy a home in an area that used to be famous for housing activists and social justice practicioners, among others. Of couse gentrification here, in a neighborhood that was white, Irish and middle-class until the 60’s and 70’s, and has been multi-income and multi-racial since, is not quite the same as it is in other parts of the city. In Grays Ferry, Fairmount, Bella Vista, Fishtown, Brewerytown and now the area near Temple University, more text-book gentrification has been occurring...<a href="#">more</a></p>
+        </div>  
+      </div>
+      
+      
+      
+      <div class="infobit col1">
+        <div class="infobit-meta">
+          <div class="link">via <a href="#">YouTube</a></div>
+          <div class="opinion">
+            <div class="likes">
+              <div class="likes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="dislikes">
+              <div class="dislikes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="comments">
+              <div class="comments-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <iframe width="180" height="120" src="http://www.youtube.com/embed/RzPT2PGlPH4?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+        
+    
+      </div>
+      
+      <div class="infobit col1">
+        <div class="infobit-meta">
+          <div class="link">via <a href="#">Scribd</a></div>
+          <div class="opinion">
+            <div class="likes">
+              <div class="likes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="dislikes">
+              <div class="dislikes-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="comments">
+              <div class="comments-button"></div><div class="opinion-count">102</div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <iframe class="scribd_iframe_embed" src="http://www.scribd.com/embeds/341510/content?start_page=1&view_mode=slideshow&access_key=dv1kq0lib4xqd" data-auto-height="false" data-aspect-ratio="1.5415986949429" scrolling="no" id="doc_89375" width="400" height="319" frameborder="0"></iframe>
+        
+    
+      </div>
+      
+      
+
+      
+
+
+
+
+
+
+</div> <!-- /#canvas -->
+
+<script>
+    $(function(){
+      var $container = $('#canvas');
+
+      $container.imagesLoaded( function(){
+        $container.masonry({
+          itemSelector : '.infobit',
+        columnWidth: 200,
+        isAnimated: true
+        });
+      });
+    });
+  </script>
+
+
+<!-- add modal content -->
+  <div id="edit-modal" class="modal hide fade">
+    <div class="modal-header">
+      <a class="close" data-dismiss="modal" >&times;</a>
+      <h3>Modal Heading</h3>
+    </div>
+    <div class="modal-body">
+      <div class="modal-type" id="wikipedia" style="display: none;">
+        <form class="form-horizontal">
+          <fieldset>
+            <div class="control-group">
+              <label class="control-label" for="input01">Wikipedia Link</label>
+              <div class="controls">
+
+                <input type="text" class="input-xlarge" placeholder="http://en.wikipedia.org/wiki/..." id="input01">
+                <p class="help-block">Paste in the Wikipedia URL.</p>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label" for="textarea">Content to Display</label>
+              <div class="controls">
+                <textarea class="input-xlarge" id="textarea" rows="3"></textarea>
+                <p class="help-block">Content will automatically fill in. The amount show will vary on the window size and popularity of this infobit.</p>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      
+      </div> <!-- / #wikipedia.modal-type  -->
+
+      <div class="modal-type" id="quote" style="display: none;">
+        <form class="form-horizontal">
+          <fieldset>
+            <div class="control-group">
+              <label class="control-label" for="input01">Quote Author</label>
+              <div class="controls">
+
+                <input type="text" class="input-xlarge" placeholder="http://en.wikipedia.org/wiki/..." id="input01">
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label" for="textarea">The Quote</label>
+              <div class="controls">
+                <textarea class="input-xlarge" id="textarea" rows="3"></textarea>
+                <p class="help-block">Content will automatically fill in. The amount show will vary on the window size and popularity of this infobit.</p>
+              </div>
+
+              <div class="control-group">
+              <label class="control-label" for="input01">Reference Link / Source</label>
+              <div class="controls">
+
+                <input type="text" class="input-xlarge" placeholder="http://en.wikipedia.org/wiki/..." id="input01">
+                <p class="help-block">Optional</p>
+              </div>
+            </div>
+
+
+            </div>
+          </fieldset>
+        </form>
+      
+      </div> <!-- / #quote.modal-type  -->
+
+      <hr>
+
+      <h4>Preview</h4>
+      <p>Here is a preview of your infobit:</p>
+
+      <div class="well infobit-example" style="background-color: #888; border: none;">
+        <div id="preview">
+          <div class="infobit col2">
+            <div class="infobit-meta">
+              <div class="link">via <a href="#">Wikipedia</a></div>
+              <div class="opinion">
+                <div class="likes">
+                  <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">102</div>
+                </div>
+                <div class="dislikes">
+                  <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">102</div>
+                </div>
+                <div class="comments">
+                  <div rel="tooltip" title="Comment" class="comments-button"></div><div class="opinion-count">102</div>
+                </div>
+                <div class="clear"></div>
+              </div>
+            </div>
+            <div class="padding">
+              <h3>West Philadelphia</h3>
+              <p>West Philadelphia, nicknamed West Philly, is a section of Philadelphia, Pennsylvania. Though there is no official definition of its boundaries, it is generally considered to reach from the western shore of the Schuylkill River...</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="btn" data-dismiss="modal">Close</a>
+      <a href="#" id="btn-add" class="btn btn-primary">Add</a>
+    </div>
+  </div>
+      
+      <pre class='debug_dump'>--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+controller: static_pages
+action: single
+</pre>
+    </div>
+  </body>
+</html>
