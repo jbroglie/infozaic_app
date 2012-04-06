@@ -71,11 +71,10 @@
       </div><!-- /.span3 -->
 </div><!-- /.row -->
 
-  
 
 <div id="canvas">
 
-  <div class="infobit col2">
+  <div class="infobit item col2">
         <div class="infobit-meta">
           <div class="link">via <a href="#">Wikipedia</a></div>
           <div class="opinion">
@@ -99,7 +98,7 @@
       
       
       
-      <div class="infobit col3">
+      <div class="infobit item col3">
         <div class="infobit-meta">
           <div class="link">via <a href="#">Flickr</a></div>
           <div class="opinion">
@@ -119,8 +118,8 @@
     
       </div>
       
-
-      <div class="infobit col3">
+      <!--
+      <div class="infobit item col3">
         <div class="infobit-meta">
           <div class="link">via <a href="#">Google Maps</a></div>
           <div class="opinion">
@@ -142,13 +141,14 @@
           <button class="btn" type="reset">Directions from Here</button>
         </div>
       </div>
+    -->
 
 
       
 
 
 
-      <div class="infobit col2">
+      <div class="infobit item col2">
         <div class="infobit-meta">
           <div class="link">via <a href="#">YouTube</a></div>
           <div class="opinion">
@@ -168,18 +168,18 @@
       </div>
 
       
-      <div class="infobit col2">
+      <div class="infobit item col2">
         <div class="infobit-meta">
           <div class="link">via <a href="#">Link</a></div>
           <div class="opinion">
             <div class="likes">
-              <div class="likes-button"></div><div class="opinion-count">102</div>
+              <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">102</div>
             </div>
             <div class="dislikes">
-              <div class="dislikes-button"></div><div class="opinion-count">102</div>
+              <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">102</div>
             </div>
             <div class="comments">
-              <div class="comments-button"></div><div class="opinion-count">102</div>
+              <div rel="tooltip" title="Comment" class="comments-button"></div><div class="opinion-count">102</div>
             </div>
             <div class="clear"></div>
           </div>
@@ -193,18 +193,18 @@
       
       
       
-      <div class="infobit col1">
+      <div class="infobit item col1">
         <div class="infobit-meta">
           <div class="link">via <a href="#">YouTube</a></div>
           <div class="opinion">
             <div class="likes">
-              <div class="likes-button"></div><div class="opinion-count">102</div>
+              <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">102</div>
             </div>
             <div class="dislikes">
-              <div class="dislikes-button"></div><div class="opinion-count">102</div>
+              <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">102</div>
             </div>
             <div class="comments">
-              <div class="comments-button"></div><div class="opinion-count">102</div>
+              <div rel="tooltip" title="Comment" class="comments-button"></div><div class="opinion-count">102</div>
             </div>
             <div class="clear"></div>
           </div>
@@ -214,18 +214,18 @@
     
       </div>
       
-      <div class="infobit col1">
+      <div class="infobit item col1">
         <div class="infobit-meta">
           <div class="link">via <a href="#">Scribd</a></div>
           <div class="opinion">
             <div class="likes">
-              <div class="likes-button"></div><div class="opinion-count">102</div>
+              <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">102</div>
             </div>
             <div class="dislikes">
-              <div class="dislikes-button"></div><div class="opinion-count">102</div>
+              <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">102</div>
             </div>
             <div class="comments">
-              <div class="comments-button"></div><div class="opinion-count">102</div>
+              <div rel="tooltip" title="Comment" class="comments-button"></div><div class="opinion-count">102</div>
             </div>
             <div class="clear"></div>
           </div>
@@ -250,14 +250,47 @@
     $(function(){
       var $container = $('#canvas');
 
-      $container.imagesLoaded( function(){
+
         $container.masonry({
-          itemSelector : '.infobit',
-        columnWidth: 200,
-        isAnimated: true
+          itemSelector : '.item',
+          columnWidth: 200,
+          isResizable: true,
+          isAnimated: true
         });
-      });
+
+        $container.sortable({
+            distance: 12,
+            forcePlaceholderSize: true,
+            items: '.item',
+            placeholder: 'infobit-sortable-placeholder item',
+            tolerance: 'pointer',
+            
+            start:  function(event, ui) {            
+                     console.log(ui); 
+                ui.item.addClass('dragging').removeClass('item');
+                if ( ui.item.hasClass('bigun') ) {
+                     ui.placeholder.addClass('bigun');
+                     }
+                       ui.item.parent().masonry('reload')
+                    },
+            change: function(event, ui) {
+                       ui.item.parent().masonry('reload');
+                    },
+            stop:   function(event, ui) { 
+                       ui.item.removeClass('dragging').addClass('item');
+                       ui.item.parent().masonry('reload');
+            }
+        });
     });
+
+
+
+        
+        
+
+
+
+
   </script>
 
 
@@ -333,7 +366,7 @@
 
       <div class="well infobit-example" style="background-color: #888; border: none;">
         <div id="preview">
-          <div class="infobit col2">
+          <div class="infobit item col2">
             <div class="infobit-meta">
               <div class="link">via <a href="#">Wikipedia</a></div>
               <div class="opinion">
