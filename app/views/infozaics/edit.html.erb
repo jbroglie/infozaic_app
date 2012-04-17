@@ -1,2 +1,25 @@
-<h1>Infozaics#edit</h1>
-<p>Find me in app/views/infozaics/edit.html.erb</p>
+
+      <div class="row">
+         <div class="span12">
+        	<ul class="breadcrumb">
+			  <li>
+			    <a href="#">Home</a> <span class="divider">/</span>
+			  </li>
+			  <li>
+			    <a href="#">Infozaics</a> <span class="divider">/</span>
+			  </li>
+			  <li>
+			    <%= link_to @infozaic.title, @infozaic  %> <span class="divider">/</span>
+			  </li>
+			  <li class="active">Edit Infozaic</li>
+			</ul>
+
+        	<h1>Editing Infozaic</h1>
+
+			<%= render 'form' %>
+
+
+
+        </div><!--/span-->
+
+      </div><!--/row-->

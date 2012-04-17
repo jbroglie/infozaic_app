@@ -6,12 +6,11 @@ class InfozaicsController < ApplicationController
   def create
   	@infozaic = Infozaic.new(params[:infozaic])
 
-	if @infozaic.save
-		redirect_to @infozaic
-	#else
+  	if @infozaic.save
+  		redirect_to @infozaic
+  	#else
 
-	end
-
+  	end
   end
 
   def show
@@ -19,5 +18,23 @@ class InfozaicsController < ApplicationController
   end
 
   def edit
+    @infozaic = Infozaic.find(params[:id])
   end
+
+
+  def update
+    @infozaic = Infozaic.find(params[:id])
+
+    respond_to do |format|
+      if @infozaic.update_attributes(params[:infozaic])
+        format.html { redirect_to @infozaic, notice: 'Infozaic was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @infozaic.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
 end

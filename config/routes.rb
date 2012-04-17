@@ -11,6 +11,10 @@ InfozaicApp::Application.routes.draw do
 
   resources :infozaics
 
+
+  match '/:id' => 'infozaics#show'
+  match '/:id/edit' => 'infozaics#edit'
+
   match '/create',   to: 'infozaics#new'
 
   root to: 'static_pages#home'

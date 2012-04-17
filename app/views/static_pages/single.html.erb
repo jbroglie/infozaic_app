@@ -3,29 +3,30 @@
 <%= @skip_footer = true %>
 
 <div class="subnav subnav-fixed">
+
       <ul class="nav nav-pills">
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Video <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="YouTube">YouTube</a></li>
-            <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Vimeo">Vimeo</a></li>
+            <li><a class="modal-btn" data-toggle="modal" href="#add-modal" title="YouTube">YouTube</a></li>
+            <li><a class="modal-btn" data-toggle="modal" href="#add-modal" title="Vimeo">Vimeo</a></li>
           </ul>
         </li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Photo <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Photo">Link to Photo</a></li>
-            <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Flickr Slideshow">Flickr Slideshow</a></li>
-            <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Photo (Upload)">Upload</a></li>
+            <li><a class="modal-btn" data-toggle="modal" href="#add-modal" title="Photo">Link to Photo</a></li>
+            <li><a class="modal-btn" data-toggle="modal" href="#add-modal" title="Flickr Slideshow">Flickr Slideshow</a></li>
+            <li><a class="modal-btn" data-toggle="modal" href="#add-modal" title="Photo (Upload)">Upload</a></li>
           </ul>
         </li>
-        <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Audio">Audio</a></li>
-        <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Quote">Quote</a></li>
-        <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Website">Website</a></li>
+        <li><a class="modal-btn" data-toggle="modal" href="#add-modal" title="Audio">Audio</a></li>
+        <li><a class="modal-btn" data-toggle="modal" href="#add-modal" title="Quote">Quote</a></li>
+        <li><a class="modal-btn" data-toggle="modal" href="#add-modal" title="Website">Website</a></li>
 
-        <li><a class="modal-btn" data-toggle="modal" href="#edit-modal" title="Wikipedia">Wikipedia</a></li>
+        <li><a class="modal-btn" data-toggle="modal" href="#add-modal" title="Wikipedia">Wikipedia</a></li>
 
-        <li><a href="#thumbnails">Edit Meta</a></li>
+        <li><a href="#edit-modal">Edit Meta</a></li>
       </ul>
 
           
@@ -39,9 +40,9 @@
       <div class="span9">
       
         <div id="meta-left">
-          <h1>History of West Philadelphia</h1>
+          <h1 id="meta-title">History of West Philadelphia</h1>
           <h6>description</h6>
-            <p>West Philadelphia, nicknamed West Philly, is a section of Philadelphia, Pennsylvania. Though there is no official definition of its boundaries, it is generally considered to reach from the western shore of the Schuylkill River, to City Line Avenue to the northwest, Cobbs Creek to the southwest, and the SEPTA Media/Elwyn Line to the south. An alternate definition includes all city land west of the Schuylkill; this would also include Southwest Philadelphia and its neighborhoods.</p>
+            <p id="meta-description">West Philadelphia, nicknamed West Philly, is a section of Philadelphia, Pennsylvania. Though there is no official definition of its boundaries, it is generally considered to reach from the western shore of the Schuylkill River, to City Line Avenue to the northwest, Cobbs Creek to the southwest, and the SEPTA Media/Elwyn Line to the south. An alternate definition includes all city land west of the Schuylkill; this would also include Southwest Philadelphia and its neighborhoods.</p>
           
         </div>
       </div> <!-- /.span8 -->
@@ -263,14 +264,6 @@
     $(function(){
 
 
-
-      
-          
-        
-
-
-
-
       var $container = $('#canvas');
 
       $container.imagesLoaded( function(){
@@ -320,8 +313,11 @@
   </script>
 
 
+
+
+
 <!-- add modal content -->
-  <div id="edit-modal" class="modal hide fade">
+  <div id="add-modal" class="modal hide fade">
     <div class="modal-header">
       <a class="close" data-dismiss="modal" >&times;</a>
       <h3>Modal Heading</h3>
@@ -500,4 +496,4 @@
       <a href="#" class="btn" data-dismiss="modal">Close</a>
       <a href="#" id="btn-add" class="disabled btn btn-primary">Add</a>
     </div>
-  </div>
+  </div> <!-- / #add-modal  -->

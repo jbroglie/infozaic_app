@@ -68,15 +68,11 @@
 	    }
 
 
-	    var $modal = $('#edit-modal')
+	    var $modal = $('#add-modal')
 
 	    $('.modal-btn').click(function(e) {
             e.preventDefault();
 
-            /*
-            modalElement.find('.modal-body').load('ajax.php', { item_id: $(this).data('item-id') }, function(){
-                modalElement.modal('show');
-            });*/
 	    	var typeName = $(this).attr('title');
             $('.modal-header h3', $modal).html('Add ' + typeName);
             $('#' + typeName.toLowerCase() + '.modal-type', $modal).addClass('active');
@@ -215,7 +211,7 @@
 
 
         // called when modal box is about to be hidden
-		$('#edit-modal').on('hide', function () {
+		$('#add-modal').on('hide', function () {
 		  $('.modal-type.active').removeClass('active'); // hide this modal type
 		  $('#preview-wrap').hide();
 		})
@@ -268,6 +264,26 @@
 			    alert("Error: please enter a valid Vimeo URL.");
 			}
 		}
+
+
+
+		$('.ajax-edit').live('change', function() {
+		  $(this).parents('form:first').submit();
+		});
+
+		$('.ajax-edit').bind('ajax:success', function() {  
+		    
+			
+		    	
+            var title = $('#infozaic_title', $(this)).val();
+            var description = $('#infozaic_description', $(this)).val();
+
+           	$('#meta-title').html(title);
+           	$('#meta-description').html(description);
+
+           	var alertBox = '<div class="alert alert-success fade in"><a class="close" data-dismiss="alert">×</a>Changes Updated!</div>';
+           	$('#edit-modal .modal-body').prepend(alertBox);
+		});  
 
 
 	
