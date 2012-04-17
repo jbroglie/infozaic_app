@@ -244,6 +244,18 @@ footer {
   overflow: hidden;
 }
 
+.modal-type {
+  display: none;
+}
+
+.modal-type.active {
+  display: block;
+}
+
+#preview-wrap {
+  display: none;
+}
+
 #preview .infobit {
 	float: none;
 	margin: 10px auto;
@@ -355,29 +367,21 @@ border-bottom: 1px solid #ccc;
   padding: 20px;
 }
 
-/* line 220, ../sass/style.sass */
-.medium-text {
-  font-size: 20px;
-  line-height: 24px;
+
+.img-overlay {
+  position: relative;
 }
 
-/* line 226, ../sass/style.sass */
-.news-text h1 {
-  font-size: 20px;
-  line-height: 24px;
-  margin-bottom: 5px;
-}
-/* line 231, ../sass/style.sass */
-.news-text p {
-  font-size: 11px;
-  line-height: 13px;
-}
-
-/* line 235, ../sass/style.sass */
-.news-text .date {
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  font-size: 9px;
+.img-overlay-content {
+  padding: 30px;
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+  background-color: #fcfcfc;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right:0;
+  display: none;
 }
 
 
