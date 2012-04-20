@@ -1,4 +1,10 @@
 class InfozaicsController < ApplicationController
+  
+
+  def index
+    @infozaics = Infozaic.all
+  end
+
   def new
   	@infozaic = Infozaic.new 
   end

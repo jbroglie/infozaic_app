@@ -299,6 +299,31 @@
             }
         });
       });
+
+
+
+
+      // display mini-meta on scroll
+      var $win = $(window)
+        , $miniMeta = $('.mini-meta')
+        , metaBottom = $('.meta').offset().top + 100
+        , isFixed = 0
+
+      processScroll()
+
+      $win.on('scroll', processScroll)
+
+      function processScroll() {
+        var i, scrollTop = $win.scrollTop()
+        if (scrollTop >= metaBottom && !isFixed) {
+          isFixed = 1
+          $miniMeta.fadeIn()
+        } else if (scrollTop <= metaBottom && isFixed) {
+          isFixed = 0
+          $miniMeta.fadeOut()
+        }
+      }
+
     });
 
   </script>

@@ -13,8 +13,7 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Explore <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="<%= list_path %>">List Infozaics</a></li>
-                <li><a href="<%= single_path %>">Single Infozaic</a></li>
+                <li><a href="<%= infozaics_path %>">Browse Infozaics</a></li>
                 <li class="divider"></li>
                 <li><a href="<%= create_path %>"><i class="icon-leaf"></i> Create New</a></li>
               </ul>
@@ -50,6 +49,7 @@
                 </ul>
               </li>
             <% else %>
+              <li><a class="modal-btn" data-toggle="modal" href="#signin-modal" >Sign In</a></li>
             <% end %>
           </ul>
         </div><!-- /.nav-collapse -->

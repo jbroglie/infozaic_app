@@ -1,0 +1,103 @@
+<ul class="breadcrumb">
+        <li>
+          <a href="#">Home</a> <span class="divider">/</span>
+        </li>
+        <li class="active">Infozaics</li>
+      </ul>
+
+<div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            
+            <ul class="nav nav-list">
+              <h3>Filters</h3>
+              <li class="nav-header">By Category</li>
+              <li><a href="#">Education</a></li>
+              <li class="active" ><a href="#">Art</a></li>
+              <li><a href="#">Technology</a></li>
+              <li><a href="#">Science</a></li>
+              <li><a href="#">Literature</a></li>
+              <li class="active"><a href="#">Philosophy</a></li>
+              <li><a href="#">Religion</a></li>
+              <li><a href="#">Culture</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+          <h1>Lastest Infozaics Posted</h1>
+          
+          <div class="row-fluid">
+            <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Screenshot</th>
+            <th>Title</th>
+            <th>Modified</th>
+            <th>Creator</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+
+
+
+
+          <% @infozaics.each do |infozaic| %>
+
+            <tr>
+              <td>
+                <%= link_to image_tag("screenshot.png", :class => "screenshot"), '#' %>
+                
+              </td>
+              <td>
+                <h3><%= link_to(infozaic.title, infozaic, :class => "org-popover", :rel => "popover", "data-original-title" => infozaic.title, "data-content" => infozaic.description) %></h3>
+                <p><%= truncate(infozaic.description, :length => 200, :omission => '...') %></p>
+              </td>
+
+
+              <td>
+                <%= time_ago_in_words(infozaic.updated_at) %> ago
+              </td>
+              
+              <td>
+                <%= link_to image_tag("profile/2.jpeg", :class => "profile-icon", :size => "30x30"), '#', :title => "jbroglie", :rel => "tooltip" %>
+              </td>
+              <td>
+                  <%= link_to 'View', infozaic, class: "btn btn-small btn-success" %>
+
+                  <!--
+                  <%= link_to 'Edit', edit_infozaic_path(infozaic), class: "btn btn-small" %>
+                  <%= link_to 'Destroy', infozaic, confirm: 'Are you sure?', method: :delete, class: "btn btn-small btn-danger" %>
+
+                -->
+                  
+                </td>
+            </tr>
+          <% end %>
+          
+
+          
+          
+        </tbody>
+      </table>
+
+      <div class="pagination">
+  <ul>
+    <li><a href="#">Prev</a></li>
+    <li class="active">
+      <a href="#">1</a>
+    </li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">6</a></li>
+    <li><a href="#">7</a></li>
+    <li><a href="#">8</a></li>
+    <li><a href="#">Next</a></li>
+  </ul>
+</div>
+          </div><!--/row-->
+        </div><!--/span-->
+      </div><!--/row-->

@@ -46,26 +46,7 @@
 	    */
 
 
-	    // fix sub nav on scroll
-	    var $win = $(window)
-	      , $miniMeta = $('.mini-meta')
-	      , metaBottom = $('.meta').offset().top + 100
-	      , isFixed = 0
-
-	    processScroll()
-
-	    $win.on('scroll', processScroll)
-
-	    function processScroll() {
-	      var i, scrollTop = $win.scrollTop()
-	      if (scrollTop >= metaBottom && !isFixed) {
-	        isFixed = 1
-	        $miniMeta.fadeIn()
-	      } else if (scrollTop <= metaBottom && isFixed) {
-	        isFixed = 0
-	        $miniMeta.fadeOut()
-	      }
-	    }
+	    
 
 
 	    var $modal = $('#add-modal')
@@ -273,8 +254,7 @@
 
 		$('.ajax-edit').bind('ajax:success', function() {  
 		    
-			
-		    	
+				
             var title = $('#infozaic_title', $(this)).val();
             var description = $('#infozaic_description', $(this)).val();
 
@@ -284,6 +264,14 @@
            	var alertBox = '<div class="alert alert-success fade in"><a class="close" data-dismiss="alert">×</a>Changes Updated!</div>';
            	$('#edit-modal .modal-body').prepend(alertBox);
 		});  
+
+
+
+		// add popover
+		$('a[rel=popover]').popover({
+	    	placement: "left"
+	    })
+
 
 
 	
