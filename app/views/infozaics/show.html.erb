@@ -1,6 +1,8 @@
 <% provide(:extrastyle, '-fluid single') %>
 <% provide(:title, @infozaic.title) %>
-<% provide(:full_url, "http://#{request.host+request.fullpath}") %>
+<% provide(:full_url, get_full_url(@infozaic.id.to_s)) %>
+<% provide(:thumb_url, render_thumb_url(get_full_url(@infozaic.id.to_s),300, 200)) %>
+
 <% provide(:desc, @infozaic.description) %>
 <%= @skip_footer = true %>
 

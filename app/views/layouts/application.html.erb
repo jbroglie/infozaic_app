@@ -12,8 +12,8 @@
 
     <meta property="og:title" content="<%= yield(:title) %>" />
     <meta property="og:type" content="cause" />
-    <meta property="og:url" content="<%= root_url %>" />
-    <meta property="og:image" content="<%= render_thumb_url(yield(:url),300, 200) %>" />
+    <meta property="og:url" content="<%= yield(:full_url) %>" />
+    <meta property="og:image" content="<%= yield(:thumb_url) %>" />
     <meta property="og:site_name" content="Infozaic" />
     <meta property="fb:app_id" content="252694184827801" /> 
     <meta property="og:description" content="<%= yield(:desc) %>"/>

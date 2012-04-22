@@ -50,5 +50,11 @@ class InfozaicsController < ApplicationController
     end
   end
 
+  private
+  
+  def get_full_url
+    return url_for(self, :only_path => false)
+  end
+
 
 end
