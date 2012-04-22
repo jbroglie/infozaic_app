@@ -1,13 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
     <title><%= full_title(yield(:title)) %></title>
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
-    <%= render 'layouts/shim' %>    
+    <%= render 'layouts/shim' %> 
+
+
+    <meta property="og:title" content="<%= yield(:title) %>" />
+    <meta property="og:type" content="cause" />
+    <meta property="og:url" content="<%= root_url %>" />
+    <meta property="og:image" content="<%= render_thumb_url(yield(:url),300, 200) %>" />
+    <meta property="og:site_name" content="Infozaic" />
+    <meta property="fb:app_id" content="252694184827801" /> 
+    <meta property="og:description" content="<%= yield(:desc) %>"/>
+    
+
+
   </head>
   <body>
+
+    
 
 
     <%= render 'layouts/header' %>

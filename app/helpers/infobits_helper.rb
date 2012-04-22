@@ -41,12 +41,18 @@ module InfobitsHelper
 	end
 
 	def render_thumb(link, width, height)
-		safe_url = CGI.escape(link)
-	  	token = Digest::MD5.hexdigest("#{PRIVATE_KEY}+#{safe_url}")
-		url = "http://api.url2png.com/v3/#{API_KEY}/#{token}/#{width}x#{height}/#{safe_url}"
+		url = render_thumb_url(link,width,height)
 		short_link = truncate(link, :length => 30, :omission => '...')
 		link_to image_tag(url, :class => "link-thumb", :size => "#{width}x#{height}"), link, :title => "Visit #{short_link}", :rel => "tooltip"
 	end
+
+	def render_thumb_url(link, width, height)
+		safe_url = CGI.escape(link)
+	  	token = Digest::MD5.hexdigest("#{PRIVATE_KEY}+#{safe_url}")
+		url = "http://api.url2png.com/v3/#{API_KEY}/#{token}/#{width}x#{height}/#{safe_url}"
+	end
+
+
 
 
 	
