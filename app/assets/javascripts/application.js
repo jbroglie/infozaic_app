@@ -62,6 +62,14 @@
                 previewVimeo(false);
                 $('#vimeo_new_infobit').submit();
                 break;
+            case "article":
+                previewArticle(false);
+                $('#article_new_infobit').submit();
+                break;
+            case "website":
+                previewWebsite(false);
+                $('#website_new_infobit').submit();
+                break;
             default:
               
             }
@@ -79,7 +87,7 @@
 
         function addInfobitSuccessCallback(data, type) {  
             var alertBox = '<div class="alert alert-success fade in"><a class="close" data-dismiss="alert">×</a>Your infobit has been added!</div>';
-            $('#' + type).prepend(alertBox);
+            $('#moday-body').append(alertBox);
         } 
         function addInfobitFailureCallback(error, type) {  
             var alertBox = '<div class="alert alert-error fade in"><a class="close" data-dismiss="alert">×</a>Error: ' + data +'</div>';
@@ -103,6 +111,12 @@
         $("#vimeo_new_infobit")
           .bind('ajax:success', function(data, status, xhr) { addInfobitSuccessCallback(data, "vimeo");})
           .bind('ajax:failure', function(xhr, status, error) {addInfobitFailureCallback(error, "vimeo");})
+        $("#article_new_infobit")
+          .bind('ajax:success', function(data, status, xhr) { addInfobitSuccessCallback(data, "article");})
+          .bind('ajax:failure', function(xhr, status, error) {addInfobitFailureCallback(error, "article");})
+        $("#website_new_infobit")
+          .bind('ajax:success', function(data, status, xhr) { addInfobitSuccessCallback(data, "website");})
+          .bind('ajax:failure', function(xhr, status, error) {addInfobitFailureCallback(error, "website");})
 
 
         // generate quote preview
@@ -128,6 +142,65 @@
 
             $('.infobit-content', $previewInfobit).html(infobitContent);
             $('.link', $previewInfobit).html('via <a href="' + quoteLink + '">Quote Source</a>');
+            
+            setupInteractions();
+            if (display == true)
+                $('#preview-wrap').show();
+        }
+
+
+        // generate article preview
+        $('#btn-preview-article').click(function(e) {
+            e.preventDefault();
+            previewArticle(true);
+        });
+
+        function previewArticle(display) {
+            var $previewInfobit = $('#preview .infobit');
+            var $previewForm = $('#article_new_infobit');
+
+            var articleSource = $('#article_infobit_source', $previewForm).val();
+            var articleTitle = $('#article_infobit_title', $previewForm).val();
+            var articleContent = $('#article_infobit_description', $previewForm).val();
+            var articleLink = $('#article_infobit_link', $previewForm).val();
+
+            var infobitContent = '<div class="padding">';
+            infobitContent += '<h1>' + articleTitle + '</h1>';
+            infobitContent += '<h6>' + articleSource + '</h6>';
+            infobitContent += '<p>' + articleContent + '</p>';
+            infobitContent += '</div>';
+
+            $('.infobit-content', $previewInfobit).html(infobitContent);
+            $('.link', $previewInfobit).html('via <a href="' + articleLink + '">Article Source</a>');
+            
+            setupInteractions();
+            if (display == true)
+                $('#preview-wrap').show();
+        }
+
+        // generate website preview
+        $('#btn-preview-website').click(function(e) {
+            e.preventDefault();
+            previewWebsite(true);
+        });
+
+        function previewWebsite(display) {
+            var $previewInfobit = $('#preview .infobit');
+            var $previewForm = $('#website_new_infobit');
+
+            var websiteTitle = $('#website_infobit_title', $previewForm).val();
+            var websiteLink = $('#website_infobit_link', $previewForm).val();
+
+            var thumb_url = "http://api.url2png.com/v3/P4F93DB86362DD/9709ddfb5b03823bb43e028b2adfa249/330x200/" + websiteLink
+
+            var infobitContent = '<div class="padding">';
+            infobitContent += '<p><strong><a href="' + websiteLink + '">' + websiteTitle + '</a></strong><br>';
+            infobitContent += websiteLink + '</p>';
+            infobitContent += '<img alt="888634656411833598" class="link-thumb" height="200" src="'+ thumb_url +'" width="330" />'
+            infobitContent += '</div>';
+
+            $('.infobit-content', $previewInfobit).html(infobitContent);
+            $('.link', $previewInfobit).html('via <a href="' + websiteLink + '">Website</a>');
             
             setupInteractions();
             if (display == true)

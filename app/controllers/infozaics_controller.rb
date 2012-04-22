@@ -27,6 +27,8 @@ class InfozaicsController < ApplicationController
     @quote_infobit = @infozaic.infobits.new
     @wikipedia_infobit = @infozaic.infobits.new
     @vimeo_infobit = @infozaic.infobits.new
+    @article_infobit = @infozaic.infobits.new
+    @website_infobit = @infozaic.infobits.new
   end
 
   def edit

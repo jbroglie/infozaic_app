@@ -1,4 +1,6 @@
 module InfobitsHelper
+	API_KEY = "P4F93DB86362DD"
+	HASH = "9709ddfb5b03823bb43e028b2adfa249"
 
 	def youtube_embed_id(youtube_url)
 		if youtube_url[/youtu\.be\/([^\?]*)/]
@@ -36,6 +38,12 @@ module InfobitsHelper
 	  embed_url = vimeo_embed_url(vimeo_url)
 	  iframe = '<iframe width="380" height="225" src="' + embed_url + '" ?byline=0&amp;portrait=0" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>'
 	  iframe.html_safe
+	end
+
+	def render_thumb(link, width, height)
+		url = "http://api.url2png.com/v3/#{API_KEY}/#{HASH}/#{width}x#{height}/#{link}"
+		short_link = truncate(link, :length => 30, :omission => '...')
+		link_to image_tag(url, :class => "link-thumb", :size => "#{width}x#{height}"), link, :title => "Visit #{short_link}", :rel => "tooltip"
 	end
 
 	

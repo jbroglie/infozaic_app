@@ -75,135 +75,7 @@
 
 
 <div id="canvas">
-
-
-<%= render @infobits.reverse %>
-
-
-
-
-
-  <div class="infobit item col2">
-        <div class="infobit-meta">
-          <div class="link">via <a href="#">Wikipedia</a></div>
-          <div class="opinion">
-            <div class="likes">
-              <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">102</div>
-            </div>
-            <div class="dislikes">
-              <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">102</div>
-            </div>
-            <div class="comments">
-              <div rel="tooltip" title="Comment" class="comments-button"></div><div class="opinion-count">102</div>
-            </div>
-            <div class="clear"></div>
-          </div>
-        </div>
-        <div class="padding">
-            <h3>West Philadelphia</h3>
-            <p>West Philadelphia, nicknamed West Philly, is a section of Philadelphia, Pennsylvania. Though there is no official definition of its boundaries, it is generally considered to reach from the western shore of the Schuylkill River...<a rel="tooltip" title="Reveal more text" href="#">more</a></p>
-          </div>
-      </div>
-      
-      
-      
-      <div class="infobit item col3">
-        <div class="infobit-meta">
-          <div class="link">via <a href="#">Flickr</a></div>
-          <div class="opinion">
-            <div class="likes">
-              <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">102</div>
-            </div>
-            <div class="dislikes">
-              <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">102</div>
-            </div>
-            <div class="comments">
-              <div rel="tooltip" title="Comment" class="comments-button"></div><div class="opinion-count">102</div>
-            </div>
-            <div class="clear"></div>
-          </div>
-        </div>
-        <div class="infobit-content">
-          <div class="img-overlay">
-            <div class="img-overlay-content">
-              <h1>Sunset on Baltimore</h1>
-              <p>This shot was taken on Baltimore Avenue in West Philly on a sunny summer eve.</p>
-            </div>
-
-            <img src="http://www.flyingkitemedia.com/galleries/Featured_Neighborhood/West_Philadelphia/West_Philly_FN.jpg" alt="West_Philly" width="580" height="386" />
-
-          </div>
-
-        </div>
-    
-      </div>
-
-      
-      <!--
-      <div class="infobit item col3">
-        <div class="infobit-meta">
-          <div class="link">via <a href="#">Google Maps</a></div>
-          <div class="opinion">
-            <div class="likes">
-              <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">102</div>
-            </div>
-            <div class="dislikes">
-              <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">102</div>
-            </div>
-            <div class="comments">
-              <div rel="tooltip" title="Comment" class="comments-button"></div><div class="opinion-count">102</div>
-            </div>
-            <div class="clear"></div>
-          </div>
-        </div>
-        <iframe width="580" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Clark+Park&amp;aq=&amp;sll=39.948306,-75.211372&amp;sspn=0.009738,0.020256&amp;t=m&amp;ie=UTF8&amp;hq=Clark+Park&amp;ll=39.948569,-75.209312&amp;spn=0.01974,0.049696&amp;z=14&amp;output=embed"></iframe>
-        <div class="infobit-actions">
-          <button type="submit" class="btn btn-primary">Directions to Here</button>
-          <button class="btn" type="reset">Directions from Here</button>
-        </div>
-      </div>
-    -->
-
-
-      
-
-      
-      <div class="infobit item col2">
-        <div class="infobit-meta">
-          <div class="link">via <a href="#">Link</a></div>
-          <div class="opinion">
-            <div class="likes">
-              <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">102</div>
-            </div>
-            <div class="dislikes">
-              <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">102</div>
-            </div>
-            <div class="comments">
-              <div rel="tooltip" title="Comment" class="comments-button"></div><div class="opinion-count">102</div>
-            </div>
-            <div class="clear"></div>
-          </div>
-        </div>
-        <div class="padding">
-          <h1>Gentrification: putting your money where your mouth is</h1>
-          <h6>July 15, 2007</h6>
-          <p>Gentrification in my part of West Philadelphia is a problem, enough so that I can not afford to buy a home in an area that used to be famous for housing activists and social justice practicioners, among others. Of couse gentrification here, in a neighborhood that was white, Irish and middle-class until the 60’s and 70’s, and has been multi-income and multi-racial since, is not quite the same as it is in other parts of the city. In Grays Ferry, Fairmount, Bella Vista, Fishtown, Brewerytown and now the area near Temple University, more text-book gentrification has been occurring...<a href="#">more</a></p>
-        </div>  
-      </div>
-      
-      
-
-      
-      
-      
-
-      
-
-
-
-
-
-
+  <%= render @infobits.reverse %>
 </div> <!-- /#canvas -->
 
 
@@ -447,12 +319,6 @@
                 <p class="help-block">What is the title of this news article or blog post?</p>
               </div>
             </div>
-            <div class="control-group">
-              <%= f.label :subtitle, "Author", class: "control-label" %>
-              <div class="controls">
-                <%= f.text_field :subtitle, class: "input-xlarge" %>
-              </div>
-            </div>
 
             <div class="control-group">
               <%= f.label :description, "Article Content", class: "control-label" %>
@@ -462,10 +328,17 @@
             </div>
 
             <div class="control-group">
+              <%= f.label :source, "Article Source", class: "control-label" %>
+              <div class="controls">
+                <%= f.text_field :source, class: "input-xlarge" %>
+                <p class="help-block">Who published this article?</p>
+              </div>
+            </div>
+
+            <div class="control-group">
               <%= f.label :link, "Reference URL", class: "control-label" %>
               <div class="controls">
                 <%= f.text_field :link, class: "input-xlarge", placeholder: "http://www.site.com/reference/link" %>
-                <p class="help-block">Where was this article retrieved from?</p>
               </div>
             </div>
 
@@ -478,6 +351,39 @@
         <div class="clear"></div>
       
       </div> <!-- / #article.modal-type  -->
+
+
+      <div class="modal-type" id="website">
+        <%= form_for([@infozaic, @website_infobit], :remote => true, :namespace => "website", :html => { :class => "form-horizontal" } ) do |f| %>
+        
+          <fieldset>
+
+            <div class="control-group">
+              <%= f.label :link, "Website URL", class: "control-label" %>
+              <div class="controls">
+                <%= f.text_field :link, class: "input-xlarge", placeholder: "http://www.website.com" %>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <%= f.label :title, "Title", class: "control-label" %>
+              <div class="controls">
+                <%= f.text_field :title, class: "input-xlarge" %>
+                <p class="help-block">Give a title or short description of this website.</p>
+              </div>
+            </div>
+
+            
+
+            <%= f.hidden_field :infobit_type, :value => "website" %>
+          </fieldset>
+        <% end %>
+
+
+        <a href="#" id="btn-preview-website" class="pull-right btn btn-primary">Generate Preview</a>
+        <div class="clear"></div>
+      
+      </div> <!-- / #website.modal-type  -->
 
 
       <div class="modal-type" id="photo">

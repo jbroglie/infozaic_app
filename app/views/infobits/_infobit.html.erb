@@ -31,7 +31,7 @@
       <% when "youtube" %>
           <%= youtube_embed(infobit.link) %>
 
-          
+
       <% when "vimeo" %>
           <%= vimeo_embed(infobit.link) %>
 
@@ -42,6 +42,20 @@
             <p class="pull-right"><strong><%= infobit.title %></strong><br>
             <%= infobit.subtitle %></p>
             <div class="clear"></div>
+          </div>
+
+      <% when "article" %>
+          <div class="padding">
+            <h1><%= infobit.title %></h1>
+            <h6><%= infobit.source %></h6>
+            <p><%= infobit.description %></p>
+          </div>
+
+      <% when "website" %>
+          <div class="padding">
+            <p><strong><a href="<%= infobit.link %>"><%= infobit.title %></a></strong><br>
+            <%= truncate(infobit.link, :length => 50, :omission => '...') %></p>
+            <%= render_thumb(infobit.link, 330, 200) %>
           </div>
 
       <% when "wikipedia" %>

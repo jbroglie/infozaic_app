@@ -419,6 +419,16 @@ border-bottom: 1px solid #ccc;
     background: #aaa !important;
 }
 
+
+.link-thumb {
+  padding: 4px;
+  border: 1px solid $grayLight;
+}
+
+.link-thumb:hover {
+  border: 1px solid $grayDarker;
+}
+
 .dragging { opacity: .5; background: #eee !important; }​
 
 
