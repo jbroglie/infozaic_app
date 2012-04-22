@@ -15,7 +15,13 @@ InfozaicApp::Application.routes.draw do
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
 
-  resources :infozaics
+  resources :infobits
+
+  # nested resources
+  resources :infozaics do
+    resources :infobits
+  end
+
 
 
   #match '/:id' => 'infozaics#show'

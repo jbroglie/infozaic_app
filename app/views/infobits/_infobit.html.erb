@@ -1,0 +1,56 @@
+  <div class="infobit item col2">
+      <div class="infobit-meta">
+        <div class="link">type <a title="<%= infobit.title %>" href="<%= infobit.link %>"> <%= infobit.infobit_type %></a></div>
+        <div class="opinion">
+          <div class="likes">
+            <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count"><%= infobit.likes_count %></div>
+          </div>
+          <div class="dislikes">
+            <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count"><%= infobit.dislikes_count %></div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+      <div class="infobit-content">
+
+  
+
+
+      <% case infobit.infobit_type 
+
+         when "photo" %>
+          
+            <div class="img-overlay">
+              <div class="img-overlay-content">
+                <h1><%= infobit.title %></h1>
+                <p><%= infobit.description %></p>
+              </div>
+              <%= image_tag infobit.link %>
+            </div>
+
+      <% when "youtube" %>
+          <%= youtube_embed(infobit.link) %>
+
+          
+      <% when "vimeo" %>
+          <%= vimeo_embed(infobit.link) %>
+
+
+      <% when "quote" %>
+          <div class="padding">
+            <p class="lead"><%= infobit.description %></p>
+            <p class="pull-right"><strong><%= infobit.title %></strong><br>
+            <%= infobit.subtitle %></p>
+            <div class="clear"></div>
+          </div>
+
+      <% when "wikipedia" %>
+        <div class="padding">
+            <h3><%= infobit.title %></h3>
+            <p><%= infobit.description %>...<a rel="tooltip" href="#" data-original-title="Reveal more text">more</a></p>
+          </div>
+      <% end %>
+
+
+  </div>
+</div>

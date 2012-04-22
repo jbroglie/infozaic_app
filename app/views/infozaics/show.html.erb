@@ -8,23 +8,23 @@
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Video <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a class="modal-btn" data-toggle="modal" href="#add-modal" title="YouTube">YouTube</a></li>
-            <li><a class="modal-btn" data-toggle="modal" href="#add-modal" title="Vimeo">Vimeo</a></li>
+            <li><a class="modal-btn" data-toggle="modal" href="#add-modal" data-type="youtube">YouTube</a></li>
+            <li><a class="modal-btn" data-toggle="modal" href="#add-modal" data-type="vimeo">Vimeo</a></li>
           </ul>
         </li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Photo <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a class="modal-btn" data-toggle="modal" href="#add-modal" title="Photo">Link to Photo</a></li>
-            <li><a class="modal-btn" data-toggle="modal" href="#add-modal" title="Flickr Slideshow">Flickr Slideshow</a></li>
-            <li><a class="modal-btn" data-toggle="modal" href="#add-modal" title="Photo (Upload)">Upload</a></li>
+            <li><a class="modal-btn" data-toggle="modal" href="#add-modal" data-type="photo">Link to Photo</a></li>
+            <li><a class="modal-btn" data-toggle="modal" href="#add-modal" data-type="flickr">Flickr Slideshow</a></li>
+            <li><a class="modal-btn" data-toggle="modal" href="#add-modal" data-type="photo-upload">Upload</a></li>
           </ul>
         </li>
-        <li><a class="modal-btn" data-toggle="modal" href="#add-modal" title="Audio">Audio</a></li>
-        <li><a class="modal-btn" data-toggle="modal" href="#add-modal" title="Quote">Quote</a></li>
-        <li><a class="modal-btn" data-toggle="modal" href="#add-modal" title="Website">Website</a></li>
+        <li><a class="modal-btn" data-toggle="modal" href="#add-modal" data-type="quote">Quote</a></li>
+        <li><a class="modal-btn" data-toggle="modal" href="#add-modal" data-type="article">Article</a></li>
+        <li><a class="modal-btn" data-toggle="modal" href="#add-modal" data-type="website">Website</a></li>
 
-        <li><a class="modal-btn" data-toggle="modal" href="#add-modal" title="Wikipedia">Wikipedia</a></li>
+        <li><a class="modal-btn" data-toggle="modal" href="#add-modal" data-type="wikipedia">Wikipedia</a></li>
 
         <li><a data-toggle="modal" href="#edit-modal">Edit Meta</a></li>
       </ul>
@@ -75,6 +75,13 @@
 
 
 <div id="canvas">
+
+
+<%= render @infobits.reverse %>
+
+
+
+
 
   <div class="infobit item col2">
         <div class="infobit-meta">
@@ -131,24 +138,6 @@
     
       </div>
 
-      <div class="infobit item col2">
-              <div class="infobit-meta">
-                <div class="link">via <a href="http://thestartingfive.net/wp-content/uploads/2008/04/img_0893.JPG">Link</a></div>
-                <div class="opinion">
-                  <div class="likes">
-                    <div rel="tooltip" class="likes-button" data-original-title="Like"></div><div class="opinion-count">42</div>
-                  </div>
-                  <div class="dislikes">
-                    <div rel="tooltip" class="dislikes-button" data-original-title="Dislike"></div><div class="opinion-count">26</div>
-                  </div>
-                  <div class="comments">
-                    <div rel="tooltip" class="comments-button" data-original-title="Comment"></div><div class="opinion-count">12</div>
-                  </div>
-                  <div class="clear"></div>
-                </div>
-              </div>
-              <div class="infobit-content"><div class="img-overlay"><div class="img-overlay-content"><h1>Rough Neighborhood</h1><p>Porta facilisis ac adipiscing in mattis dictumst, nascetur turpis integer, vel sociis etiam urna etiam quis sed vel scelerisque placerat nisi magna. Rhoncus velit nec vut? Ac natoque habitasse sociis eros non in natoque enim, integer, in vel, sit porttitor pellentesque nunc natoque tincidunt, ut hac amet ut dignissim rhoncus, mauris duis adipiscing facilisis. Adipiscing nisi, sed? Magna rhoncus porttitor! Turpis sit montes nisi adipiscing ultrices, mattis vel proin urna ac nec. Tortor augue porta? Est sagittis, dis</p></div><img src="http://thestartingfive.net/wp-content/uploads/2008/04/img_0893.JPG" alt="img" width="580"></div></div>
-            </div>
       
       <!--
       <div class="infobit item col3">
@@ -178,27 +167,6 @@
 
       
 
-
-
-      <div class="infobit item col2">
-        <div class="infobit-meta">
-          <div class="link">via <a href="#">YouTube</a></div>
-          <div class="opinion">
-            <div class="likes">
-              <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">102</div>
-            </div>
-            <div class="dislikes">
-              <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">102</div>
-            </div>
-            <div class="comments">
-              <div rel="tooltip" title="Comment" class="comments-button"></div><div class="opinion-count">102</div>
-            </div>
-            <div class="clear"></div>
-          </div>
-        </div>
-          <iframe width="380" height="295" src="http://www.youtube.com/embed/HatSl1lu_PM?wmode=opaque" frameborder="0" allowfullscreen></iframe>
-      </div>
-
       
       <div class="infobit item col2">
         <div class="infobit-meta">
@@ -224,28 +192,7 @@
       </div>
       
       
-      
-      <div class="infobit item col1">
-        <div class="infobit-meta">
-          <div class="link">via <a href="#">YouTube</a></div>
-          <div class="opinion">
-            <div class="likes">
-              <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">102</div>
-            </div>
-            <div class="dislikes">
-              <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">102</div>
-            </div>
-            <div class="comments">
-              <div rel="tooltip" title="Comment" class="comments-button"></div><div class="opinion-count">102</div>
-            </div>
-            <div class="clear"></div>
-          </div>
-        </div>
-        <iframe width="180" height="120" src="http://www.youtube.com/embed/RzPT2PGlPH4?wmode=opaque" frameborder="0" allowfullscreen></iframe>
-        
-    
-      </div>
-      
+
       
       
       
@@ -371,13 +318,14 @@
           </div>
         </fieldset>
 
-        <div class="modal-footer">
-        <a href="#" class="btn" data-dismiss="modal">Close</a>
-         <%= f.submit "Update", class: "btn btn-primary" %>
-      </div>
+        
       <% end %>
+      
     </div>
-    
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
+        <a href="#" id="edit-submit" class="btn btn-primary">Update</a>
+      </div>
 
     
 
@@ -397,112 +345,201 @@
 
 
       <div class="modal-type" id="wikipedia">
-        <form class="form-horizontal form-add-infobit">
-          <fieldset>
-            <div class="control-group">
-              <label class="control-label" for="wikipedia-link">Wikipedia Link</label>
-              <div class="controls">
+        
 
-                <input type="text" class="input-xlarge" placeholder="http://en.wikipedia.org/wiki/..." id="wikipedia-link">
+        <%= form_for([@infozaic, @wikipedia_infobit], :remote => true, :namespace => "wikipedia", :html => { :class => "form-horizontal" } ) do |f| %>
+        
+          <fieldset>
+
+            <div class="control-group">
+              <%= f.label :link, "Wikipedia Link", class: "control-label" %>
+              <div class="controls">
+                <%= f.text_field :link, class: "input-xlarge", placeholder: "http://en.wikipedia.org/wiki/..." %>
                 <p class="help-block">Paste in the Wikipedia URL.</p>
               </div>
             </div>
 
             <div class="control-group">
-              <label class="control-label" for="wikipedia-content">Content to Display</label>
+              <%= f.label :title, "Title", class: "control-label" %>
               <div class="controls">
-                <textarea class="input-xlarge" id="wikipedia-content" rows="3"></textarea>
-                <p class="help-block">Content will automatically fill in. The amount show will vary on the window size and popularity of this infobit.</p>
+                <%= f.text_field :title, class: "input-xlarge" %>
+                <p class="help-block">This should be the article title.</p>
               </div>
             </div>
+
+            <div class="control-group">
+              <%= f.label :description, "Content", class: "control-label" %>
+              <div class="controls">
+                <%= f.text_area :description, :rows => 3, class: "input-xlarge" %>
+                <p class="help-block">The first paragraph on Wikipedia for this topic should do fine!</p>
+              </div>
+            </div>
+
+            <%= f.hidden_field :infobit_type, :value => "wikipedia" %>
           </fieldset>
-        </form>
+        <% end %>
+
         <a href="#" id="btn-preview-wikipedia" class="pull-right btn btn-primary">Generate Preview</a>
         <div class="clear"></div>
       
       </div> <!-- / #wikipedia.modal-type  -->
 
+
+
+
       <div class="modal-type" id="quote">
-        <form class="form-horizontal form-add-infobit">
+
+        <%= form_for([@infozaic, @quote_infobit], :remote => true, :namespace => "quote", :html => { :class => "form-horizontal" } ) do |f| %>
+        
           <fieldset>
-            <div class="control-group">
-              <label class="control-label" for="quote-author">Quote Author</label>
-              <div class="controls">
 
-                <input type="text" class="input-xlarge" id="quote-author">
+
+            <div class="control-group">
+              <%= f.label :title, "Quote Author", class: "control-label" %>
+              <div class="controls">
+                <%= f.text_field :title, class: "input-xlarge" %>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= f.label :subtitle, "Author Title", class: "control-label" %>
+              <div class="controls">
+                <%= f.text_field :subtitle, class: "input-xlarge" %>
+                <p class="help-block">Optional. Who is this author?</p>
               </div>
             </div>
 
             <div class="control-group">
-              <label class="control-label" for="quote-content">The Quote</label>
+              <%= f.label :description, "The Quote", class: "control-label" %>
               <div class="controls">
-                <textarea class="input-xlarge" id="quote-content" rows="3"></textarea>
+                <%= f.text_area :description, :rows => 3, class: "input-xlarge" %>
               </div>
             </div>
 
             <div class="control-group">
-              <label class="control-label" for="quote-link">Reference Link / Source</label>
+              <%= f.label :link, "Reference URL", class: "control-label" %>
               <div class="controls">
-
-                <input type="text" class="input-xlarge" placeholder="http://en.wikipedia.org/wiki/..." id="quote-link">
-                <p class="help-block">Optional</p>
+                <%= f.text_field :link, class: "input-xlarge", placeholder: "http://www.site.com/reference/link" %>
+                <p class="help-block">Optional.</p>
               </div>
             </div>
+
+            <%= f.hidden_field :infobit_type, :value => "quote" %>
           </fieldset>
-        </form>
+        <% end %>
+
+
         <a href="#" id="btn-preview-quote" class="pull-right btn btn-primary">Generate Preview</a>
         <div class="clear"></div>
       
       </div> <!-- / #quote.modal-type  -->
 
 
+      <div class="modal-type" id="article">
+        <%= form_for([@infozaic, @article_infobit], :remote => true, :namespace => "article", :html => { :class => "form-horizontal" } ) do |f| %>
+        
+          <fieldset>
+
+
+            <div class="control-group">
+              <%= f.label :title, "Article Title", class: "control-label" %>
+              <div class="controls">
+                <%= f.text_field :title, class: "input-xlarge" %>
+                <p class="help-block">What is the title of this news article or blog post?</p>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= f.label :subtitle, "Author", class: "control-label" %>
+              <div class="controls">
+                <%= f.text_field :subtitle, class: "input-xlarge" %>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <%= f.label :description, "Article Content", class: "control-label" %>
+              <div class="controls">
+                <%= f.text_area :description, :rows => 3, class: "input-xlarge" %>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <%= f.label :link, "Reference URL", class: "control-label" %>
+              <div class="controls">
+                <%= f.text_field :link, class: "input-xlarge", placeholder: "http://www.site.com/reference/link" %>
+                <p class="help-block">Where was this article retrieved from?</p>
+              </div>
+            </div>
+
+            <%= f.hidden_field :infobit_type, :value => "article" %>
+          </fieldset>
+        <% end %>
+
+
+        <a href="#" id="btn-preview-article" class="pull-right btn btn-primary">Generate Preview</a>
+        <div class="clear"></div>
+      
+      </div> <!-- / #article.modal-type  -->
+
+
       <div class="modal-type" id="photo">
-        <form class="form-horizontal form-add-infobit">
+  
+
+        <%= form_for([@infozaic, @photo_infobit], :remote => true, :namespace => "photo", :html => { :class => "form-horizontal" } ) do |f| %>
+        
           <fieldset>
             <div class="control-group">
-              <label class="control-label" for="photo-link">Photo Link</label>
+              <%= f.label :link, "Photo URL", class: "control-label" %>
               <div class="controls">
-
-                <input type="text" class="input-xlarge" placeholder="http://www.site.com/link/to/photo" id="photo-link">
+                <%= f.text_field :link, class: "input-xlarge", placeholder: "http://www.site.com/link/to/photo" %>
+                <p class="help-block">Paste in the URL to your photo.</p>
               </div>
             </div>
 
             <div class="control-group">
-              <label class="control-label" for="photo-title">Title</label>
+              <%= f.label :title, class: "control-label" %>
               <div class="controls">
-
-                <input type="text" class="input-xlarge" id="photo-title">
+                <%= f.text_field :title, class: "input-xlarge" %>
               </div>
             </div>
 
             <div class="control-group">
-              <label class="control-label" for="photo-desc">Description</label>
+              <%= f.label :description, class: "control-label" %>
               <div class="controls">
-                <textarea class="input-xlarge" id="photo-desc" rows="3"></textarea>
+                <%= f.text_area :description, :rows => 3, class: "input-xlarge" %>
               </div>
             </div>
 
-            
+            <%= f.hidden_field :infobit_type, :value => "photo" %>
+
+
           </fieldset>
-        </form>
+        <% end %>
+
+
         <a href="#" id="btn-preview-photo" class="pull-right btn btn-primary">Generate Preview</a>
         <div class="clear"></div>
       
       </div> <!-- / #photo.modal-type  -->
 
       <div class="modal-type" id="youtube">
-        <form class="form-horizontal form-add-infobit">
+        
+
+        <%= form_for([@infozaic, @youtube_infobit], :remote => true, :namespace => "youtube", :html => { :class => "form-horizontal" } ) do |f| %>
+        
           <fieldset>
             <div class="control-group">
-              <label class="control-label" for="youtube-link">YouTube Link</label>
+              <%= f.label :link, "YouTube URL", class: "control-label" %>
               <div class="controls">
-
-                <input type="text" class="input-xlarge" placeholder="http://www.youtube.com/watch?v=..." id="youtube-link">
+                <%= f.text_field :link, class: "input-xlarge", placeholder: "http://www.youtube.com/watch?v=..." %>
                 <p class="help-block">Paste in the YouTube URL.</p>
               </div>
             </div>
+
+            <%= f.hidden_field :infobit_type, :value => "youtube" %>
+
+
           </fieldset>
-        </form>
+        <% end %>
+
 
         <a href="#" id="btn-preview-youtube" class="pull-right btn btn-primary">Generate Preview</a>
         <div class="clear"></div>
@@ -510,18 +547,18 @@
       </div> <!-- / #youtube.modal-type  -->
 
       <div class="modal-type" id="vimeo">
-        <form class="form-horizontal form-add-infobit">
+        <%= form_for([@infozaic, @vimeo_infobit], :remote => true, :namespace => "vimeo", :html => { :class => "form-horizontal" } ) do |f| %>    
           <fieldset>
             <div class="control-group">
-              <label class="control-label" for="vimeo-link">Vimeo Link</label>
+              <%= f.label :link, "Vimeo URL", class: "control-label" %>
               <div class="controls">
-
-                <input type="text" class="input-xlarge" placeholder="http://www.vimeo.com/..." id="vimeo-link">
+                <%= f.text_field :link, class: "input-xlarge", placeholder: "http://www.vimeo.com/..." %>
                 <p class="help-block">Paste in the Vimeo URL.</p>
               </div>
             </div>
+            <%= f.hidden_field :infobit_type, :value => "vimeo" %>
           </fieldset>
-        </form>
+        <% end %>
 
         <a href="#" id="btn-preview-vimeo" class="pull-right btn btn-primary">Generate Preview</a>
         <div class="clear"></div>
@@ -540,13 +577,10 @@
                 <div class="link">via <a href="#">Link</a></div>
                 <div class="opinion">
                   <div class="likes">
-                    <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">42</div>
+                    <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">0</div>
                   </div>
                   <div class="dislikes">
-                    <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">26</div>
-                  </div>
-                  <div class="comments">
-                    <div rel="tooltip" title="Comment" class="comments-button"></div><div class="opinion-count">12</div>
+                    <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">0</div>
                   </div>
                   <div class="clear"></div>
                 </div>
@@ -562,6 +596,6 @@
     </div>
     <div class="modal-footer">
       <a href="#" class="btn" data-dismiss="modal">Close</a>
-      <a href="#" id="btn-add" class="disabled btn btn-primary">Add</a>
+      <a href="#" id="btn-add" type="" class="btn btn-primary">Add</a>
     </div>
   </div> <!-- / #add-modal  -->

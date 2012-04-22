@@ -13,7 +13,6 @@ class Infozaic < ActiveRecord::Base
   attr_accessible :description, :title
 
 
-  has_many :infobits
-
+  has_many :infobits, :dependent => :destroy
 
 end

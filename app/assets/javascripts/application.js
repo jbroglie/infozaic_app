@@ -22,109 +22,158 @@
   $(function(){
 
 
-  		/*
-		// fix sub nav on scroll
-	    var $win = $(window)
-	      , $nav = $('.subnav')
-	      , navTop = $('.subnav').length && $('.subnav').offset().top - 40
-	      , isFixed = 0
-
-	    processScroll()
-
-	    $win.on('scroll', processScroll)
-
-	    function processScroll() {
-	      var i, scrollTop = $win.scrollTop()
-	      if (scrollTop >= navTop && !isFixed) {
-	        isFixed = 1
-	        $nav.addClass('subnav-fixed')
-	      } else if (scrollTop <= navTop && isFixed) {
-	        isFixed = 0
-	        $nav.removeClass('subnav-fixed')
-	      }
-	    }
-	    */
-
-
-	    
-
-
 	    var $modal = $('#add-modal')
 
 	    $('.modal-btn').click(function(e) {
             e.preventDefault();
 
-	    	var typeName = $(this).attr('title');
+	    	var typeName = $(this).attr('data-type');
             $('.modal-header h3', $modal).html('Add ' + typeName);
-            $('#' + typeName.toLowerCase() + '.modal-type', $modal).addClass('active');
+            $('#' + typeName+ '.modal-type', $modal).addClass('active');
+            $('#btn-add').attr("type", typeName); // add type class to add btn
+
         });
 
 
         $('#btn-add').click(function(e) {
             e.preventDefault();
-            var $newInfobit = $($('#preview', $modal).html());
-			$("#canvas").prepend( $newInfobit ).masonry( 'reload' );
-			$('#edit-modal').modal('hide');
 
+            var typeclass = $(this).attr('type');
+            
+            switch(typeclass)
+            {
+            case "photo":
+                previewPhoto(false);
+                $('#photo_new_infobit').submit();
+                break;
+            case "youtube":
+                previewYoutube(false);
+                $('#youtube_new_infobit').submit();
+                break;
+            case "quote":
+                previewQuote(false);
+                $('#quote_new_infobit').submit();
+                break;
+            case "wikipedia":
+                previewWikipedia(false);
+                $('#wikipedia_new_infobit').submit();
+                break;
+            case "vimeo":
+                previewVimeo(false);
+                $('#vimeo_new_infobit').submit();
+                break;
+            default:
+              
+            }
+
+            addInfobitToCanvas();
 			setupInteractions();
         });
+
+        function addInfobitToCanvas() {
+            var $newInfobit = $($('#preview', $modal).html());
+            $("#canvas").prepend( $newInfobit ).masonry( 'reload' );
+            //$('#add-modal').modal('hide');  
+        }
+
+
+        function addInfobitSuccessCallback(data, type) {  
+            var alertBox = '<div class="alert alert-success fade in"><a class="close" data-dismiss="alert">×</a>Your infobit has been added!</div>';
+            $('#' + type).prepend(alertBox);
+        } 
+        function addInfobitFailureCallback(error, type) {  
+            var alertBox = '<div class="alert alert-error fade in"><a class="close" data-dismiss="alert">×</a>Error: ' + data +'</div>';
+            $('#' + type).prepend(alertBox);
+        } 
+
+
+        // setup the AJAX callbacks
+        $("#youtube_new_infobit")
+          .bind('ajax:success', function(data, status, xhr) { addInfobitSuccessCallback(data, "youtube");})
+          .bind('ajax:failure', function(xhr, status, error) {addInfobitFailureCallback(error, "youtube");})
+        $("#photo_new_infobit")
+          .bind('ajax:success', function(data, status, xhr) { addInfobitSuccessCallback(data, "photo");})
+          .bind('ajax:failure', function(xhr, status, error) {addInfobitFailureCallback(error, "photo");})
+        $("#quote_new_infobit")
+          .bind('ajax:success', function(data, status, xhr) { addInfobitSuccessCallback(data, "quote");})
+          .bind('ajax:failure', function(xhr, status, error) {addInfobitFailureCallback(error, "quote");})
+        $("#wikipedia_new_infobit")
+          .bind('ajax:success', function(data, status, xhr) { addInfobitSuccessCallback(data, "wikipedia");})
+          .bind('ajax:failure', function(xhr, status, error) {addInfobitFailureCallback(error, "wikipedia");})
+        $("#vimeo_new_infobit")
+          .bind('ajax:success', function(data, status, xhr) { addInfobitSuccessCallback(data, "vimeo");})
+          .bind('ajax:failure', function(xhr, status, error) {addInfobitFailureCallback(error, "vimeo");})
+
 
         // generate quote preview
         $('#btn-preview-quote').click(function(e) {
             e.preventDefault();
-            var $previewInfobit = $('#preview .infobit');
-            var $previewForm = $('#quote .form-add-infobit');
+            previewQuote(true);
+        });
 
-            var quoteAuthor = $('#quote-author', $previewForm).val();
-            var quoteContent = $('#quote-content', $previewForm).val();
-            var quoteLink = $('#quote-link', $previewForm).val();
+        function previewQuote(display) {
+            var $previewInfobit = $('#preview .infobit');
+            var $previewForm = $('#quote_new_infobit');
+
+            var quoteAuthor = $('#quote_infobit_title', $previewForm).val();
+            var quoteAuthorTitle = $('#quote_infobit_subtitle', $previewForm).val();
+            var quoteContent = $('#quote_infobit_description', $previewForm).val();
+            var quoteLink = $('#quote_infobit_link', $previewForm).val();
 
             var infobitContent = '<div class="padding">';
             infobitContent += '<p class="lead">' + quoteContent + '</p>';
-            infobitContent += '<h5 class="pull-right">' + quoteAuthor + '</h5>';
+            infobitContent += '<p class="pull-right"><b>' + quoteAuthor + '</b><br>';
+            infobitContent +=  quoteAuthorTitle + '</p>';
             infobitContent += '<div class="clear"></div></div>';
 
             $('.infobit-content', $previewInfobit).html(infobitContent);
-            $('.link', $previewInfobit).html('via <a href="' + quoteLink + '">Link</a>');
+            $('.link', $previewInfobit).html('via <a href="' + quoteLink + '">Quote Source</a>');
             
-			$('#preview-wrap').show();
-        });
-
+            setupInteractions();
+            if (display == true)
+                $('#preview-wrap').show();
+        }
 
 
         // generate youtube preview
         $('#btn-preview-youtube').click(function(e) {
             e.preventDefault();
+            previewYoutube(true);
+        });
 
+        function previewYoutube(display) {
             var $previewInfobit = $('#preview .infobit');
-            var $previewForm = $('#youtube .form-add-infobit');
+            var $previewForm = $('#youtube_new_infobit');
 
-            var youtubeLink = $('#youtube-link', $previewForm).val();
+            var youtubeLink = $('#youtube_infobit_link', $previewForm).val();
             var youtubeID = getYouTubeID(youtubeLink);
 
             var infobitContent = '<iframe width="380" height="295" src="'
             infobitContent += 'http://www.youtube.com/embed/' + youtubeID + '?wmode=opaque"';
             infobitContent += ' frameborder="0" allowfullscreen></iframe>';
 
-
             $('.infobit-content', $previewInfobit).html(infobitContent);
             $('.link', $previewInfobit).html('via <a href="' + youtubeLink + '">YouTube</a>');
-            
-			$('#preview-wrap').show();
 
-        });
+            setupInteractions();
+            if (display == true)
+                $('#preview-wrap').show();
+        }
 
 
         // generate photo preview
         $('#btn-preview-photo').click(function(e) {
             e.preventDefault();
+            previewPhoto(true); 
+        });
 
+        function previewPhoto(display) {
             var $previewInfobit = $('#preview .infobit');
-            var $previewForm = $('#photo .form-add-infobit');
+            var $previewForm = $('#photo_new_infobit');
 
-            var photoTitle = $('#photo-title', $previewForm).val();
-            var photoDesc = $('#photo-desc', $previewForm).val();
-            var photoLink = $('#photo-link', $previewForm).val();
+            var photoTitle = $('#photo_infobit_title', $previewForm).val();
+            var photoDesc = $('#photo_infobit_description', $previewForm).val();
+            var photoLink = $('#photo_infobit_link', $previewForm).val();
 
             var infobitContent = '<div class="img-overlay">'
             infobitContent += '<div class="img-overlay-content">';
@@ -136,45 +185,52 @@
             $('.link', $previewInfobit).html('via <a href="' + photoLink + '">Link</a>');
             
             setupInteractions();
-			$('#preview-wrap').show();
-
-        });
+            if (display == true)
+              $('#preview-wrap').show();
+        }
 
 
         // generate vimeo preview
         $('#btn-preview-vimeo').click(function(e) {
             e.preventDefault();
+            previewVimeo(true);
+        });
 
+        function previewVimeo(display) {
             var $previewInfobit = $('#preview .infobit');
-            var $previewForm = $('#vimeo .form-add-infobit');
+            var $previewForm = $('#vimeo_new_infobit');
 
-            var vimeoLink = $('#vimeo-link', $previewForm).val();
+            var vimeoLink = $('#vimeo_infobit_link', $previewForm).val();
             var vimeoID = getVimeoID(vimeoLink);
 
             var infobitContent = '<iframe width="380" height="295" src="'
             infobitContent += 'http://player.vimeo.com/video/' + vimeoID + '?byline=0&amp;portrait=0"';
             infobitContent += ' frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>';
 
-            alert("About to inject: " + infobitContent);
             $('.infobit-content', $previewInfobit).html(infobitContent);
             $('.link', $previewInfobit).html('via <a href="' + vimeoLink + '">Vimeo</a>');
-            
-			$('#preview-wrap').show();
-        });
 
+            setupInteractions();
+            if (display == true)
+                $('#preview-wrap').show();
+        }
 
 
         // generate wikipedia preview
         $('#btn-preview-wikipedia').click(function(e) {
             e.preventDefault();
+            previewWikipedia(true);
+        });
 
+
+        function previewWikipedia(display) {
             var $previewInfobit = $('#preview .infobit');
-            var $previewForm = $('#wikipedia .form-add-infobit');
+            var $previewForm = $('#wikipedia_new_infobit');
 
             
-            var wikipediaContent = $('#wikipedia-content', $previewForm).val();
-            var wikipediaLink = $('#wikipedia-link', $previewForm).val();
-            var wikipediaTitle = wikipediaLink; // change me!!!!
+            var wikipediaContent = $('#wikipedia_infobit_description', $previewForm).val();
+            var wikipediaLink = $('#wikipedia_infobit_link', $previewForm).val();
+            var wikipediaTitle = $('#wikipedia_infobit_title', $previewForm).val();
 
             var infobitContent = '<div class="padding">';
             infobitContent += '<h3>' + wikipediaTitle + '</h3>';
@@ -182,12 +238,13 @@
             infobitContent += '<a rel="tooltip" href="#" data-original-title="Reveal more text">more</a></p>';
             infobitContent += '</div>';
 
-            alert("About to inject: " + infobitContent);
             $('.infobit-content', $previewInfobit).html(infobitContent);
             $('.link', $previewInfobit).html('via <a href="' + wikipediaLink + '">Wikipedia</a>');
             
-			$('#preview-wrap').show();
-        });
+            setupInteractions();
+            if (display == true)
+              $('#preview-wrap').show();
+        }
 
 
 
@@ -223,9 +280,6 @@
 		}
 		
 
-
-
-
 		function getYouTubeID(url){
 		    var regExp = /.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*/;
 		    var match = url.match(regExp);
@@ -246,15 +300,11 @@
 			}
 		}
 
-
-
-		$('.ajax-edit').live('change', function() {
-		  $(this).parents('form:first').submit();
+		$('#edit-submit').click(function(e) {
+		  $('.ajax-edit').submit();
 		});
 
 		$('.ajax-edit').bind('ajax:success', function() {  
-		    
-				
             var title = $('#infozaic_title', $(this)).val();
             var description = $('#infozaic_description', $(this)).val();
 
@@ -266,15 +316,11 @@
 		});  
 
 
-
-		// add popover
+		// add popover for listing infozaics in explore/search page
 		$('a[rel=popover]').popover({
 	    	placement: "left"
 	    })
 
-
-
-	
   })
 }(window.jQuery)
 

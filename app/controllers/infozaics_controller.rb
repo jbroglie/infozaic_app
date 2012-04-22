@@ -21,6 +21,12 @@ class InfozaicsController < ApplicationController
 
   def show
     @infozaic = Infozaic.find(params[:id])
+    @infobits = Infobit.all
+    @youtube_infobit = @infozaic.infobits.new
+    @photo_infobit = @infozaic.infobits.new
+    @quote_infobit = @infozaic.infobits.new
+    @wikipedia_infobit = @infozaic.infobits.new
+    @vimeo_infobit = @infozaic.infobits.new
   end
 
   def edit

@@ -11,14 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120420045412) do
+ActiveRecord::Schema.define(:version => 20120420081700) do
 
   create_table "infobits", :force => true do |t|
     t.string   "title"
     t.string   "subtitle"
+    t.string   "source"
     t.text     "description"
     t.text     "link"
-    t.string   "type"
+    t.string   "infobit_type"
     t.integer  "columns"
     t.integer  "likes_count"
     t.integer  "dislikes_count"
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20120420045412) do
     t.integer  "height"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.integer  "infozaic_id"
   end
 
   create_table "infozaics", :force => true do |t|
