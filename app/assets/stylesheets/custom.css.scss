@@ -27,6 +27,9 @@ body {
 .container-fluid.logged_off {
   margin-top: -20px;
 }
+header .container-fluid.logged_off {
+  margin-top: 0px;
+}
 
 section {
   overflow: auto;
@@ -224,6 +227,9 @@ footer {
   clear: none;
 }
 
+.logged-off .mini-meta {
+  top: 40px;
+}
 
 .mini-meta {
 	display:none;
