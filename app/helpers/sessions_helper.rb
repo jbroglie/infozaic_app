@@ -23,7 +23,6 @@ module SessionsHelper
   end
 
 
-
   private
 
     def user_from_remember_token

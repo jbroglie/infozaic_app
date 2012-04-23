@@ -1,14 +1,15 @@
-<% provide(:extrastyle, '-fluid single') %>
 <% provide(:title, @infozaic.title) %>
 <% provide(:full_url, get_full_url(@infozaic.id.to_s)) %>
 <% provide(:thumb_url, render_thumb_url(get_full_url(@infozaic.id.to_s),300, 200)) %>
 
 <% provide(:desc, @infozaic.description) %>
-<%= @skip_footer = true %>
+<% @skip_footer = true %>
 
+<% if signed_in? %>
+<% provide(:extrastyle, '-fluid single') %>
 <div class="subnav subnav-fixed">
 
-      <ul class="nav nav-pills">
+      <ul class="nav nav-pills pull-left">
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Video <b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -30,11 +31,22 @@
 
         <li><a class="modal-btn" data-toggle="modal" href="#add-modal" data-type="wikipedia">Wikipedia</a></li>
 
+       
+      </ul>
+
+
+      <ul class="nav nav-pills pull-right">
         <li><a data-toggle="modal" href="#edit-modal">Edit Meta</a></li>
+        <li><a data-toggle="modal" href="#edit-modal">Collaborate</a></li>
       </ul>
 
           
 </div><!-- /.subnav -->
+
+<% else %>
+
+<% provide(:extrastyle, '-fluid single logged_off') %>
+<% end %>
 
 <div class="mini-meta">
       <span class="mini-meta-title"><%= @infozaic.title %></span>
@@ -73,9 +85,9 @@
           <div class="row">
             <div id="contributers">
               <h6>share</h6>
-
-              <fb:like href="<%= "http://#{request.host+request.fullpath}" %>" send="true" layout="button_count" width="100" show_faces="false"></fb:like>
-
+              <p>
+              <fb:like href="<%= "http://#{request.host+request.fullpath}" %>" send="false" layout="button_count" width="100" show_faces="false"></fb:like>
+            </p>
             </div>
           </div>
         </div>
@@ -84,7 +96,9 @@
 
 
 <div id="canvas">
-  <%= render @infobits.reverse %>
+  <% if @infobits.any? %>
+    <%= render @infobits.reverse %>
+  <% end %>
 </div> <!-- /#canvas -->
 
 

@@ -10,29 +10,40 @@
         </div><!--/span-->
         <div class="span3">
         	<div class="well">
-		  		<h6>Member Login</h6>
+             <% if signed_in? %>
+
+                <h6>Logged in as:</h6>
+                <h3><%= current_user.name %></h3>
+                
+                <%= link_to "Sign Out", signout_path, method: "delete", class: "btn btn-signup" %>
 
 
-           <%= form_for(:session, :url => sessions_path) do |f| %>
+              <% else %>
+                <h6>Member Login</h6>
+                 <%= form_for(:session, :url => sessions_path) do |f| %>
 
 
-              <%= f.text_field :email, class: "login-field", placeholder: "Email" %>
-              <%= f.password_field :password, class: "login-field", placeholder: "Password" %>
-              <label class="checkbox">
-                <input type="checkbox"> Remember me
-              </label>
+                    <%= f.text_field :email, class: "login-field", placeholder: "Email" %>
+                    <%= f.password_field :password, class: "login-field", placeholder: "Password" %>
+                    <label class="checkbox">
+                      <input type="checkbox"> Remember me
+                    </label>
 
 
-                <%= f.submit "Sign In", class: "btn btn-primary" %>
+                      <%= f.submit "Sign In", class: "btn btn-primary" %>
 
-          <% end %>
+                <% end %>
 
-           <hr>
-           <h6>Not a Member?</h6>
-           
-           <a class="modal-btn btn btn-signup" data-toggle="modal" href="#signup-modal" >Sign Up, It's Free!</a>
-           
-			</div> <!--/well-->
+
+
+                 <hr>
+                 <h6>Not a Member?</h6>
+                 <a class="modal-btn btn btn-signup" data-toggle="modal" href="#signup-modal" >Sign Up, It's Free!</a>
+              <% end %>
+			   </div> <!--/well-->
+
+
+
         </div><!--/span-->
       </div><!--/row-->
       <div class="row">
@@ -55,7 +66,7 @@
 
 
 
-
+<% if !signed_in? %>
 <div id="signup-modal" class="modal hide fade">
     <div class="modal-header">
       <a class="close" data-dismiss="modal" >&times;</a>
@@ -102,3 +113,4 @@
     </div>
     <% end %>
   </div>
+<% end %>

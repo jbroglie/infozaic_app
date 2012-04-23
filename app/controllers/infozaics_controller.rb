@@ -6,7 +6,12 @@ class InfozaicsController < ApplicationController
   end
 
   def new
-  	@infozaic = Infozaic.new 
+    if !signed_in?
+      flash[:notice] = "You must be signed in to do that!"
+      redirect_to root_path
+    else
+      @infozaic = Infozaic.new 
+    end
   end
 
   def create
@@ -21,7 +26,7 @@ class InfozaicsController < ApplicationController
 
   def show
     @infozaic = Infozaic.find(params[:id])
-    @infobits = Infobit.all
+    @infobits = @infozaic.infobits
     @youtube_infobit = @infozaic.infobits.new
     @photo_infobit = @infozaic.infobits.new
     @quote_infobit = @infozaic.infobits.new
@@ -29,6 +34,7 @@ class InfozaicsController < ApplicationController
     @vimeo_infobit = @infozaic.infobits.new
     @article_infobit = @infozaic.infobits.new
     @website_infobit = @infozaic.infobits.new
+
   end
 
   def edit
