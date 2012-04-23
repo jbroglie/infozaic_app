@@ -48,7 +48,7 @@
 <% provide(:extrastyle, '-fluid single logged_off') %>
 <% end %>
 
-<div class="mini-meta">
+<div class="mini-meta <% if !signed_in? %>logged_off<% end %>">
       <span class="mini-meta-title"><%= @infozaic.title %></span>
 
 
@@ -109,14 +109,17 @@
 
       $container.imagesLoaded( function(){
 
-        $container.masonry({
+        
+
+
+        $container.isotope({
+          // options
           itemSelector : '.item',
-          columnWidth: 200,
-          isResizable: true,
-          isAnimated: true
+          layoutMode : 'fitRows'
         });
 
         /*
+
         $container.sortable({
             distance: 12,
             forcePlaceholderSize: true,
