@@ -4,8 +4,8 @@
   <div class="infobit item col1">
       <div class="infobit-meta">
         <div class="link">
-          <a title="<%= infobit.title %>" href="<%= infobit.link %>"> <%= infobit.infobit_type %></a> 
-          added <%= time_ago_in_words(@infozaic.created_at) %> ago
+          <a rel="tooltip" title="Wikipedia" class="infobit-icon infobit-icon-quote" href="<%= infobit.link %>"></a> 
+           added <%= time_ago_in_words(@infozaic.created_at) %> ago
           <span class="delete-infobit"><%= link_to ('<i class="icon-remove"></i>').html_safe, [@infozaic, infobit], :title => "Delete", :rel => "tooltip",confirm: 'Are you sure?', method: :delete %></span>
         </div>
         <div class="opinion">

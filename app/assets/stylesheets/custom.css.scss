@@ -59,7 +59,8 @@ textarea {
 /* header */
 
 .navbar .logo {
-  font-family: MashineWeb-Light;
+  /*font-family: MashineWeb-Light;*/
+  font-family: 'Quattrocento Sans';
   float: left;
   display: block;
   padding: 10px 20px 10px;
@@ -68,6 +69,7 @@ textarea {
   font-weight: 200;
   line-height: 1;
   color: white;
+  letter-spacing: 1px;
 }
 
 p {
@@ -80,7 +82,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 
@@ -502,6 +504,28 @@ border-bottom: 1px solid #ccc;
 .comments-button {
   background-position: 0px 0px;
 }
+
+.infobit-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 2px;
+  cursor: pointer;
+  float: left;
+  display: block;
+  background-image: url(image_path('infobit_icons.png'));
+}
+
+.infobit-icon-wikipedia {
+}
+
+.infobit-icon-quote {
+   background-position: 120px 0px;
+}
+
+.infobit-icon-link {
+   background-position: 20px 0px;
+}
+
 
 .likes-button:hover, .dislikes-button:hover, .comments-button:hover {
   
