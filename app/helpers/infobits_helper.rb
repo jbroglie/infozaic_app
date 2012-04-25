@@ -52,6 +52,7 @@ module InfobitsHelper
 		safe_url = CGI.escape(link)
 	  	token = Digest::MD5.hexdigest("#{PRIVATE_KEY}+#{safe_url}")
 		url = "http://api.url2png.com/v3/#{API_KEY}/#{token}/#{width}x#{height}/#{safe_url}"
+		new_url = "http://beta.infozaic.com/assets/logo.png"
 	end
 
 
