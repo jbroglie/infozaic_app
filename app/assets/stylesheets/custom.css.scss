@@ -589,24 +589,51 @@ border-bottom: 1px solid #ccc;
 /* Infobit sizing */
 
 
-.infobit {
+.three-col .infobit {
   margin: 10px 1.15%;
 }
 
+.five-col .infobit {
+  margin: 10px .75%;
+}
 
-.col1 {
+
+.five-col .col1 {
+  width: 18.5%;
+}
+
+
+.five-col .col2 {
+  width: 38.5%;
+}
+
+
+.five-col .col3 {
+  width: 58.5%;
+}
+
+.five-col .col4 {
+  width: 78.5%;
+}
+
+.five-col .col5 {
+  width: 98.5%;
+}
+
+.three-col .col1 {
   width: 31%;
 }
 
 
-.col2 {
+.three-col .col2 {
   width: 64.3%;
 }
 
 
-.col3 {
+.three-col .col3 {
   width: 97.7%;
 }
+
 
 .item {
 

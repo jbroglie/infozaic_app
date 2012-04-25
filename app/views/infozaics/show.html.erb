@@ -1,9 +1,13 @@
 <% provide(:title, @infozaic.title) %>
 <% provide(:full_url, get_full_url(@infozaic.id.to_s)) %>
-<% provide(:thumb_url, render_thumb_url(get_full_url(@infozaic.id.to_s),300, 200)) %>
+
+<% provide(:thumb_url, "http://beta.infozaic.com/assets/logo.png") %>
+
+<% provide(:not_using, render_thumb_url(get_full_url(@infozaic.id.to_s),300, 200)) %>
 
 <% provide(:desc, @infozaic.description) %>
 <% @skip_footer = true %>
+<% @moveflash = true %>
 
 <% if signed_in? %>
 <% provide(:extrastyle, '-fluid single') %>
@@ -67,8 +71,11 @@
     
 <div class="row-fluid meta">
       <div class="span9">
-      
+        
         <div id="meta-left">
+          <% flash.each do |key, value| %>
+            <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+          <% end %>
           <h1 id="meta-title"><%= @infozaic.title %></h1>
           <h6>description</h6>
             <p id="meta-description"><%= @infozaic.description %></p>
@@ -124,6 +131,7 @@
 
 
       var $container = $('#canvas #canvas-inner');
+      var cols = 5;
       
       // display mini-meta on scroll
       var $win = $(window)
@@ -154,7 +162,6 @@
         $infobits.css('margin-bottom', infobitMargin);
       }
 
-      
       // Find all YouTube and Vimeo embed videos
       var $allEmbeds = $("iframe");
       
@@ -178,13 +185,31 @@
           //$elem.attr('src', $elem.attr('src'));
         });
 
-        $container.isotope({
-          masonry: { columnWidth: $container.width() / 3 }
-        });
+
+        setColumns();
         updateMargins(); 
+
+        $container.isotope({
+          masonry: { columnWidth: $container.width() / cols }
+        });
+        
 
       });
 
+
+      function setColumns() {
+        // if width is less than 800, go to 3 col
+        if ($win.width() < 1100) {
+          $container.addClass('three-col');
+          $container.removeClass('five-col');
+          cols = 3;
+        }
+        else {
+          $container.addClass('five-col');
+          $container.removeClass('three-col');
+          cols = 5;
+        }
+      }
 
 
       $container.imagesLoaded( function(){
@@ -199,7 +224,7 @@
           itemSelector : '.item',
           resizable: false, // disable normal resizing
           // set columnWidth to a percentage of container width
-          masonry: { columnWidth: $container.width() / 3 }
+          masonry: { columnWidth: $container.width() / cols }
         });
 
         /*
@@ -342,11 +367,30 @@
               </div>
             </div>
 
+            <div class="control-group">
+              <%= f.label :title, "Columns", class: "control-label" %>
+              <div class="controls">
+                <label for="columns_1">
+                <%= f.radio_button(:columns, "1") %>
+                Span 1 (two) columns 
+                </label>
+                <label for="columns_2">
+                <%= f.radio_button(:columns, "2") %>
+                Span 2 (two) columns 
+                </label>
+
+                <label for="columns_3">
+                <%= f.radio_button(:columns, "3") %>
+               Span 3 (three) columns </label>
+                <p class="help-block">How many columns should this infobit span when placed on the canvas? Choose a higher number based on importance.</p>
+              </div>
+            </div>
+
             <%= f.hidden_field :infobit_type, :value => "wikipedia" %>
           </fieldset>
         <% end %>
 
-        <a href="#" id="btn-preview-wikipedia" class="pull-right btn btn-primary">Generate Preview</a>
+        <a href="#" id="btn-preview-wikipedia" class="pull-right btn btn-primary">Generate Mini Preview</a>
         <div class="clear"></div>
       
       </div> <!-- / #wikipedia.modal-type  -->
@@ -390,12 +434,31 @@
               </div>
             </div>
 
+            <div class="control-group">
+              <%= f.label :title, "Columns", class: "control-label" %>
+              <div class="controls">
+                <label for="columns_1">
+                <%= f.radio_button(:columns, "1") %>
+                Span 1 (two) columns 
+                </label>
+                <label for="columns_2">
+                <%= f.radio_button(:columns, "2") %>
+                Span 2 (two) columns 
+                </label>
+
+                <label for="columns_3">
+                <%= f.radio_button(:columns, "3") %>
+               Span 3 (three) columns </label>
+                <p class="help-block">How many columns should this infobit span when placed on the canvas? Choose a higher number based on importance.</p>
+              </div>
+            </div>
+
             <%= f.hidden_field :infobit_type, :value => "quote" %>
           </fieldset>
         <% end %>
 
 
-        <a href="#" id="btn-preview-quote" class="pull-right btn btn-primary">Generate Preview</a>
+        <a href="#" id="btn-preview-quote" class="pull-right btn btn-primary">Generate Mini Preview</a>
         <div class="clear"></div>
       
       </div> <!-- / #quote.modal-type  -->
@@ -437,12 +500,31 @@
               </div>
             </div>
 
+            <div class="control-group">
+              <%= f.label :title, "Columns", class: "control-label" %>
+              <div class="controls">
+                <label for="columns_1">
+                <%= f.radio_button(:columns, "1") %>
+                Span 1 (two) columns 
+                </label>
+                <label for="columns_2">
+                <%= f.radio_button(:columns, "2") %>
+                Span 2 (two) columns 
+                </label>
+
+                <label for="columns_3">
+                <%= f.radio_button(:columns, "3") %>
+               Span 3 (three) columns </label>
+                <p class="help-block">How many columns should this infobit span when placed on the canvas? Choose a higher number based on importance.</p>
+              </div>
+            </div>
+
             <%= f.hidden_field :infobit_type, :value => "article" %>
           </fieldset>
         <% end %>
 
 
-        <a href="#" id="btn-preview-article" class="pull-right btn btn-primary">Generate Preview</a>
+        <a href="#" id="btn-preview-article" class="pull-right btn btn-primary">Generate Mini Preview</a>
         <div class="clear"></div>
       
       </div> <!-- / #article.modal-type  -->
@@ -468,6 +550,24 @@
               </div>
             </div>
 
+            <div class="control-group">
+              <%= f.label :title, "Columns", class: "control-label" %>
+              <div class="controls">
+                <label for="columns_1">
+                <%= f.radio_button(:columns, "1") %>
+                Span 1 (two) columns 
+                </label>
+                <label for="columns_2">
+                <%= f.radio_button(:columns, "2") %>
+                Span 2 (two) columns 
+                </label>
+
+                <label for="columns_3">
+                <%= f.radio_button(:columns, "3") %>
+               Span 3 (three) columns </label>
+                <p class="help-block">How many columns should this infobit span when placed on the canvas? Choose a higher number based on importance.</p>
+              </div>
+            </div>
             
 
             <%= f.hidden_field :infobit_type, :value => "website" %>
@@ -475,7 +575,7 @@
         <% end %>
 
 
-        <a href="#" id="btn-preview-website" class="pull-right btn btn-primary">Generate Preview</a>
+        <a href="#" id="btn-preview-website" class="pull-right btn btn-primary">Generate Mini Preview</a>
         <div class="clear"></div>
       
       </div> <!-- / #website.modal-type  -->
@@ -509,6 +609,25 @@
               </div>
             </div>
 
+            <div class="control-group">
+              <%= f.label :title, "Columns", class: "control-label" %>
+              <div class="controls">
+                <label for="columns_1">
+                <%= f.radio_button(:columns, "1") %>
+                Span 1 (two) columns 
+                </label>
+                <label for="columns_2">
+                <%= f.radio_button(:columns, "2") %>
+                Span 2 (two) columns 
+                </label>
+
+                <label for="columns_3">
+                <%= f.radio_button(:columns, "3") %>
+               Span 3 (three) columns </label>
+                <p class="help-block">How many columns should this infobit span when placed on the canvas? Choose a higher number based on importance.</p>
+              </div>
+            </div>
+
             <%= f.hidden_field :infobit_type, :value => "photo" %>
 
 
@@ -516,7 +635,7 @@
         <% end %>
 
 
-        <a href="#" id="btn-preview-photo" class="pull-right btn btn-primary">Generate Preview</a>
+        <a href="#" id="btn-preview-photo" class="pull-right btn btn-primary">Generate Mini Preview</a>
         <div class="clear"></div>
       
       </div> <!-- / #photo.modal-type  -->
@@ -535,6 +654,25 @@
               </div>
             </div>
 
+            <div class="control-group">
+              <%= f.label :title, "Columns", class: "control-label" %>
+              <div class="controls">
+                <label for="columns_1">
+                <%= f.radio_button(:columns, "1") %>
+                Span 1 (two) columns 
+                </label>
+                <label for="columns_2">
+                <%= f.radio_button(:columns, "2") %>
+                Span 2 (two) columns 
+                </label>
+
+                <label for="columns_3">
+                <%= f.radio_button(:columns, "3") %>
+               Span 3 (three) columns </label>
+                <p class="help-block">How many columns should this infobit span when placed on the canvas? Choose a higher number based on importance.</p>
+              </div>
+            </div>
+
             <%= f.hidden_field :infobit_type, :value => "youtube" %>
 
 
@@ -542,7 +680,7 @@
         <% end %>
 
 
-        <a href="#" id="btn-preview-youtube" class="pull-right btn btn-primary">Generate Preview</a>
+        <a href="#" id="btn-preview-youtube" class="pull-right btn btn-primary">Generate Mini Preview</a>
         <div class="clear"></div>
       
       </div> <!-- / #youtube.modal-type  -->
@@ -557,11 +695,31 @@
                 <p class="help-block">Paste in the Vimeo URL.</p>
               </div>
             </div>
+
+            <div class="control-group">
+              <%= f.label :title, "Columns", class: "control-label" %>
+              <div class="controls">
+                <label for="columns_1">
+                <%= f.radio_button(:columns, "1") %>
+                Span 1 (two) columns 
+                </label>
+                <label for="columns_2">
+                <%= f.radio_button(:columns, "2") %>
+                Span 2 (two) columns 
+                </label>
+
+                <label for="columns_3">
+                <%= f.radio_button(:columns, "3") %>
+               Span 3 (three) columns </label>
+                <p class="help-block">How many columns should this infobit span when placed on the canvas? Choose a higher number based on importance.</p>
+              </div>
+            </div>
+
             <%= f.hidden_field :infobit_type, :value => "vimeo" %>
           </fieldset>
         <% end %>
 
-        <a href="#" id="btn-preview-vimeo" class="pull-right btn btn-primary">Generate Preview</a>
+        <a href="#" id="btn-preview-vimeo" class="pull-right btn btn-primary">Generate Mini Preview</a>
         <div class="clear"></div>
       
       </div> <!-- / #vimeo.modal-type  -->
@@ -573,9 +731,9 @@
 
         <div class="well infobit-example" style="background-color: #888; border: none;">
           <div id="preview">
-            <div class="infobit item col2">
+            <div class="infobit item col1">
               <div class="infobit-meta">
-                <div class="link">via <a href="#">Link</a></div>
+                <div class="link"></div>
                 <div class="opinion">
                   <div class="likes">
                     <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">0</div>

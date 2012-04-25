@@ -1,7 +1,7 @@
 <% if (!infobit.infobit_type.nil?) %>
 
 
-  <div class="infobit item col1">
+  <div class="infobit item <%= get_col(infobit.columns)%>">
       <div class="infobit-meta">
         <div class="link">
           <%= get_icon(infobit.infobit_type, infobit.link) %>

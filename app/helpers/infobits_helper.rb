@@ -52,13 +52,20 @@ module InfobitsHelper
 		safe_url = CGI.escape(link)
 	  	token = Digest::MD5.hexdigest("#{PRIVATE_KEY}+#{safe_url}")
 		url = "http://api.url2png.com/v3/#{API_KEY}/#{token}/#{width}x#{height}/#{safe_url}"
-		new_url = "http://beta.infozaic.com/assets/logo.png"
 	end
 
 
 	def get_icon(type, link)
 		icon = "<a title='#{type}' class='infobit-icon infobit-icon-#{type}' href='#{link}'></a>" 
 		icon.html_safe
+	end
+
+	def get_col(col)
+		if !col.nil?
+			return "col" + col.to_s
+		else
+			return "col1"
+		end
 	end
 
 

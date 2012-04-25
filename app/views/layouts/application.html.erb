@@ -29,10 +29,12 @@
     <%= render 'layouts/header' %>
 
       <div class="container<%= yield(:extrastyle) %>">
-        <% flash.each do |key, value| %>
-          <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-        <% end %>
 
+        <% unless @moveflash %>
+          <% flash.each do |key, value| %>
+            <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+          <% end %>
+        <% end %>
 
 
       <%= yield %>
