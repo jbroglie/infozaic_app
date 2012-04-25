@@ -96,7 +96,12 @@
               <p class="help-block">Please give a one paragraph synopsis of this infozaic.</p>
           </div>
         </div>
+
+        <%= f.hidden_field :user_id, :value => @infozaic.user_id %>
       </fieldset>
+
+
+
 
       
     <% end %>
