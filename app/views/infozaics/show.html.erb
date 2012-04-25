@@ -172,6 +172,10 @@
         var canvasTop = $('#canvas').offset().top;
         $('#canvas').css("min-height", $(window).height() - canvasTop - 60);
        
+
+        setColumns();
+        updateMargins(); 
+
          // Resize all videos according to their own aspect ratio
         $allEmbeds.each(function() {
           var $elem = $(this);
@@ -186,8 +190,7 @@
         });
 
 
-        setColumns();
-        updateMargins(); 
+        
 
         $container.isotope({
           masonry: { columnWidth: $container.width() / cols }

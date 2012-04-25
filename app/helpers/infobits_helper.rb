@@ -48,6 +48,12 @@ module InfobitsHelper
 		link_to image_tag(url, :class => "link-thumb", :size => "#{width}x#{height}"), link, :title => "Visit #{short_link}", :rel => "tooltip"
 	end
 
+	def render_static_thumb(link, width, height)
+		url = "http://beta.infozaic.com/assets/logo.png"
+		short_link = truncate(link, :length => 30, :omission => '...')
+		link_to image_tag(url, :class => "link-thumb", :size => "#{width}x#{height}"), link, :title => "Visit #{short_link}", :rel => "tooltip"
+	end
+
 	def render_thumb_url(link, width, height)
 		safe_url = CGI.escape(link)
 	  	token = Digest::MD5.hexdigest("#{PRIVATE_KEY}+#{safe_url}")
