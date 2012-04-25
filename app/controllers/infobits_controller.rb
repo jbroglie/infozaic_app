@@ -25,12 +25,17 @@ class InfobitsController < ApplicationController
 	end
 
 	def destroy
-	    @infozaic = Infozaic.find(params[:infozaic_id])
- 		@infobit = Infobit.find(params[:id])
-	    @infobit.destroy
-	    flash[:notice] = "Your infobit was successfully destroyed."
-	    redirect_to @infozaic
-	  end
+		if !signed_in?
+	      flash[:notice] = "You must be signed in to do that!"
+	      redirect_to root_path
+	    else
+		    @infozaic = Infozaic.find(params[:infozaic_id])
+	 		@infobit = Infobit.find(params[:id])
+		    @infobit.destroy
+		    flash[:notice] = "Your infobit was successfully destroyed."
+		    redirect_to @infozaic
+		end
+	end
 
 
 end

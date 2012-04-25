@@ -38,7 +38,12 @@ class InfozaicsController < ApplicationController
   end
 
   def edit
-    @infozaic = Infozaic.find(params[:id])
+    if !signed_in?
+      flash[:notice] = "You must be signed in to do that!"
+      redirect_to root_path
+    else
+      @infozaic = Infozaic.find(params[:id])
+    end
   end
 
 
@@ -57,10 +62,16 @@ class InfozaicsController < ApplicationController
   end
 
   def destroy
-    @infozaic = Infozaic.find(params[:id])
-    @infozaic.destroy
-    flash[:notice] = "Your infozaic was successfully destroyed."
-    redirect_to infozaics_path
+
+    if !signed_in?
+      flash[:notice] = "You must be signed in to do that!"
+      redirect_to root_path
+    else
+      @infozaic = Infozaic.find(params[:id])
+      @infozaic.destroy
+      flash[:notice] = "Your infozaic was successfully destroyed."
+      redirect_to infozaics_path
+    end
   end
 
   private
