@@ -348,6 +348,11 @@
 		      placement: "bottom"
 		    });
 
+            // tooltip setup
+            $('a.infobit-icon').tooltip({
+              placement: "top"
+            });
+
 		    $('div[rel=tooltip]').tooltip({
 		      placement: "top"
 		    });

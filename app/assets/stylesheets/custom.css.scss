@@ -522,9 +522,27 @@ border-bottom: 1px solid #ccc;
    background-position: 120px 0px;
 }
 
-.infobit-icon-link {
+.infobit-icon-youtube {
+   background-position: 100px 0px;
+}
+
+.infobit-icon-vimeo {
+   background-position: 80px 0px;
+}
+
+.infobit-icon-photo {
+   background-position: 60px 0px;
+}
+
+.infobit-icon-article {
+   background-position: 40px 0px;
+}
+
+.infobit-icon-website {
    background-position: 20px 0px;
 }
+
+
 
 
 .likes-button:hover, .dislikes-button:hover, .comments-button:hover {
