@@ -349,6 +349,7 @@ header .container-fluid.single {
 	background-image: url(image_path('grid.png'));
 	padding: 30px;
   min-height: 500px;
+  min-width: 700px;
 }
 
 
@@ -409,10 +410,6 @@ border-bottom: 1px solid #ccc;
 
 
 
-}
-
-.col1 .infobit-meta {
-  height: 40px;
 }
 
 .infobit-meta .link {

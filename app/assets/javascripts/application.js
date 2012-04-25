@@ -125,6 +125,8 @@
             previewQuote(true);
         });
 
+
+
         function previewQuote(display) {
             var $previewInfobit = $('#preview .infobit');
             var $previewForm = $('#quote_new_infobit');
@@ -394,6 +396,8 @@
 	    	placement: "left"
 	    })
 
+
+       
   })
 }(window.jQuery)
 

@@ -36,6 +36,7 @@
 
 
       <ul class="nav nav-pills pull-right">
+        <li><a id="btn-shuffle" href="#">Shuffle</a></li>
         <li><a data-toggle="modal" href="#edit-modal">Edit Meta</a></li>
         <li><a data-toggle="modal" href="#edit-modal">Collaborate</a></li>
       </ul>
@@ -165,7 +166,7 @@ In a separate incident, police reported a shooting about 5 a.m. in the 1700 bloc
 </div>
 
 
-  <div class="infobit item col1">
+  <div class="infobit item col2">
       <div class="infobit-meta">
         <div class="link">type <a title="" href="http://www.youtube.com/watch?v=Ia2ZvYV-Bg8&amp;feature=fvst"> youtube</a></div>
         <div class="opinion">
@@ -260,20 +261,52 @@ University Library, now Fisher Fine Arts Library, on right</p>
 
 
 <script>
-    $(function(){
-      var canvasTop = $('#canvas').offset().top;
-      $('#canvas').css("min-height", $(window).height() - canvasTop - 60);
-      var $container = $('#canvas #canvas-inner');
 
+    
+
+    $(function(){
+
+
+
+      var $container = $('#canvas #canvas-inner');
       
 
+
+      // display mini-meta on scroll
+      var $win = $(window)
+        , $miniMeta = $('.mini-meta')
+        , metaBottom = $('.meta').offset().top + 100
+        , isFixed = 0
+
+      processScroll();
+
+      $win.on('scroll', processScroll);
+      function processScroll() {
+        var i, scrollTop = $win.scrollTop()
+        if (scrollTop >= metaBottom && !isFixed) {
+          isFixed = 1
+          $miniMeta.fadeIn()
+        } else if (scrollTop <= metaBottom && isFixed) {
+          isFixed = 0
+          $miniMeta.fadeOut()
+        }
+      }
+
+
+
       $container.imagesLoaded( function(){
-        updateMargins();
+        
+
+        // Kick off one resize to fix all videos on page load
+        // which will also call updateMargins()
+        $win.resize();
+
         $container.isotope({
           // options
           itemSelector : '.item',
           resizable: false, // disable normal resizing
           // set columnWidth to a percentage of container width
+          masonry: { columnWidth: $container.width() / 3 }
         });
 
         /*
@@ -307,27 +340,7 @@ University Library, now Fisher Fine Arts Library, on right</p>
 
 
 
-      // display mini-meta on scroll
-      var $win = $(window)
-        , $miniMeta = $('.mini-meta')
-        , metaBottom = $('.meta').offset().top + 100
-        , isFixed = 0
-
-      processScroll()
-
-      $win.on('scroll', processScroll)
-
-      function processScroll() {
-        var i, scrollTop = $win.scrollTop()
-        if (scrollTop >= metaBottom && !isFixed) {
-          isFixed = 1
-          $miniMeta.fadeIn()
-        } else if (scrollTop <= metaBottom && isFixed) {
-          isFixed = 0
-          $miniMeta.fadeOut()
-        }
-      }
-
+      
 
       // hack to make infobit top/bottom margins equal to left/right
       function updateMargins() {
@@ -338,14 +351,57 @@ University Library, now Fisher Fine Arts Library, on right</p>
       }
 
       
-
+      // Find all YouTube and Vimeo embed videos
+      var $allEmbeds = $("iframe");
+      
       // update columnWidth on window resize
       $win.smartresize(function(){
+        
+        // resize canvas min-height
+        var canvasTop = $('#canvas').offset().top;
+        $('#canvas').css("min-height", $(window).height() - canvasTop - 60);
+       
+         // Resize all videos according to their own aspect ratio
+        $allEmbeds.each(function() {
+          var $elem = $(this);
+          var newWidth = $(this).parent().width();
+          var newHeight = newWidth * $elem.attr('data-aspect');
+          $elem.attr('width', newWidth);
+          $elem.attr('height', newHeight);
+          /*$elem
+            .width(newWidth)
+            .height(newWidth * $elem.data('aspectRatio'));*/
+          //$elem.attr('src', $elem.attr('src'));
+        });
+
         $container.isotope({
-          
+          masonry: { columnWidth: $container.width() / 3 }
         });
         updateMargins(); 
+
       });
+
+
+
+       // generate quote preview
+        $('#btn-shuffle').click(function(e) {
+            e.preventDefault();
+            $('#canvas #canvas-inner').isotope('shuffle');
+        });
+
+
+
+
+
+        
+
+
+          
+
+        
+
+
+      
 
     });
 

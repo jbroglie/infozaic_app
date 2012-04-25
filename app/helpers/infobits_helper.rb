@@ -19,7 +19,8 @@ module InfobitsHelper
 
 	def youtube_embed(youtube_url)  
 	  embed_url = youtube_embed_url(youtube_url)
-	  iframe = '<iframe width="380" height="295" src="' + embed_url + '" frameborder="0" allowfullscreen></iframe>'
+	  aspect = (295.0 / 380.0).to_s
+	  iframe = '<iframe width="380" height="295" data-aspect="' + aspect + '" src="' + embed_url + '" frameborder="0" allowfullscreen></iframe>'
 	  iframe.html_safe
 	end
 
@@ -36,7 +37,8 @@ module InfobitsHelper
 
 	def vimeo_embed(vimeo_url)  
 	  embed_url = vimeo_embed_url(vimeo_url)
-	  iframe = '<iframe width="380" height="225" src="' + embed_url + '" ?byline=0&amp;portrait=0" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>'
+	  aspect = (225.0 / 380.0).to_s
+	  iframe = '<iframe width="380" height="225" data-aspect="' + aspect + '" src="' + embed_url + '" ?byline=0&amp;portrait=0" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>'
 	  iframe.html_safe
 	end
 
