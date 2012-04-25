@@ -35,6 +35,9 @@ InfozaicApp::Application.routes.draw do
   match '/profile',   to: 'static_pages#profile'
   match '/single',   to: 'static_pages#single'
 
+
+  match '*id', :controller => 'infozaics', :action => 'show', :as => :infozaic
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

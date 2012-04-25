@@ -410,6 +410,15 @@
 	    })
 
 
+        $('#s').focus(function(e){
+           $(this).animate({width:'200px'}, 500);
+        });
+
+        $('#s').blur(function(e){
+           $(this).animate({width:'130px'}, 300);
+        });
+
+
        
   })
 }(window.jQuery)

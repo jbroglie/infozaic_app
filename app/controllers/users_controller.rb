@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  #before_filter :signed_in_user
+  before_filter :correct_user, only: [:edit, :update]
 
 
   def new
@@ -38,5 +38,24 @@ class UsersController < ApplicationController
       end
     end
   end
+
+
+  private
+    
+    #signed_in_user method in the Sessions helper
+
+    def correct_user
+      @user = User.find(params[:id])
+      unless current_user.id == @user.id #trying to access a page that does not belong to me ! 
+        flash[:notice] = "You need to be signed in as this user to update their contents."
+        redirect_to root_path
+      end
+    end
+
+=begin 
+    def admin_user
+      redirect_to(root_path) unless current_user.admin? #if current user is not admin, redirect to root path
+    end
+=end
   
 end

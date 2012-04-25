@@ -29,8 +29,10 @@
 	    </div>
 	  </div>
 
+	  <%= f.hidden_field :user_id, :value => current_user.id %>
+
 	  <div class="form-actions">
-	    <%= f.submit "Submit Infozaic", class: "btn btn-primary" %>
+	    <%= f.submit "Submit Infozaic", class: "btn btn-info" %>
 	    <button class="btn" type="reset">Reset</button>
 	  </div>
 	</fieldset>

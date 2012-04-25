@@ -5,7 +5,7 @@
       <div class="infobit-meta">
         <div class="link">
           <%= get_icon(infobit.infobit_type, infobit.link) %>
-           added <%= time_ago_in_words(infobit.created_at) %> ago
+           added by <%= link_to infobit.user.name, infobit.user, :title => "View #{infobit.user.name}'s Profile", :rel => "tooltip" %> <%= time_ago_in_words(infobit.created_at) %> ago
           
            <% if signed_in? %>
           <span class="delete-infobit"><%= link_to ('<i class="icon-remove"></i>').html_safe, [@infozaic, infobit], :title => "Delete", :rel => "tooltip",confirm: 'Are you sure?', method: :delete %></span>

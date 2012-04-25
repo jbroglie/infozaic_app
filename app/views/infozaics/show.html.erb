@@ -55,6 +55,501 @@
           
 </div><!-- /.subnav -->
 
+
+
+<!-- edit modal -->
+<div id="edit-modal" class="modal hide fade">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal" >&times;</a>
+    <h3>Edit Meta</h3>
+  </div>
+
+
+  
+  <div class="modal-body">
+    <%= form_for(@infozaic, :remote => true, :html => { :class => "form-horizontal ajax-edit" } ) do |f| %>
+      <% if @infozaic.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@infozaic.errors.count, "error") %> prohibited this infozaic from being saved:</h2>
+
+            <ul>
+            <% @infozaic.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+      <fieldset>
+
+        <div class="control-group">
+          <%= f.label :title, class: "control-label" %>
+          <div class="controls">
+            <%= f.text_field :title, class: "input-xlarge" %>
+              <p class="help-block">What is the title or subject of your infozaic?</p>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :description, class: "control-label" %>
+          <div class="controls">
+            <%= f.text_area :description, :rows => 3, class: "input-xlarge" %>
+              <p class="help-block">Please give a one paragraph synopsis of this infozaic.</p>
+          </div>
+        </div>
+      </fieldset>
+
+      
+    <% end %>
+    
+  </div>
+  <div class="modal-footer">
+      <a href="#" class="btn" data-dismiss="modal">Close</a>
+      <a href="#" id="edit-submit" class="btn btn-info">Update</a>
+    </div>
+
+  
+
+
+    
+
+  
+</div> <!-- / #edit-modal  -->
+
+<!-- add modal content -->
+<div id="add-modal" class="modal hide fade">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal" >&times;</a>
+    <h3>Modal Heading</h3>
+  </div>
+  <div class="modal-body">
+
+
+    <div class="modal-type" id="wikipedia">
+      
+
+      <%= form_for([@infozaic, @wikipedia_infobit], :remote => true, :namespace => "wikipedia", :html => { :class => "form-horizontal" } ) do |f| %>
+      
+        <fieldset>
+
+          <div class="control-group">
+            <%= f.label :link, "Wikipedia Link", class: "control-label" %>
+            <div class="controls">
+              <%= f.text_field :link, class: "input-xlarge", placeholder: "http://en.wikipedia.org/wiki/..." %>
+              <p class="help-block">Paste in the Wikipedia URL.</p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :title, "Title", class: "control-label" %>
+            <div class="controls">
+              <%= f.text_field :title, class: "input-xlarge" %>
+              <p class="help-block">This should be the article title.</p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :description, "Content", class: "control-label" %>
+            <div class="controls">
+              <%= f.text_area :description, :rows => 3, class: "input-xlarge" %>
+              <p class="help-block">The first paragraph on Wikipedia for this topic should do fine!</p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :title, "Columns", class: "control-label" %>
+            <div class="controls">
+              <label for="columns_1">
+              <%= f.radio_button(:columns, "1") %>
+              Span 1 (two) columns 
+              </label>
+              <label for="columns_2">
+              <%= f.radio_button(:columns, "2") %>
+              Span 2 (two) columns 
+              </label>
+
+              <label for="columns_3">
+              <%= f.radio_button(:columns, "3") %>
+             Span 3 (three) columns </label>
+              <p class="help-block">How many columns should this infobit span when placed on the canvas? Choose a higher number based on importance.</p>
+            </div>
+          </div>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%= f.hidden_field :infobit_type, :value => "wikipedia" %>
+        </fieldset>
+      <% end %>
+
+      <a href="#" id="btn-preview-wikipedia" class="pull-right btn btn-info">Generate Mini Preview</a>
+      <div class="clear"></div>
+    
+    </div> <!-- / #wikipedia.modal-type  -->
+
+
+
+
+    <div class="modal-type" id="quote">
+
+      <%= form_for([@infozaic, @quote_infobit], :remote => true, :namespace => "quote", :html => { :class => "form-horizontal" } ) do |f| %>
+      
+        <fieldset>
+
+
+          <div class="control-group">
+            <%= f.label :title, "Quote Author", class: "control-label" %>
+            <div class="controls">
+              <%= f.text_field :title, class: "input-xlarge" %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label :subtitle, "Author Title", class: "control-label" %>
+            <div class="controls">
+              <%= f.text_field :subtitle, class: "input-xlarge" %>
+              <p class="help-block">Optional. Who is this author?</p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :description, "The Quote", class: "control-label" %>
+            <div class="controls">
+              <%= f.text_area :description, :rows => 3, class: "input-xlarge" %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :link, "Reference URL", class: "control-label" %>
+            <div class="controls">
+              <%= f.text_field :link, class: "input-xlarge", placeholder: "http://www.site.com/reference/link" %>
+              <p class="help-block">Optional.</p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :title, "Columns", class: "control-label" %>
+            <div class="controls">
+              <label for="columns_1">
+              <%= f.radio_button(:columns, "1") %>
+              Span 1 (two) columns 
+              </label>
+              <label for="columns_2">
+              <%= f.radio_button(:columns, "2") %>
+              Span 2 (two) columns 
+              </label>
+
+              <label for="columns_3">
+              <%= f.radio_button(:columns, "3") %>
+             Span 3 (three) columns </label>
+              <p class="help-block">How many columns should this infobit span when placed on the canvas? Choose a higher number based on importance.</p>
+            </div>
+          </div>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%= f.hidden_field :infobit_type, :value => "quote" %>
+        </fieldset>
+      <% end %>
+
+
+      <a href="#" id="btn-preview-quote" class="pull-right btn btn-info">Generate Mini Preview</a>
+      <div class="clear"></div>
+    
+    </div> <!-- / #quote.modal-type  -->
+
+
+    <div class="modal-type" id="article">
+      <%= form_for([@infozaic, @article_infobit], :remote => true, :namespace => "article", :html => { :class => "form-horizontal" } ) do |f| %>
+      
+        <fieldset>
+
+
+          <div class="control-group">
+            <%= f.label :title, "Article Title", class: "control-label" %>
+            <div class="controls">
+              <%= f.text_field :title, class: "input-xlarge" %>
+              <p class="help-block">What is the title of this news article or blog post?</p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :description, "Article Content", class: "control-label" %>
+            <div class="controls">
+              <%= f.text_area :description, :rows => 3, class: "input-xlarge" %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :source, "Article Source", class: "control-label" %>
+            <div class="controls">
+              <%= f.text_field :source, class: "input-xlarge" %>
+              <p class="help-block">Who published this article?</p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :link, "Reference URL", class: "control-label" %>
+            <div class="controls">
+              <%= f.text_field :link, class: "input-xlarge", placeholder: "http://www.site.com/reference/link" %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :title, "Columns", class: "control-label" %>
+            <div class="controls">
+              <label for="columns_1">
+              <%= f.radio_button(:columns, "1") %>
+              Span 1 (two) columns 
+              </label>
+              <label for="columns_2">
+              <%= f.radio_button(:columns, "2") %>
+              Span 2 (two) columns 
+              </label>
+
+              <label for="columns_3">
+              <%= f.radio_button(:columns, "3") %>
+             Span 3 (three) columns </label>
+              <p class="help-block">How many columns should this infobit span when placed on the canvas? Choose a higher number based on importance.</p>
+            </div>
+          </div>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%= f.hidden_field :infobit_type, :value => "article" %>
+        </fieldset>
+      <% end %>
+
+
+      <a href="#" id="btn-preview-article" class="pull-right btn btn-info">Generate Mini Preview</a>
+      <div class="clear"></div>
+    
+    </div> <!-- / #article.modal-type  -->
+
+
+    <div class="modal-type" id="website">
+      <%= form_for([@infozaic, @website_infobit], :remote => true, :namespace => "website", :html => { :class => "form-horizontal" } ) do |f| %>
+      
+        <fieldset>
+
+          <div class="control-group">
+            <%= f.label :link, "Website URL", class: "control-label" %>
+            <div class="controls">
+              <%= f.text_field :link, class: "input-xlarge", placeholder: "http://www.website.com" %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :title, "Title", class: "control-label" %>
+            <div class="controls">
+              <%= f.text_field :title, class: "input-xlarge" %>
+              <p class="help-block">Give a title or short description of this website.</p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :title, "Columns", class: "control-label" %>
+            <div class="controls">
+              <label for="columns_1">
+              <%= f.radio_button(:columns, "1") %>
+              Span 1 (two) columns 
+              </label>
+              <label for="columns_2">
+              <%= f.radio_button(:columns, "2") %>
+              Span 2 (two) columns 
+              </label>
+
+              <label for="columns_3">
+              <%= f.radio_button(:columns, "3") %>
+             Span 3 (three) columns </label>
+              <p class="help-block">How many columns should this infobit span when placed on the canvas? Choose a higher number based on importance.</p>
+            </div>
+          </div>
+          
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%= f.hidden_field :infobit_type, :value => "website" %>
+        </fieldset>
+      <% end %>
+
+
+      <a href="#" id="btn-preview-website" class="pull-right btn btn-info">Generate Mini Preview</a>
+      <div class="clear"></div>
+    
+    </div> <!-- / #website.modal-type  -->
+
+
+    <div class="modal-type" id="photo">
+
+
+      <%= form_for([@infozaic, @photo_infobit], :remote => true, :namespace => "photo", :html => { :class => "form-horizontal" } ) do |f| %>
+      
+        <fieldset>
+          <div class="control-group">
+            <%= f.label :link, "Photo URL", class: "control-label" %>
+            <div class="controls">
+              <%= f.text_field :link, class: "input-xlarge", placeholder: "http://www.site.com/link/to/photo" %>
+              <p class="help-block">Paste in the URL to your photo.</p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :title, class: "control-label" %>
+            <div class="controls">
+              <%= f.text_field :title, class: "input-xlarge" %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :description, class: "control-label" %>
+            <div class="controls">
+              <%= f.text_area :description, :rows => 3, class: "input-xlarge" %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :title, "Columns", class: "control-label" %>
+            <div class="controls">
+              <label for="columns_1">
+              <%= f.radio_button(:columns, "1") %>
+              Span 1 (two) columns 
+              </label>
+              <label for="columns_2">
+              <%= f.radio_button(:columns, "2") %>
+              Span 2 (two) columns 
+              </label>
+
+              <label for="columns_3">
+              <%= f.radio_button(:columns, "3") %>
+             Span 3 (three) columns </label>
+              <p class="help-block">How many columns should this infobit span when placed on the canvas? Choose a higher number based on importance.</p>
+            </div>
+          </div>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%= f.hidden_field :infobit_type, :value => "photo" %>
+
+
+        </fieldset>
+      <% end %>
+
+
+      <a href="#" id="btn-preview-photo" class="pull-right btn btn-info">Generate Mini Preview</a>
+      <div class="clear"></div>
+    
+    </div> <!-- / #photo.modal-type  -->
+
+    <div class="modal-type" id="youtube">
+      
+
+      <%= form_for([@infozaic, @youtube_infobit], :remote => true, :namespace => "youtube", :html => { :class => "form-horizontal" } ) do |f| %>
+      
+        <fieldset>
+          <div class="control-group">
+            <%= f.label :link, "YouTube URL", class: "control-label" %>
+            <div class="controls">
+              <%= f.text_field :link, class: "input-xlarge", placeholder: "http://www.youtube.com/watch?v=..." %>
+              <p class="help-block">Paste in the YouTube URL.</p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :title, "Columns", class: "control-label" %>
+            <div class="controls">
+              <label for="columns_1">
+              <%= f.radio_button(:columns, "1") %>
+              Span 1 (two) columns 
+              </label>
+              <label for="columns_2">
+              <%= f.radio_button(:columns, "2") %>
+              Span 2 (two) columns 
+              </label>
+
+              <label for="columns_3">
+              <%= f.radio_button(:columns, "3") %>
+             Span 3 (three) columns </label>
+              <p class="help-block">How many columns should this infobit span when placed on the canvas? Choose a higher number based on importance.</p>
+            </div>
+          </div>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%= f.hidden_field :infobit_type, :value => "youtube" %>
+
+
+        </fieldset>
+      <% end %>
+
+
+      <a href="#" id="btn-preview-youtube" class="pull-right btn btn-info">Generate Mini Preview</a>
+      <div class="clear"></div>
+    
+    </div> <!-- / #youtube.modal-type  -->
+
+    <div class="modal-type" id="vimeo">
+      <%= form_for([@infozaic, @vimeo_infobit], :remote => true, :namespace => "vimeo", :html => { :class => "form-horizontal" } ) do |f| %>    
+        <fieldset>
+          <div class="control-group">
+            <%= f.label :link, "Vimeo URL", class: "control-label" %>
+            <div class="controls">
+              <%= f.text_field :link, class: "input-xlarge", placeholder: "http://www.vimeo.com/..." %>
+              <p class="help-block">Paste in the Vimeo URL.</p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :title, "Columns", class: "control-label" %>
+            <div class="controls">
+              <label for="columns_1">
+              <%= f.radio_button(:columns, "1") %>
+              Span 1 (two) columns 
+              </label>
+              <label for="columns_2">
+              <%= f.radio_button(:columns, "2") %>
+              Span 2 (two) columns 
+              </label>
+
+              <label for="columns_3">
+              <%= f.radio_button(:columns, "3") %>
+             Span 3 (three) columns </label>
+              <p class="help-block">How many columns should this infobit span when placed on the canvas? Choose a higher number based on importance.</p>
+            </div>
+          </div>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%= f.hidden_field :infobit_type, :value => "vimeo" %>
+        </fieldset>
+      <% end %>
+
+      <a href="#" id="btn-preview-vimeo" class="pull-right btn btn-info">Generate Mini Preview</a>
+      <div class="clear"></div>
+    
+    </div> <!-- / #vimeo.modal-type  -->
+
+    <div id="preview-wrap">
+      <hr>
+      <h4>Preview</h4>
+      <p>Here is a preview of your infobit:</p>
+
+      <div class="well infobit-example" style="background-color: #888; border: none;">
+        <div id="preview">
+          <div class="infobit item col1">
+            <div class="infobit-meta">
+              <div class="link"></div>
+              <div class="opinion">
+                <div class="likes">
+                  <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">0</div>
+                </div>
+                <div class="dislikes">
+                  <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">0</div>
+                </div>
+                <div class="clear"></div>
+              </div>
+            </div>
+            <div class="infobit-content">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+    <a href="#" id="btn-add" type="" class="btn btn-info">Add</a>
+  </div>
+</div> <!-- / #add-modal  -->
+
+
+
+
 <% else %>
 
 <% provide(:extrastyle, '-fluid single logged_off') %>
@@ -93,10 +588,17 @@
 
           <div class="row">
             <div id="contributers">
-              <h6>contributers</h6>
+              <h6>Contributers</h6>
+              <%= link_to @infozaic.user.name, @infozaic.user, :title => "View #{@infozaic.user.name}'s Profile", :rel => "tooltip" %>
+
+
+
+              <!--
               <%= link_to image_tag("profile/2.jpeg", :class => "profile-icon", :size => "30x30"), '#', :title => "jbroglie", :rel => "tooltip" %>
               <%= link_to image_tag("profile/3.jpeg", :class => "profile-icon", :size => "30x30"), '#', :title => "mhighland", :rel => "tooltip" %>
               <%= link_to image_tag("profile/4.jpeg", :class => "profile-icon", :size => "30x30"), '#', :title => "etolle", :rel => "tooltip" %>
+
+            -->
             </div>
           </div>
 
@@ -156,8 +658,8 @@
 
       // hack to make infobit top/bottom margins equal to left/right
       function updateMargins() {
-        var $infobits = $('.infobit');
-        var infobitMargin = $infobits.css('margin-left');
+        var $infobits = $('.infobit').first();
+        var infobitMargin = $infobits.css("margin-left");
         $infobits.css('margin-top', infobitMargin);
         $infobits.css('margin-bottom', infobitMargin);
       }
@@ -189,19 +691,14 @@
           //$elem.attr('src', $elem.attr('src'));
         });
 
-
-        
-
         $container.isotope({
           masonry: { columnWidth: $container.width() / cols }
         });
-        
-
       });
 
 
       function setColumns() {
-        // if width is less than 800, go to 3 col
+        // if width is less than 1000, go to 3 col
         if ($win.width() < 1100) {
           $container.addClass('three-col');
           $container.removeClass('five-col');
@@ -217,7 +714,6 @@
 
       $container.imagesLoaded( function(){
         
-
         // Kick off one resize to fix all videos on page load
         // which will also call updateMargins()
         $win.resize();
@@ -272,492 +768,3 @@
 
 
 
-<!-- edit modal -->
-  <div id="edit-modal" class="modal hide fade">
-    <div class="modal-header">
-      <a class="close" data-dismiss="modal" >&times;</a>
-      <h3>Edit Meta</h3>
-    </div>
-
-
-    
-    <div class="modal-body">
-      <%= form_for(@infozaic, :remote => true, :html => { :class => "form-horizontal ajax-edit" } ) do |f| %>
-        <% if @infozaic.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@infozaic.errors.count, "error") %> prohibited this infozaic from being saved:</h2>
-
-              <ul>
-              <% @infozaic.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-              </ul>
-            </div>
-          <% end %>
-        <fieldset>
-
-          <div class="control-group">
-            <%= f.label :title, class: "control-label" %>
-            <div class="controls">
-              <%= f.text_field :title, class: "input-xlarge" %>
-                <p class="help-block">What is the title or subject of your infozaic?</p>
-            </div>
-          </div>
-
-          <div class="control-group">
-            <%= f.label :description, class: "control-label" %>
-            <div class="controls">
-              <%= f.text_area :description, :rows => 3, class: "input-xlarge" %>
-                <p class="help-block">Please give a one paragraph synopsis of this infozaic.</p>
-            </div>
-          </div>
-        </fieldset>
-
-        
-      <% end %>
-      
-    </div>
-    <div class="modal-footer">
-        <a href="#" class="btn" data-dismiss="modal">Close</a>
-        <a href="#" id="edit-submit" class="btn btn-primary">Update</a>
-      </div>
-
-    
-
-
-      
-
-    
-  </div> <!-- / #edit-modal  -->
-
-<!-- add modal content -->
-  <div id="add-modal" class="modal hide fade">
-    <div class="modal-header">
-      <a class="close" data-dismiss="modal" >&times;</a>
-      <h3>Modal Heading</h3>
-    </div>
-    <div class="modal-body">
-
-
-      <div class="modal-type" id="wikipedia">
-        
-
-        <%= form_for([@infozaic, @wikipedia_infobit], :remote => true, :namespace => "wikipedia", :html => { :class => "form-horizontal" } ) do |f| %>
-        
-          <fieldset>
-
-            <div class="control-group">
-              <%= f.label :link, "Wikipedia Link", class: "control-label" %>
-              <div class="controls">
-                <%= f.text_field :link, class: "input-xlarge", placeholder: "http://en.wikipedia.org/wiki/..." %>
-                <p class="help-block">Paste in the Wikipedia URL.</p>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <%= f.label :title, "Title", class: "control-label" %>
-              <div class="controls">
-                <%= f.text_field :title, class: "input-xlarge" %>
-                <p class="help-block">This should be the article title.</p>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <%= f.label :description, "Content", class: "control-label" %>
-              <div class="controls">
-                <%= f.text_area :description, :rows => 3, class: "input-xlarge" %>
-                <p class="help-block">The first paragraph on Wikipedia for this topic should do fine!</p>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <%= f.label :title, "Columns", class: "control-label" %>
-              <div class="controls">
-                <label for="columns_1">
-                <%= f.radio_button(:columns, "1") %>
-                Span 1 (two) columns 
-                </label>
-                <label for="columns_2">
-                <%= f.radio_button(:columns, "2") %>
-                Span 2 (two) columns 
-                </label>
-
-                <label for="columns_3">
-                <%= f.radio_button(:columns, "3") %>
-               Span 3 (three) columns </label>
-                <p class="help-block">How many columns should this infobit span when placed on the canvas? Choose a higher number based on importance.</p>
-              </div>
-            </div>
-
-            <%= f.hidden_field :infobit_type, :value => "wikipedia" %>
-          </fieldset>
-        <% end %>
-
-        <a href="#" id="btn-preview-wikipedia" class="pull-right btn btn-primary">Generate Mini Preview</a>
-        <div class="clear"></div>
-      
-      </div> <!-- / #wikipedia.modal-type  -->
-
-
-
-
-      <div class="modal-type" id="quote">
-
-        <%= form_for([@infozaic, @quote_infobit], :remote => true, :namespace => "quote", :html => { :class => "form-horizontal" } ) do |f| %>
-        
-          <fieldset>
-
-
-            <div class="control-group">
-              <%= f.label :title, "Quote Author", class: "control-label" %>
-              <div class="controls">
-                <%= f.text_field :title, class: "input-xlarge" %>
-              </div>
-            </div>
-            <div class="control-group">
-              <%= f.label :subtitle, "Author Title", class: "control-label" %>
-              <div class="controls">
-                <%= f.text_field :subtitle, class: "input-xlarge" %>
-                <p class="help-block">Optional. Who is this author?</p>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <%= f.label :description, "The Quote", class: "control-label" %>
-              <div class="controls">
-                <%= f.text_area :description, :rows => 3, class: "input-xlarge" %>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <%= f.label :link, "Reference URL", class: "control-label" %>
-              <div class="controls">
-                <%= f.text_field :link, class: "input-xlarge", placeholder: "http://www.site.com/reference/link" %>
-                <p class="help-block">Optional.</p>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <%= f.label :title, "Columns", class: "control-label" %>
-              <div class="controls">
-                <label for="columns_1">
-                <%= f.radio_button(:columns, "1") %>
-                Span 1 (two) columns 
-                </label>
-                <label for="columns_2">
-                <%= f.radio_button(:columns, "2") %>
-                Span 2 (two) columns 
-                </label>
-
-                <label for="columns_3">
-                <%= f.radio_button(:columns, "3") %>
-               Span 3 (three) columns </label>
-                <p class="help-block">How many columns should this infobit span when placed on the canvas? Choose a higher number based on importance.</p>
-              </div>
-            </div>
-
-            <%= f.hidden_field :infobit_type, :value => "quote" %>
-          </fieldset>
-        <% end %>
-
-
-        <a href="#" id="btn-preview-quote" class="pull-right btn btn-primary">Generate Mini Preview</a>
-        <div class="clear"></div>
-      
-      </div> <!-- / #quote.modal-type  -->
-
-
-      <div class="modal-type" id="article">
-        <%= form_for([@infozaic, @article_infobit], :remote => true, :namespace => "article", :html => { :class => "form-horizontal" } ) do |f| %>
-        
-          <fieldset>
-
-
-            <div class="control-group">
-              <%= f.label :title, "Article Title", class: "control-label" %>
-              <div class="controls">
-                <%= f.text_field :title, class: "input-xlarge" %>
-                <p class="help-block">What is the title of this news article or blog post?</p>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <%= f.label :description, "Article Content", class: "control-label" %>
-              <div class="controls">
-                <%= f.text_area :description, :rows => 3, class: "input-xlarge" %>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <%= f.label :source, "Article Source", class: "control-label" %>
-              <div class="controls">
-                <%= f.text_field :source, class: "input-xlarge" %>
-                <p class="help-block">Who published this article?</p>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <%= f.label :link, "Reference URL", class: "control-label" %>
-              <div class="controls">
-                <%= f.text_field :link, class: "input-xlarge", placeholder: "http://www.site.com/reference/link" %>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <%= f.label :title, "Columns", class: "control-label" %>
-              <div class="controls">
-                <label for="columns_1">
-                <%= f.radio_button(:columns, "1") %>
-                Span 1 (two) columns 
-                </label>
-                <label for="columns_2">
-                <%= f.radio_button(:columns, "2") %>
-                Span 2 (two) columns 
-                </label>
-
-                <label for="columns_3">
-                <%= f.radio_button(:columns, "3") %>
-               Span 3 (three) columns </label>
-                <p class="help-block">How many columns should this infobit span when placed on the canvas? Choose a higher number based on importance.</p>
-              </div>
-            </div>
-
-            <%= f.hidden_field :infobit_type, :value => "article" %>
-          </fieldset>
-        <% end %>
-
-
-        <a href="#" id="btn-preview-article" class="pull-right btn btn-primary">Generate Mini Preview</a>
-        <div class="clear"></div>
-      
-      </div> <!-- / #article.modal-type  -->
-
-
-      <div class="modal-type" id="website">
-        <%= form_for([@infozaic, @website_infobit], :remote => true, :namespace => "website", :html => { :class => "form-horizontal" } ) do |f| %>
-        
-          <fieldset>
-
-            <div class="control-group">
-              <%= f.label :link, "Website URL", class: "control-label" %>
-              <div class="controls">
-                <%= f.text_field :link, class: "input-xlarge", placeholder: "http://www.website.com" %>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <%= f.label :title, "Title", class: "control-label" %>
-              <div class="controls">
-                <%= f.text_field :title, class: "input-xlarge" %>
-                <p class="help-block">Give a title or short description of this website.</p>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <%= f.label :title, "Columns", class: "control-label" %>
-              <div class="controls">
-                <label for="columns_1">
-                <%= f.radio_button(:columns, "1") %>
-                Span 1 (two) columns 
-                </label>
-                <label for="columns_2">
-                <%= f.radio_button(:columns, "2") %>
-                Span 2 (two) columns 
-                </label>
-
-                <label for="columns_3">
-                <%= f.radio_button(:columns, "3") %>
-               Span 3 (three) columns </label>
-                <p class="help-block">How many columns should this infobit span when placed on the canvas? Choose a higher number based on importance.</p>
-              </div>
-            </div>
-            
-
-            <%= f.hidden_field :infobit_type, :value => "website" %>
-          </fieldset>
-        <% end %>
-
-
-        <a href="#" id="btn-preview-website" class="pull-right btn btn-primary">Generate Mini Preview</a>
-        <div class="clear"></div>
-      
-      </div> <!-- / #website.modal-type  -->
-
-
-      <div class="modal-type" id="photo">
-  
-
-        <%= form_for([@infozaic, @photo_infobit], :remote => true, :namespace => "photo", :html => { :class => "form-horizontal" } ) do |f| %>
-        
-          <fieldset>
-            <div class="control-group">
-              <%= f.label :link, "Photo URL", class: "control-label" %>
-              <div class="controls">
-                <%= f.text_field :link, class: "input-xlarge", placeholder: "http://www.site.com/link/to/photo" %>
-                <p class="help-block">Paste in the URL to your photo.</p>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <%= f.label :title, class: "control-label" %>
-              <div class="controls">
-                <%= f.text_field :title, class: "input-xlarge" %>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <%= f.label :description, class: "control-label" %>
-              <div class="controls">
-                <%= f.text_area :description, :rows => 3, class: "input-xlarge" %>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <%= f.label :title, "Columns", class: "control-label" %>
-              <div class="controls">
-                <label for="columns_1">
-                <%= f.radio_button(:columns, "1") %>
-                Span 1 (two) columns 
-                </label>
-                <label for="columns_2">
-                <%= f.radio_button(:columns, "2") %>
-                Span 2 (two) columns 
-                </label>
-
-                <label for="columns_3">
-                <%= f.radio_button(:columns, "3") %>
-               Span 3 (three) columns </label>
-                <p class="help-block">How many columns should this infobit span when placed on the canvas? Choose a higher number based on importance.</p>
-              </div>
-            </div>
-
-            <%= f.hidden_field :infobit_type, :value => "photo" %>
-
-
-          </fieldset>
-        <% end %>
-
-
-        <a href="#" id="btn-preview-photo" class="pull-right btn btn-primary">Generate Mini Preview</a>
-        <div class="clear"></div>
-      
-      </div> <!-- / #photo.modal-type  -->
-
-      <div class="modal-type" id="youtube">
-        
-
-        <%= form_for([@infozaic, @youtube_infobit], :remote => true, :namespace => "youtube", :html => { :class => "form-horizontal" } ) do |f| %>
-        
-          <fieldset>
-            <div class="control-group">
-              <%= f.label :link, "YouTube URL", class: "control-label" %>
-              <div class="controls">
-                <%= f.text_field :link, class: "input-xlarge", placeholder: "http://www.youtube.com/watch?v=..." %>
-                <p class="help-block">Paste in the YouTube URL.</p>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <%= f.label :title, "Columns", class: "control-label" %>
-              <div class="controls">
-                <label for="columns_1">
-                <%= f.radio_button(:columns, "1") %>
-                Span 1 (two) columns 
-                </label>
-                <label for="columns_2">
-                <%= f.radio_button(:columns, "2") %>
-                Span 2 (two) columns 
-                </label>
-
-                <label for="columns_3">
-                <%= f.radio_button(:columns, "3") %>
-               Span 3 (three) columns </label>
-                <p class="help-block">How many columns should this infobit span when placed on the canvas? Choose a higher number based on importance.</p>
-              </div>
-            </div>
-
-            <%= f.hidden_field :infobit_type, :value => "youtube" %>
-
-
-          </fieldset>
-        <% end %>
-
-
-        <a href="#" id="btn-preview-youtube" class="pull-right btn btn-primary">Generate Mini Preview</a>
-        <div class="clear"></div>
-      
-      </div> <!-- / #youtube.modal-type  -->
-
-      <div class="modal-type" id="vimeo">
-        <%= form_for([@infozaic, @vimeo_infobit], :remote => true, :namespace => "vimeo", :html => { :class => "form-horizontal" } ) do |f| %>    
-          <fieldset>
-            <div class="control-group">
-              <%= f.label :link, "Vimeo URL", class: "control-label" %>
-              <div class="controls">
-                <%= f.text_field :link, class: "input-xlarge", placeholder: "http://www.vimeo.com/..." %>
-                <p class="help-block">Paste in the Vimeo URL.</p>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <%= f.label :title, "Columns", class: "control-label" %>
-              <div class="controls">
-                <label for="columns_1">
-                <%= f.radio_button(:columns, "1") %>
-                Span 1 (two) columns 
-                </label>
-                <label for="columns_2">
-                <%= f.radio_button(:columns, "2") %>
-                Span 2 (two) columns 
-                </label>
-
-                <label for="columns_3">
-                <%= f.radio_button(:columns, "3") %>
-               Span 3 (three) columns </label>
-                <p class="help-block">How many columns should this infobit span when placed on the canvas? Choose a higher number based on importance.</p>
-              </div>
-            </div>
-
-            <%= f.hidden_field :infobit_type, :value => "vimeo" %>
-          </fieldset>
-        <% end %>
-
-        <a href="#" id="btn-preview-vimeo" class="pull-right btn btn-primary">Generate Mini Preview</a>
-        <div class="clear"></div>
-      
-      </div> <!-- / #vimeo.modal-type  -->
-
-      <div id="preview-wrap">
-        <hr>
-        <h4>Preview</h4>
-        <p>Here is a preview of your infobit:</p>
-
-        <div class="well infobit-example" style="background-color: #888; border: none;">
-          <div id="preview">
-            <div class="infobit item col1">
-              <div class="infobit-meta">
-                <div class="link"></div>
-                <div class="opinion">
-                  <div class="likes">
-                    <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">0</div>
-                  </div>
-                  <div class="dislikes">
-                    <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">0</div>
-                  </div>
-                  <div class="clear"></div>
-                </div>
-              </div>
-              <div class="infobit-content">
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-    <div class="modal-footer">
-      <a href="#" class="btn" data-dismiss="modal">Close</a>
-      <a href="#" id="btn-add" type="" class="btn btn-primary">Add</a>
-    </div>
-  </div> <!-- / #add-modal  -->
