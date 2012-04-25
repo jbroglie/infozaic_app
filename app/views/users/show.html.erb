@@ -6,20 +6,25 @@
 
 		  		<h3><%= @user.name %></h3>
 
-
+          <br>
           <h6>Joined</h6>
-          March 1, 2012
+          <p><%= time_ago_in_words(@user.created_at) %> ago</p>
 
           <h6>Email</h6>
-          <%= @user.email %>
-          <h6>Website</h6>
-          www.relativecommotion.com
-
+          <p><%= @user.email %></p>
           
+          <% if !@user.twitter.nil? && !@user.twitter.empty? %>
+            <%= link_to image_tag("icon-twitter.png", :class => "social-icon"), 'http://www.twitter.com/'+@user.twitter, :title => "Follow #{@user.name} on Twitter", :rel => "tooltip" %>
+          <% end %>
+          <% if !@user.facebook.nil? && !@user.facebook.empty?  %>
+            <%= link_to image_tag("icon-facebook.png", :class => "social-icon"), 'http://www.facebook.com/'+@user.facebook, :title => "Follow #{@user.name} on Facebook", :rel => "tooltip" %>
+          <% end %>
+          <% if !@user.linkedin.nil? && !@user.linkedin.empty? %>
+            <%= link_to image_tag("icon-linkedin.png", :class => "social-icon"), 'http://www.linkedin.com/in/'+@user.linkedin, :title => "Follow #{@user.name} on LinkedIn", :rel => "tooltip" %>
+          <% end %>
 
-          <%= link_to image_tag("icon-twitter.png", :class => "social-icon"), '#' %>
-          <%= link_to image_tag("icon-facebook.png", :class => "social-icon"), '#' %>
-          <%= link_to image_tag("icon-linkedin.png", :class => "social-icon"), '#' %>
+          <div class="clear"></div>
+
 			</div> <!--/well-->
         </div><!--/span-->
         <div class="span9">
@@ -27,9 +32,15 @@
           <div class="row">
             <div class="span9">
               <div class="hero-unit">
-                <h6>About Justin</h6>
+                <h6>About <%= @user.name %></h6>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae felis nisl, vitae luctus felis. Nam at ultricies est. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae eros eu neque tincidunt consectetur eu nec urna. Phasellus non orci eget ipsum condimentum sodales eu ac mauris. Sed ante mi, porta a porta ut, eleifend sed a</p>
+                <p>
+                  <% if !@user.bio.nil? && !@user.bio.empty? %>
+                    <%= @user.bio %>
+                  <% else %>
+                    This user has not added a bio yet.
+                  <% end %>
+                </p>
                 <h6>Infozaic Stats</h6>
                 <p>4 created | 13 collaborated</p>
               </div>

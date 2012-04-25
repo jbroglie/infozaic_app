@@ -80,7 +80,7 @@
 
         function addInfobitToCanvas() {
             var $newInfobit = $($('#preview', $modal).html());
-            $("#canvas").prepend( $newInfobit ).masonry( 'reload' );
+            $("#canvas-inner").prepend( $newInfobit ).isotope( 'reloadItems' ).isotope({ sortBy: 'original-order' });
             //$('#add-modal').modal('hide');  
         }
 
