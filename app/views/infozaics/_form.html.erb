@@ -1,7 +1,7 @@
 <%= form_for(@infozaic, :html => { :class => "form-horizontal" } ) do |f| %>
 	<% if @infozaic.errors.any? %>
-	    <div id="error_explanation">
-	      <h2><%= pluralize(@infozaic.errors.count, "error") %> prohibited this infozaic from being saved:</h2>
+	    <div class="alert alert-error">
+        <h4 class="alert-heading"><%= pluralize(@infozaic.errors.count, "error") %> prohibited this infozaic from being saved:</h4>
 
 	      <ul>
 	      <% @infozaic.errors.full_messages.each do |msg| %>
@@ -24,8 +24,8 @@
 	  <div class="control-group">
 	    <%= f.label :description, class: "control-label" %>
 	    <div class="controls">
-	      <%= f.text_area :description, :rows => 3, class: "input-xlarge" %>
-          <p class="help-block">Please give a one paragraph synopsis of this infozaic.</p>
+	      <%= f.text_area :description, :rows => 10, class: "input-xlarge" %>
+          <p class="help-block">Please give a one paragraph synopsis of this infozaic in 1000 characters or less.</p>
 	    </div>
 	  </div>
 

@@ -21,8 +21,6 @@
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Photo <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a class="modal-btn" data-toggle="modal" href="#add-modal" data-type="photo">Link to Photo</a></li>
-            <li><a class="modal-btn" data-toggle="modal" href="#add-modal" data-type="flickr">Flickr Slideshow</a></li>
-            <li><a class="modal-btn" data-toggle="modal" href="#add-modal" data-type="photo-upload">Upload</a></li>
           </ul>
         </li>
         <li><a class="modal-btn" data-toggle="modal" href="#add-modal" data-type="quote">Quote</a></li>
@@ -37,8 +35,17 @@
 
       <ul class="nav nav-pills pull-right">
         <li><a id="btn-shuffle" href="#">Shuffle</a></li>
-        <li><a data-toggle="modal" href="#edit-modal">Edit Meta</a></li>
-        <li><a data-toggle="modal" href="#edit-modal">Collaborate</a></li>
+        
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Settings <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a data-toggle="modal" href="#edit-modal">Edit Meta</a></li>
+            <li><a data-toggle="modal" href="#edit-modal">Collaborate</a></li>
+            <li class="divider"></li>
+            <li><%= link_to 'Destroy', @infozaic, confirm: 'Are you sure?', method: :delete %></li>
+          </ul>
+        </li>
+        
       </ul>
 
           
@@ -115,8 +122,6 @@
 
       var $container = $('#canvas #canvas-inner');
       
-
-
       // display mini-meta on scroll
       var $win = $(window)
         , $miniMeta = $('.mini-meta')
@@ -136,6 +141,46 @@
           $miniMeta.fadeOut()
         }
       }
+
+
+      // hack to make infobit top/bottom margins equal to left/right
+      function updateMargins() {
+        var $infobits = $('.infobit');
+        var infobitMargin = $infobits.css('margin-left');
+        $infobits.css('margin-top', infobitMargin);
+        $infobits.css('margin-bottom', infobitMargin);
+      }
+
+      
+      // Find all YouTube and Vimeo embed videos
+      var $allEmbeds = $("iframe");
+      
+      // update columnWidth on window resize
+      $win.smartresize(function(){
+        
+        // resize canvas min-height
+        var canvasTop = $('#canvas').offset().top;
+        $('#canvas').css("min-height", $(window).height() - canvasTop - 60);
+       
+         // Resize all videos according to their own aspect ratio
+        $allEmbeds.each(function() {
+          var $elem = $(this);
+          var newWidth = $(this).parent().width();
+          var newHeight = newWidth * $elem.attr('data-aspect');
+          $elem.attr('width', newWidth);
+          $elem.attr('height', newHeight);
+          /*$elem
+            .width(newWidth)
+            .height(newWidth * $elem.data('aspectRatio'));*/
+          //$elem.attr('src', $elem.attr('src'));
+        });
+
+        $container.isotope({
+          masonry: { columnWidth: $container.width() / 3 }
+        });
+        updateMargins(); 
+
+      });
 
 
 
@@ -184,69 +229,11 @@
 
 
 
-
-      
-
-      // hack to make infobit top/bottom margins equal to left/right
-      function updateMargins() {
-        var $infobits = $('.infobit');
-        var infobitMargin = $infobits.css('margin-left');
-        $infobits.css('margin-top', infobitMargin);
-        $infobits.css('margin-bottom', infobitMargin);
-      }
-
-      
-      // Find all YouTube and Vimeo embed videos
-      var $allEmbeds = $("iframe");
-      
-      // update columnWidth on window resize
-      $win.smartresize(function(){
-        
-        // resize canvas min-height
-        var canvasTop = $('#canvas').offset().top;
-        $('#canvas').css("min-height", $(window).height() - canvasTop - 60);
-       
-         // Resize all videos according to their own aspect ratio
-        $allEmbeds.each(function() {
-          var $elem = $(this);
-          var newWidth = $(this).parent().width();
-          var newHeight = newWidth * $elem.attr('data-aspect');
-          $elem.attr('width', newWidth);
-          $elem.attr('height', newHeight);
-          /*$elem
-            .width(newWidth)
-            .height(newWidth * $elem.data('aspectRatio'));*/
-          //$elem.attr('src', $elem.attr('src'));
-        });
-
-        $container.isotope({
-          masonry: { columnWidth: $container.width() / 3 }
-        });
-        updateMargins(); 
-
-      });
-
-
-
        // generate quote preview
         $('#btn-shuffle').click(function(e) {
             e.preventDefault();
             $('#canvas #canvas-inner').isotope('shuffle');
         });
-
-
-
-
-
-        
-
-
-          
-
-        
-
-
-      
 
     });
 

@@ -24,5 +24,13 @@ class InfobitsController < ApplicationController
 		end
 	end
 
+	def destroy
+	    @infozaic = Infozaic.find(params[:infozaic_id])
+ 		@infobit = Infobit.find(params[:id])
+	    @infobit.destroy
+	    flash[:notice] = "Your infobit was successfully destroyed."
+	    redirect_to @infozaic
+	  end
+
 
 end

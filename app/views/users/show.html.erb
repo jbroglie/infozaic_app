@@ -13,6 +13,7 @@
           <h6>Email</h6>
           <p><%= @user.email %></p>
           
+          <h6>Social</h6>
           <% if !@user.twitter.nil? && !@user.twitter.empty? %>
             <%= link_to image_tag("icon-twitter.png", :class => "social-icon"), 'http://www.twitter.com/'+@user.twitter, :title => "Follow #{@user.name} on Twitter", :rel => "tooltip" %>
           <% end %>

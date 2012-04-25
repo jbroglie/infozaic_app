@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true
-  validates :bio, length: { maximum: 500 }
+  validates :bio, length: { maximum: 1000 }
 
   private
 

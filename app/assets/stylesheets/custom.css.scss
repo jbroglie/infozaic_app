@@ -12,6 +12,9 @@ $metaWhite: #f3f3f3;
 }
 
 
+@import "http://webfonts.justanotherfoundry.com/Mashine/";
+@import "http://fonts.googleapis.com/css?family=Oxygen|Open+Sans|Quattrocento+Sans:700";
+
 
 
 /* universal */
@@ -55,7 +58,35 @@ textarea {
 
 /* header */
 
+.navbar .logo {
+  font-family: MashineWeb-Light;
+  float: left;
+  display: block;
+  padding: 10px 20px 10px;
+  margin-left: -20px;
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 1;
+  color: white;
+}
 
+p {
+  font-family: 'Oxygen', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+
+  font-family: 'Quattrocento Sans', sans-serif;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+.navbar .logo:hover {
+  text-decoration: none;
+}
 
 /* footer */
 
@@ -85,6 +116,10 @@ footer {
 
 /* elements */
 
+.social-icon {
+  margin-top: 10px;
+  margin-right: 5px;
+}
 
 .form-horizontal .control-group .field_with_errors {
   float: left;
@@ -260,6 +295,11 @@ border-color: #B94A48;
           border-radius: 0 0 4px 4px;
 }
 
+.subnav .nav.pull-right .dropdown-menu {
+  left: auto;
+  right: 0;
+}
+
 .nav-pills.pull-left::after {
   clear: none;
 }
@@ -383,6 +423,16 @@ header .container-fluid.single {
   background-color: #fcfcfc;
 }
 
+.infobit-meta .delete-infobit {
+  display: none;
+}
+
+.infobit-meta:hover .delete-infobit {
+  display: inline-block;
+}
+
+
+
 .infobit:hover {
   -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 0px 4px;
   -moz-box-shadow: rgba(0, 0, 0, 0.8) 0px 0px 4px;
@@ -407,9 +457,6 @@ border-bottom: 1px solid #ccc;
 -webkit-box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(0,0,0,.1);
 	-moz-box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(0,0,0,.1);
 	box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(0,0,0,.1);
-
-
-
 }
 
 .infobit-meta .link {
@@ -441,7 +488,7 @@ border-bottom: 1px solid #ccc;
   height: 20px;
   cursor: pointer;
   float: left;
-  background-image: url(image_path('opinion.png'));
+  /*background-image: url(image_path('opinion.png'));*/
 }
 
 .likes-button {

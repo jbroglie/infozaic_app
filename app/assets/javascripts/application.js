@@ -352,6 +352,14 @@
 		      placement: "top"
 		    });
 
+            $('i[rel=tooltip]').tooltip({
+              placement: "top"
+            });
+
+            $('a[rel="tooltip nofollow"]').tooltip({
+              placement: "top"
+            });
+
 		}
 		
 

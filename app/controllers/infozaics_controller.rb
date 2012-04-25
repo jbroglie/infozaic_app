@@ -19,8 +19,8 @@ class InfozaicsController < ApplicationController
 
   	if @infozaic.save
   		redirect_to @infozaic
-  	#else
-
+  	else
+      render 'new'
   	end
   end
 
@@ -54,6 +54,13 @@ class InfozaicsController < ApplicationController
         format.json { render json: @infozaic.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def destroy
+    @infozaic = Infozaic.find(params[:id])
+    @infozaic.destroy
+    flash[:notice] = "Your infozaic was successfully destroyed."
+    redirect_to infozaics_path
   end
 
   private

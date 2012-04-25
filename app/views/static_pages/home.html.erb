@@ -5,7 +5,12 @@
           <div class="hero-unit">
             <h1>Welcome to Infozaic</h1>
             <p>With the development of an increasing amount of online media platforms which host embeddable content, we find ourselves in need of a new information platform that can integrate all popular modern forms of media. Infozaic is a web platform that allows users to collaboratively build “information mosaics” on any given topic, incorporating web pages, videos, pictures, and other embeddable content.</p>
-            <p><a href="<%= about_path %>" class="btn btn-success btn-large">Learn more &raquo;</a></p>
+
+            <a class="btn-group pull-right">
+              <a href="<%= create_path %>" class="btn btn-info btn-large">Create an Infozaic!</a> 
+              <a href="<%= about_path %>" class="btn btn-large ">Learn More</a>
+            </a>
+            
           </div>
         </div><!--/span-->
         <div class="span3">
@@ -50,17 +55,17 @@
             <div class="span4">
               <h2>Collaborative</h2>
               <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">Browse &raquo;</a></p>
+
             </div><!--/span-->
             <div class="span4">
               <h2>Modern</h2>
               <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">Browse &raquo;</a></p>
+
             </div><!--/span-->
             <div class="span4">
               <h2>Transparent</h2>
               <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">Browse &raquo;</a></p>
+
             </div><!--/span-->
        </div><!--/row-->
 
@@ -93,7 +98,7 @@
             <%= f.label :bio, class: "control-label" %>
             <div class="controls">
               <%= f.text_area :bio, :rows => 3, class: "input-xlarge" %>
-                  <p class="help-block">Give a brief description of who you are in 500 characters or less.</p>
+                  <p class="help-block">Give a brief description of who you are in 1000 characters or less.</p>
             </div>
           </div>
 

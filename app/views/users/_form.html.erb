@@ -1,10 +1,9 @@
 
       <%= form_for(@user, :html => { :class => "form-horizontal" } ) do |f| %>
         <% if @user.errors.any? %>
-          <div id="error_explanation">
-            <div class="alert alert-error">
-              The form contains <%= pluralize(@user.errors.count, "error") %>.
-            </div>
+          <div class="alert alert-error">
+        <h4 class="alert-heading">The form contains <%= pluralize(@user.errors.count, "error") %>.
+            </h4>
             <ul>
             <% @user.errors.full_messages.each do |msg| %>
               <li>* <%= msg %></li>
@@ -35,7 +34,7 @@
             <%= f.label :bio, class: "control-label" %>
             <div class="controls">
               <%= f.text_area :bio, :rows => 3, class: "input-xlarge" %>
-                  <p class="help-block">Tell us about yourself: who are you and what are your passions? What are you involved with in Philadelphia?</p>
+                  <p class="help-block">Give a brief description of who you are in 1000 characters or less.</p>
             </div>
           </div>
 
