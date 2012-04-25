@@ -5,10 +5,9 @@ class InfozaicsController < ApplicationController
     @search = params[:s]
     #@infozaics = Infozaic.search(params[:s])
     @infozaics = Infozaic.paginate(:page => params[:page], 
-                                  :per_page => 1,
+                                  :per_page => 10,
                                   :conditions => ['UPPER(title) LIKE UPPER(?) OR UPPER(description) LIKE UPPER(?)',
                                   "%#{@search}%", "%#{@search}%"],)
-
   end
 
   def new

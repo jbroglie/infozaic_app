@@ -193,12 +193,12 @@
             var websiteTitle = $('#website_infobit_title', $previewForm).val();
             var websiteLink = $('#website_infobit_link', $previewForm).val();
 
-            var thumb_url = "http://api.url2png.com/v3/P4F93DB86362DD/9709ddfb5b03823bb43e028b2adfa249/330x200/" + websiteLink
+            var thumb_url = "http://api.url2png.com/v3/P4F93DB86362DD/9709ddfb5b03823bb43e028b2adfa249/800x600/" + websiteLink
 
             var infobitContent = '<div class="padding">';
             infobitContent += '<p><strong><a href="' + websiteLink + '">' + websiteTitle + '</a></strong><br>';
             infobitContent += websiteLink + '</p>';
-            infobitContent += '<img alt="888634656411833598" class="link-thumb" height="200" src="'+ thumb_url +'" width="330" />'
+            infobitContent += '<img alt="888634656411833598" class="link-thumb" src="'+ thumb_url +'" />'
             infobitContent += '</div>';
 
             $('.infobit-content', $previewInfobit).html(infobitContent);
