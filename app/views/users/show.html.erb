@@ -43,20 +43,73 @@
                   <% end %>
                 </p>
                 <h6>Infozaic Stats</h6>
-                <p>4 created | 13 collaborated</p>
+                <p>
+                  <strong><%=pluralize(@user.infozaics.count, "infozaic")%></strong> created |
+                  <strong><%=pluralize(@user.infobits.count, "infobit")%> </strong> added
+                </p>
               </div>
             </div>
           </div>
         	<div class="row">
             <div class="span5">
               
-              <h2>Activity Feed</h2>
-              <hr>
+              <h2>Infobit Feed</h2>
+              <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th style="width: 10%"></th>
+                      <th style="width: 90%"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%if @user.infobits.any? %>
+                      <% @user.infobits.each do |infobit| %>
+                        <tr>
+                          <td><%= get_icon(infobit.infobit_type, infobit.link) %></td>
+                          <td>
+                            <h4>Added <%= infobit.infobit_type.capitalize %> to <%= link_to(infobit.infozaic.title, infobit.infozaic, :class => "home-org-popover", :rel => "popover", "data-original-title" => infobit.infozaic.title, "data-content" => infobit.infozaic.description) %></h4>
+                            <p><%= time_ago_in_words(infobit.created_at) %> ago</p>
+                          </td>
+                      </tr>
+                      <% end %>
+                    <% else %>
+                      <tr>
+                          <td>
+                            <h4>No infobits added.</h4>
+                          </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
             </div>
 
             <div class="span4">
               <h2>Infozaic History</h2>
-              <hr>
+              <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%if @user.infozaics.any? %>
+                      <% @user.infozaics.each do |infozaic| %>
+                        <tr>
+                          <td>
+                            <h4><%= link_to(infozaic.title, infozaic, :class => "home-org-popover", :rel => "popover", "data-original-title" => infozaic.title, "data-content" => infozaic.description) %></h4>
+                            <p>Created <%= time_ago_in_words(infozaic.created_at) %> ago</p>
+                          </td>
+                      </tr>
+                      <% end %>
+                    <% else %>
+                      <tr>
+                          <td>
+                            <h4>No infozaics created.</h4>
+                          </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
             </div>
 
 

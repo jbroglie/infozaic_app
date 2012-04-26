@@ -62,7 +62,7 @@ module InfobitsHelper
 
 
 	def get_icon(type, link)
-		icon = "<a title='#{type}' class='infobit-icon infobit-icon-#{type}' href='#{link}'></a>" 
+		icon = "<a title='#{type.capitalize}' class='infobit-icon infobit-icon-#{type}' href='#{link}'></a>" 
 		icon.html_safe
 	end
 
