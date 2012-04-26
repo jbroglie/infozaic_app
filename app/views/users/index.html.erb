@@ -1,0 +1,56 @@
+<ul class="breadcrumb">
+        <li>
+          <a href="<%= root_path %>">Home</a> <span class="divider">/</span>
+        </li>
+        <li class="active">Users</li>
+      </ul>
+
+<h1>Listing Users</h1>
+
+
+
+<table class="table table-striped">
+        <thead>
+          <tr>
+            <th style="width: 35%">Name</th>
+            <th style="width: 50%">Bio</th>
+            <th style="width: 5%">Infozaics Created</th>
+            <th style="width: 5%">Infobits Posted</th>
+            <th style="width: 10%">Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+
+
+
+
+          <% @users.each do |user| %>
+
+            <tr>
+              <td>
+                <h2><%= link_to user.name, user, :title => "View #{user.name}'s Profile", :rel => "tooltip" %></h2>
+                <p>Joined <%= time_ago_in_words(user.created_at) %> ago</p>
+              </td>
+              <td>
+                <p><%= truncate(user.bio, :length => 300, :omission => '...') %></p>
+              </td>
+
+              <td>
+                 <h3><%= user.infozaics.count %></h3>
+              </td>
+              
+              <td>
+                <h3><%= user.infobits.count %></h3>
+              </td>
+              <td>
+                  <%= link_to 'View', user, class: "btn btn-small btn-info" %>                  
+              </td>
+            </tr>
+          <% end %>
+          
+
+          
+          
+        </tbody>
+      </table>

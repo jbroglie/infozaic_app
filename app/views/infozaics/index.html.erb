@@ -1,6 +1,6 @@
 <ul class="breadcrumb">
         <li>
-          <a href="#">Home</a> <span class="divider">/</span>
+          <a href="<%= root_path %>">Home</a> <span class="divider">/</span>
         </li>
         <li class="active">Infozaics</li>
       </ul>
@@ -57,7 +57,7 @@
                 
               </td>
               <td>
-                <h3><%= link_to(infozaic.title, infozaic, :class => "org-popover", :rel => "popover", "data-original-title" => infozaic.title, "data-content" => infozaic.description) %></h3>
+                <h2><%= link_to(infozaic.title, infozaic, :class => "org-popover", :rel => "popover", "data-original-title" => infozaic.title, "data-content" => infozaic.description) %></h2>
                 <p><%= truncate(infozaic.description, :length => 200, :omission => '...') %></p>
               </td>
 
