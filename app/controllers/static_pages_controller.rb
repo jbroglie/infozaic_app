@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
     @user = User.new
-    @infobits = Infobit.find(:all, :order => "created_at ASC", :limit => 10)
+    @infobits = Infobit.find(:all, :order => "created_at DESC", :limit => 10)
   end
 
 
