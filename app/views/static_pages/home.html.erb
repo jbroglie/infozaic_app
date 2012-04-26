@@ -69,7 +69,58 @@
             </div><!--/span-->
        </div><!--/row-->
 
+       <div class="row">
+        <br>
+       </div>
+       <div class="row">
+        
+        <div class="span12">
+          <div class="alert alert-info">
+            <h2 class="alert-heading">Latest Infobits Posted</h2>
+          </div>
+           <div id="canvas-inner" class="three-col">
 
+            <% if @infobits.any? %>
+              <%= render @infobits.reverse %>
+            <% end %>
+          </div> <!-- /#canvas -->
+        </div><!--/span-->
+      </div><!-- /row -->
+
+
+<script>
+    $(function(){
+      var $container = $('#canvas-inner');
+      var cols = 3;
+
+      // Find all YouTube and Vimeo embed videos and make them fit to infobit
+      var $allEmbeds = $("iframe");
+       // Resize all videos according to their own aspect ratio
+        $allEmbeds.each(function() {
+          var $elem = $(this);
+          var newWidth = $(this).parent().width();
+          var newHeight = newWidth * $elem.attr('data-aspect');
+          //$elem.attr('width', newWidth);
+          //$elem.attr('height', newHeight);
+          $elem
+            .width(newWidth)
+            .height(newHeight);
+          //$elem.attr('src', $elem.attr('src'));
+        });
+
+      $container.imagesLoaded( function(){
+
+        $container.isotope({
+          // options
+          itemSelector : '.item',
+          resizable: false, // disable normal resizing
+          sortBy : 'random',
+          // set columnWidth to a percentage of container width
+          masonry: { columnWidth: $container.width() / cols }
+        });
+      });
+    });
+  </script>
 
 <% if !signed_in? %>
 <div id="signup-modal" class="modal hide fade">

@@ -689,11 +689,11 @@
           var $elem = $(this);
           var newWidth = $(this).parent().width();
           var newHeight = newWidth * $elem.attr('data-aspect');
-          $elem.attr('width', newWidth);
-          $elem.attr('height', newHeight);
-          /*$elem
+          //$elem.attr('width', newWidth);
+          //$elem.attr('height', newHeight);
+          $elem
             .width(newWidth)
-            .height(newWidth * $elem.data('aspectRatio'));*/
+            .height(newHeight);
           //$elem.attr('src', $elem.attr('src'));
         });
 
