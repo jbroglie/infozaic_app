@@ -1,81 +1,131 @@
+<% provide(:title, "Infozaic: A New Collaborative Information Platform") %>
+<% provide(:full_url, "http://beta.infozaic.com") %>
+<% provide(:thumb_url, "http://beta.infozaic.com/assets/logo.png") %>
+<% provide(:desc, "Infozaic is a web platform that allows users to collaboratively build information mosaics on any given topic, incorporating web pages, videos, pictures, and other embeddable content.") %>
 
       <div class="row">
         
         <div class="span9">
-          <div class="hero-unit">
-            <h1>Welcome to Infozaic</h1>
-            <p>With the development of an increasing amount of online media platforms which host embeddable content, we find ourselves in need of a new information platform that can integrate all popular modern forms of media. <strong>Infozaic</strong> is a web platform that allows users to collaboratively build “information mosaics” on any given topic, incorporating web pages, videos, pictures, and other embeddable content.</p>
 
-            <a class="btn-group pull-right">
-              <a href="<%= create_path %>" class="btn btn-info btn-large">Create an Infozaic!</a> 
-              <a href="<%= about_path %>" class="btn btn-large ">Learn More</a>
-            </a>
-            
+
+          <div class="infobit item welcome-infobit">
+            <div class="infobit-meta">
+                <div class="link">
+                <i class="icon-info-sign"></i> Learn More About Infozaic!
+              </div>
+            </div>
+
+
+            <div class="infobit-content">
+                <div class="welcome-infobit-padding">    
+                  <h1>Welcome to Infozaic</h1>
+                  <p>With the development of an increasing amount of online media platforms which host embeddable content, we find ourselves in need of a new information platform that can integrate all popular modern forms of media. <strong>Infozaic</strong> is a web platform that allows users to collaboratively build “information mosaics” on any given topic, incorporating web pages, videos, pictures, and other embeddable content.</p>
+
+                  <a class="btn-group pull-right">
+                    <a href="<%= create_path %>" class="btn btn-info btn-large">Create an Infozaic!</a> 
+                    <a href="<%= about_path %>" class="btn btn-large ">Learn More</a>
+                  </a>   
+                </div>
+            </div>
+            <div class="infobit-home-social">
+                <div class="home-social">
+                  <fb:like href="http://beta.infozaic.com/" send="false" width="650" show_faces="true"></fb:like>
+                </div>
+            </div>
           </div>
         </div><!--/span-->
         <div class="span3">
-        	<div class="well">
-             <% if signed_in? %>
+         <div class="infobit item">
+            <div class="infobit-meta">
+              <div class="link">
+                <i class="icon-user"></i> Sign In or Sign Up!
+              </div>
+            </div>
+            <div class="infobit-content">
+                <div class="login-infobit-padding">    
+                  <% if signed_in? %>
 
-                <h6>Logged in as:</h6>
-                <h3><%= current_user.name %></h3>
-                
-                <%= link_to "Sign Out", signout_path, method: "delete", class: "btn btn-signup" %>
+                    <h6>Logged in as:</h6>
+                    <h3><%= current_user.name %></h3>
+                    
+                    <%= link_to "Sign Out", signout_path, method: "delete", class: "btn btn-signup" %>
 
-
-              <% else %>
-                <h6>Member Login</h6>
-                 <%= form_for(:session, :url => sessions_path) do |f| %>
-
-
-                    <%= f.text_field :email, class: "login-field", placeholder: "Email" %>
-                    <%= f.password_field :password, class: "login-field", placeholder: "Password" %>
-                    <label class="checkbox">
-                      <input type="checkbox"> Remember me
-                    </label>
-
-
-                      <%= f.submit "Sign In", class: "btn btn-info" %>
-
-                <% end %>
-
-
-
-                 <hr>
-                 <h6>Not a Member?</h6>
-                 <a class="modal-btn btn btn-signup" data-toggle="modal" href="#signup-modal" >Sign Up, It's Free!</a>
-              <% end %>
-			   </div> <!--/well-->
-
-
-
+                  <% else %>
+                    <h6>Member Login</h6>
+                     <%= form_for(:session, :url => sessions_path) do |f| %>
+                        <%= f.text_field :email, class: "login-field", placeholder: "Email" %>
+                        <%= f.password_field :password, class: "login-field", placeholder: "Password" %>
+                        <label class="checkbox">
+                          <input type="checkbox"> Remember me
+                        </label>
+                        <%= f.submit "Sign In", class: "btn btn-info" %>
+                    <% end %>
+                     <hr>
+                     <h6>Not a Member?</h6>
+                     <a class="modal-btn btn btn-signup" data-toggle="modal" href="#signup-modal" >Sign Up, It's Free!</a>
+                  <% end %>  
+                </div>
+            </div>
+          </div>
         </div><!--/span-->
       </div><!--/row-->
       <div class="row">
             <div class="span4">
-              <h2>Collaborative</h2>
-              <p>Information should be shared, and validated against the opinions of the general population. Infozaic will eventually allow for a robust system of rating information quality and relevance./p>
-
+              
+              <div class="infobit item value-infobit">
+                <div class="infobit-meta">
+                  <div class="link">
+                    <i class="icon-ok"></i>
+                  </div>
+                </div>
+                <div class="infobit-content">
+                    <div class="padding">    
+                          <h2>Collaborative</h2>
+                  <p>Information should be shared, and validated against the opinions of the general population. Infozaic will eventually allow for a robust system of rating information quality and relevance.</p>
+                    </div>
+                </div>
+              </div>
             </div><!--/span-->
             <div class="span4">
-              <h2>Modern</h2>
-              <p>All the major embeddable media sources will be able to be added to an infozaic. Like Wikipedia, but revamped to work with modern media and visualize it in a unique mosaic layout.</p>
-
+              
+              <div class="infobit item value-infobit">
+                <div class="infobit-meta">
+                  <div class="link">
+                    <i class="icon-ok"></i>
+                  </div>
+                </div>
+                <div class="infobit-content">
+                    <div class="padding">    
+                          <h2>Modern</h2>
+                          <p>All the major embeddable media sources will be able to be added to an infozaic. Like Wikipedia, but revamped to work with modern media and visualize it in a unique mosaic layout.</p>
+                    </div>
+                </div>
+              </div>
             </div><!--/span-->
             <div class="span4">
-              <h2>Transparent</h2>
-              <p>Infozaic will be released as a free service, and hopefully be picked up on in the open source community.  We seek to work with existing information tools, not replace them. Ideally Wikipedia would follow our lead and implement some of the features here, or we would work together to create something new.</p>
 
+               <div class="infobit item value-infobit">
+                <div class="infobit-meta">
+                  <div class="link">
+                    <i class="icon-ok"></i>
+                  </div>
+                </div>
+                <div class="infobit-content">
+                    <div class="padding">    
+                          <h2>Transparent</h2>
+                          <p>Infozaic will be released as a free service, and hopefully be picked up on in the open source community.  The goal is to provide free, user-validated, user-reviewed information.</p>
+
+                    </div>
+                </div>
+              </div>
+              
             </div><!--/span-->
        </div><!--/row-->
 
        <div class="row">
-        <br>
-       </div>
-       <div class="row">
         
         <div class="span12">
-          <div class="alert alert-info">
+          <div class="alert alert-info home-alert">
             <h2 class="alert-heading">Latest Infobits Posted</h2>
           </div>
            <div id="canvas-inner" class="three-col">

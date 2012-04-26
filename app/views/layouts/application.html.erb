@@ -17,8 +17,12 @@
     <meta property="og:site_name" content="Infozaic" />
     <meta property="fb:app_id" content="252694184827801" /> 
     <meta property="og:description" content="<%= yield(:desc) %>"/>
-    
 
+    <% if current_page?(root_url) %>
+      <style type="text/css">
+        body {background-image: url("/assets/grid.png");}
+      </style>
+    <% end %>
 
   </head>
   <body>
