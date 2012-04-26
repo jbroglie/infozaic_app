@@ -562,11 +562,13 @@
 
 <div class="mini-meta <% if !signed_in? %>logged_off<% end %>">
       <span class="mini-meta-title"><%= @infozaic.title %></span>
-      <div class="social pull-right">
-      <p>
-          <fb:like href="<%= "http://#{request.host+request.fullpath}" %>" send="false" layout="button_count" width="100" show_faces="false"></fb:like>
-        </p>
-      </div>
+      
+          <!--
+          <div class="social pull-right">
+          <p>
+            </p>
+          </div>
+        -->
 </div> <!-- /.mini-meta -->
     
 <div class="row-fluid meta">
@@ -611,7 +613,7 @@
  
               <h6>share</h6>
               <p>
-              <fb:like href="<%= "http://#{request.host+request.fullpath}" %>" send="false" layout="button_count" width="100" show_faces="false"></fb:like>
+              <fb:like send="false" layout="button_count" width="100" show_faces="false"></fb:like>
             </p>
           </div>
         </div>

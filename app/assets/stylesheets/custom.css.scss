@@ -25,6 +25,7 @@ html {
 
 body {
   padding-top: 60px;
+  background-image: url(image_path('grid.png'));
 }
 
 html,body { height:100%; }
@@ -63,7 +64,7 @@ textarea {
   font-family: 'Quattrocento Sans';
   float: left;
   display: block;
-  padding: 10px 20px 10px;
+  padding: 6px 20px 3px;
   margin-left: -20px;
   font-size: 20px;
   line-height: 1;
