@@ -34,6 +34,7 @@ InfozaicApp::Application.routes.draw do
   match '/list',   to: 'static_pages#list'
   match '/profile',   to: 'static_pages#profile'
   match '/single',   to: 'static_pages#single'
+  match '/embed/:id',   to: 'infozaics#embed'
 
 
   match '*id', :controller => 'infozaics', :action => 'show', :as => :infozaic

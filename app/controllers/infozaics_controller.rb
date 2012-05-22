@@ -30,7 +30,6 @@ class InfozaicsController < ApplicationController
   end
 
   def show
-
     @infozaic = Infozaic.find(params[:id])
     @infobits = @infozaic.infobits
     @youtube_infobit = @infozaic.infobits.new
@@ -40,8 +39,23 @@ class InfozaicsController < ApplicationController
     @vimeo_infobit = @infozaic.infobits.new
     @article_infobit = @infozaic.infobits.new
     @website_infobit = @infozaic.infobits.new
-
   end
+
+
+
+  def embed
+    @infozaic = Infozaic.find(params[:id])
+    @infobits = @infozaic.infobits
+    @youtube_infobit = @infozaic.infobits.new
+    @photo_infobit = @infozaic.infobits.new
+    @quote_infobit = @infozaic.infobits.new
+    @wikipedia_infobit = @infozaic.infobits.new
+    @vimeo_infobit = @infozaic.infobits.new
+    @article_infobit = @infozaic.infobits.new
+    @website_infobit = @infozaic.infobits.new
+  end
+
+
 
   def edit
     if !signed_in?

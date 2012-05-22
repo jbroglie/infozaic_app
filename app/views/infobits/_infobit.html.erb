@@ -13,6 +13,8 @@
 
 
         </div>
+
+        <!--
         <div class="opinion">
           <div class="likes">
             <div class="likes-button"><i rel="tooltip" title="Vote Up" class="icon-arrow-up"></i></div><div class="opinion-count"><%= infobit.likes_count %></div>
@@ -22,6 +24,7 @@
           </div>
           <div class="clear"></div>
         </div>
+         -->
       </div>
       <div class="infobit-content">
 
@@ -31,14 +34,17 @@
       <% case infobit.infobit_type 
 
          when "photo" %>
-          
+
             <div class="img-overlay">
+              <% if (!infobit.title.empty? || !infobit.description.empty?) %>
               <div class="img-overlay-content">
                 <h1><%= infobit.title %></h1>
                 <p><%= infobit.description %></p>
               </div>
+              <% end %>
               <%= image_tag infobit.link %>
             </div>
+          
 
       <% when "youtube" %>
           <%= youtube_embed(infobit.link) %>

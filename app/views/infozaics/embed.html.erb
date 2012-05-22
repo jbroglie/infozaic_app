@@ -1,0 +1,123 @@
+<% provide(:title, @infozaic.title) %>
+<% provide(:full_url, get_full_url(@infozaic.id.to_s)) %>
+
+<% provide(:thumb_url, "http://beta.infozaic.com/assets/logo.png") %>
+
+<% provide(:not_using, render_thumb_url(get_full_url(@infozaic.id.to_s),300, 200)) %>
+
+<% provide(:desc, @infozaic.description) %>
+<% @skip_footer = true %>
+<% @skip_header = true %>
+<% @moveflash = true %>
+
+<% provide(:extrastyle, '-fluid single logged_off') %>
+ 
+
+
+
+<div id="canvas">
+  <div id="canvas-inner">
+  <% if @infobits.any? %>
+    <%= render @infobits.reverse %>
+  <% end %>
+  </div> <!-- /#canvas-inner -->
+</div> <!-- /#canvas -->
+
+
+<script>
+
+    
+
+    $(function(){
+
+
+
+      var $container = $('#canvas #canvas-inner');
+      var cols = 5;
+      
+      // display mini-meta on scroll
+      var $win = $(window)
+        , isFixed = 0
+
+
+      // hack to make infobit top/bottom margins equal to left/right
+      function updateMargins() {
+        var $infobits = $('.infobit').first();
+        var infobitMargin = $infobits.css("margin-left");
+        $infobits.css('margin-top', infobitMargin);
+        $infobits.css('margin-bottom', infobitMargin);
+      }
+
+      // Find all YouTube and Vimeo embed videos
+      var $allEmbeds = $("iframe");
+      
+      // update columnWidth on window resize
+      $win.smartresize(function() {
+        
+        // resize canvas min-height
+        var canvasTop = $('#canvas').offset().top;
+        $('#canvas').css("min-height", $(window).height() - canvasTop - 60);
+       
+        setColumns();
+        updateMargins(); 
+
+         // Resize all videos according to their own aspect ratio
+        $allEmbeds.each(function() {
+          var $elem = $(this);
+          var newWidth = $(this).parent().width();
+          var newHeight = newWidth * $elem.attr('data-aspect');
+          //$elem.attr('width', newWidth);
+          //$elem.attr('height', newHeight);
+          $elem
+            .width(newWidth)
+            .height(newHeight);
+          //$elem.attr('src', $elem.attr('src'));
+        });
+        $container.isotope({
+          masonry: { columnWidth: $container.width() / cols }
+        });
+      });
+
+      function setColumns() {
+        // if width is less than 1000, go to 3 col
+        if ($win.width() < 1100) {
+          $container.addClass('three-col');
+          $container.removeClass('five-col');
+          cols = 3;
+        }
+        else {
+          $container.addClass('five-col');
+          $container.removeClass('three-col');
+          cols = 5;
+        }
+      }
+
+      $container.imagesLoaded( function(){
+        
+        // Kick off one resize to fix all videos on page load
+        // which will also call updateMargins()
+        $win.resize();
+
+        $container.isotope({
+          // options
+          itemSelector : '.item',
+          resizable: false, // disable normal resizing
+          // set columnWidth to a percentage of container width
+          masonry: { columnWidth: $container.width() / cols }
+        });
+      });
+
+
+
+       // generate quote preview
+        $('#btn-shuffle').click(function(e) {
+            e.preventDefault();
+            $('#canvas #canvas-inner').isotope('shuffle');
+        });
+
+    });
+
+  </script>
+
+
+
