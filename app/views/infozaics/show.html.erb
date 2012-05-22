@@ -522,18 +522,9 @@
 
       <div class="well infobit-example" style="background-color: #888; border: none;">
         <div id="preview">
-          <div class="infobit item col1">
+          <div class="infobit col2">
             <div class="infobit-meta">
               <div class="link"></div>
-              <div class="opinion">
-                <div class="likes">
-                  <div rel="tooltip" title="Like" class="likes-button"></div><div class="opinion-count">0</div>
-                </div>
-                <div class="dislikes">
-                  <div rel="tooltip" title="Dislike" class="dislikes-button"></div><div class="opinion-count">0</div>
-                </div>
-                <div class="clear"></div>
-              </div>
             </div>
             <div class="infobit-content">
             </div>
@@ -724,7 +715,7 @@
 
         $container.isotope({
           // options
-          itemSelector : '.item',
+          itemSelector : '.infobit',
           resizable: false, // disable normal resizing
           // set columnWidth to a percentage of container width
           masonry: { columnWidth: $container.width() / cols }
@@ -774,6 +765,9 @@
           e.preventDefault();
           $container.isotope('reLayout');
       });
+
+
+
 
     });
 

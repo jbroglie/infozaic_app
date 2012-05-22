@@ -42,20 +42,13 @@
         $infobits.css('margin-bottom', infobitMargin);
       }
 
-      // Find all YouTube and Vimeo embed videos
-      var $allEmbeds = $("iframe");
       
-      // update columnWidth on window resize
-      $win.smartresize(function() {
-        
-        // resize canvas min-height
-        var canvasTop = $('#canvas').offset().top;
-        $('#canvas').css("min-height", $(window).height() - canvasTop - 60);
-       
-        setColumns();
-        updateMargins(); 
 
-         // Resize all videos according to their own aspect ratio
+      function resizeVideos() {
+        // Find all YouTube and Vimeo embed videos
+        var $allEmbeds = $("iframe");
+
+        // Resize all videos according to their own aspect ratio
         $allEmbeds.each(function() {
           var $elem = $(this);
           var newWidth = $(this).parent().width();
@@ -67,6 +60,19 @@
             .height(newHeight);
           //$elem.attr('src', $elem.attr('src'));
         });
+      }
+      
+      // update columnWidth on window resize
+      $win.smartresize(function() {
+        
+        // resize canvas min-height
+        var canvasTop = $('#canvas').offset().top;
+        $('#canvas').css("min-height", $(window).height() - canvasTop - 60);
+       
+        setColumns();
+        updateMargins(); 
+        resizeVideos();
+
         $container.isotope({
           masonry: { columnWidth: $container.width() / cols }
         });
@@ -93,7 +99,7 @@
 
         $container.isotope({
           // options
-          itemSelector : '.item',
+          itemSelector : '.infobit',
           resizable: false, // disable normal resizing
           // set columnWidth to a percentage of container width
           masonry: { columnWidth: $container.width() / cols }
@@ -115,6 +121,37 @@
           e.preventDefault();
           $container.isotope('reLayout');
       });
+
+
+
+      // resizing infobits on click!
+       $('.infobit-meta').click(function(e) {
+          e.preventDefault();
+
+          // get the parent
+          var $infobit = $(this).parent();
+          // find the col size
+          var columns = $infobit.attr("data-columns");
+          // if we are not at max cols increment cols by 1!
+          if (columns < 3) {
+            columns++; 
+          }
+          else { // else reset to 1 col
+            columns = 1;
+          }
+          // remove all classes  (maybe don't need both item and infobit??)
+          $infobit.removeClass();
+          // add classes and attribute again, with col++1
+          $infobit.addClass("infobit isotope-item col" + columns);
+          $infobit.attr("data-columns", columns);
+          
+          // reload isotope
+          resizeVideos();
+          $container.isotope('reLayout');
+
+      });
+
+
 
     });
   </script>
