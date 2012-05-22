@@ -17,6 +17,32 @@ $metaWhite: #f3f3f3;
 
 
 
+@font-face {
+    font-family: "Baskerville";
+    src: url(image_path('fonts/baskerville-webfont.eot?')) format('eot'),
+       url(image_path('fonts/baskerville-webfont.woff')) format('woff'),
+       url(image_path('fonts/baskerville-webfont.ttf')) format('truetype'),
+       url(image_path('fonts/baskerville-webfont.svg#webfontStHmiVIk')) format('svg');
+    
+}
+@font-face {
+    font-family: "Baskerville";
+    src: url(image_path('fonts/baskerville_bold-webfont.eot?')) format('eot'),
+       url(image_path('fonts/baskerville_bold-webfont.woff')) format('woff'),
+       url(image_path('fonts/baskerville_bold-webfont.ttf')) format('truetype'),
+       url(image_path('fonts/baskerville_bold-webfont.svg#webfontD0nfj3VJ')) format('svg');
+    font-weight: bold;
+}
+@font-face {
+    font-family: "Baskerville";
+  src: url(image_path('fonts/baskerville_italic-webfont.eot?')) format('eot'),
+       url(image_path('fonts/baskerville_italic-webfont.woff')) format('woff'),
+       url(image_path('fonts/baskerville_italic-webfont.ttf')) format('truetype'),
+       url(image_path('fonts/baskerville_italic-webfont.svg#webfontjORaPtFf')) format('svg');
+    font-style: italic, oblique;
+}
+
+
 /* universal */
 
 html {
@@ -27,6 +53,7 @@ body {
   /*background-image: url(image_path('grid.png'));*/
   background-color: none;
   background: none;
+  padding-top: 30px;
 }
 
 html,body { height:100%; }
