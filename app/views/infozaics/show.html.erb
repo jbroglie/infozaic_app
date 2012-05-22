@@ -766,6 +766,15 @@
             $('#canvas #canvas-inner').isotope('shuffle');
         });
 
+
+        // truncate descriptions
+      $('.truncate').truncate({max_length: 200});
+
+      $('.reload-isotope').click(function(e) {
+          e.preventDefault();
+          $container.isotope('reLayout');
+      });
+
     });
 
   </script>
