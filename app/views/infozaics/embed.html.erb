@@ -25,12 +25,7 @@
 
 
 <script>
-
-    
-
     $(function(){
-
-
 
       var $container = $('#canvas #canvas-inner');
       var cols = 5;
@@ -38,7 +33,6 @@
       // display mini-meta on scroll
       var $win = $(window)
         , isFixed = 0
-
 
       // hack to make infobit top/bottom margins equal to left/right
       function updateMargins() {
@@ -93,7 +87,6 @@
       }
 
       $container.imagesLoaded( function(){
-        
         // Kick off one resize to fix all videos on page load
         // which will also call updateMargins()
         $win.resize();
@@ -107,16 +100,12 @@
         });
       });
 
-
-
        // generate quote preview
         $('#btn-shuffle').click(function(e) {
             e.preventDefault();
             $('#canvas #canvas-inner').isotope('shuffle');
         });
-
     });
-
   </script>
 
 

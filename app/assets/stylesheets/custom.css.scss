@@ -24,8 +24,9 @@ html {
 }
 
 body {
-  padding-top: 60px;
   /*background-image: url(image_path('grid.png'));*/
+  background-color: none;
+  background: none;
 }
 
 html,body { height:100%; }
@@ -93,7 +94,6 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-
   font-family: 'Quattrocento Sans', sans-serif;
 }
 
@@ -471,7 +471,6 @@ header .container-fluid.single {
 }
 
 #canvas {
-	background-image: url(image_path('grid.png'));
 	padding: 30px;
   min-height: 500px;
   min-width: 700px;

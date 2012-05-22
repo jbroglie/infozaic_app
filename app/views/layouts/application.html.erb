@@ -24,12 +24,40 @@
       </style>
     <% end %>
 
+
+    <% if !@skip_header %>
+      <style type="text/css">
+        #canvas {background-image: url("/assets/grid.png");}
+        body { padding-top: 60px;}
+      </style>
+
+    <% else %>
+      <style type="text/css">
+        p {
+          font-family: 'Baskerville', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+          font-family: 'Baskerville', sans-serif;
+          font-weight: normal;
+        }
+
+        body {
+          font-family: 'Baskerville', "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+      </style>
+
+
+    <% end %>
+
+    
+
   </head>
   <body>
 
     
 
-    
+
     <%= render 'layouts/header' %>
 
       <div class="container<%= yield(:extrastyle) %>">
