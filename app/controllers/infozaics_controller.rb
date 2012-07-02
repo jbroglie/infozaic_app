@@ -45,7 +45,7 @@ class InfozaicsController < ApplicationController
 
   def embed
     @infozaic = Infozaic.find(params[:id])
-    @infobits = Infobit.find(:all, :order => "created_at DESC", :limit => 10)
+    @infobits = Infobit.find(:all, :order => "created_at DESC", :limit => 15)
     @youtube_infobit = @infozaic.infobits.new
     @photo_infobit = @infozaic.infobits.new
     @quote_infobit = @infozaic.infobits.new
