@@ -45,7 +45,7 @@ class InfozaicsController < ApplicationController
 
   def embed
     @infozaic = Infozaic.find(params[:id])
-    @infobits = @infozaic.infobits[(@infozaic.infobits.count - 15)..(@infozaic.infobits.count)]
+    @infobits = @infozaic.infobits.reverse[0..14]
     @youtube_infobit = @infozaic.infobits.new
     @photo_infobit = @infozaic.infobits.new
     @quote_infobit = @infozaic.infobits.new
